@@ -6,16 +6,15 @@ const User = mongoose.model(
     username: String,
     email: String,
     password: String,
-    status:Number,
-    
-    roles: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Role"
-      }
-    ]
+    status: Number,
+    picture: String,
+    role:
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Role"
+    }
   },
-  { timestamps: true })
+    { timestamps: true })
 );
 
 module.exports = User;

@@ -6,9 +6,13 @@ const Category = mongoose.model(
     name: String,
     description: String,
     image: String,
-    status:Number,
+    status: Number,
+    recipes: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Recipe"
+    } ]
   },
-  { timestamps: true })
+    { timestamps: true })
 );
 
 module.exports = Category;
