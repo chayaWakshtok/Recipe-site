@@ -4,6 +4,7 @@ using DAL.Models.DB;
 using Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Headers;
 
 namespace Netcore.Controllers
 {
@@ -32,7 +33,6 @@ namespace Netcore.Controllers
             try
             {
                 var category = _mapper.Map<Category>(categoryDTO);
-                category.Image = UploadedFile(categoryDTO);
                 await _categoryService.Add(category);
                 return true;
             }
@@ -40,24 +40,53 @@ namespace Netcore.Controllers
             {
                 return false;
             }
-
         }
 
-        private string UploadedFile(CategoryDTO model)
-        {
-            string uniqueFileName = null;
+        //[HttpPost, DisableRequestSizeLimit]
+        //public IActionResult Upload()
+        //{
+        //    try
+        //    {
+        //        var file = Request.Form.Files[0];
+        //        var folderName = "Images";
+        //        var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+        //        if (file.Length > 0)
+        //        {
+        //            var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+        //            var fullPath = Path.Combine(pathToSave, fileName);
+        //            var dbPath = Path.Combine(folderName, fileName);
+        //            using (var stream = new FileStream(fullPath, FileMode.Create))
+        //            {
+        //                file.CopyTo(stream);
+        //            }
+        //            return Ok(new { dbPath });
+        //        }
+        //        else
+        //        {
+        //            return BadRequest();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Internal server error: {ex}");
+        //    }
+        //}
 
-            if (model.ImageFile != null)
-            {
-                string uploadsFolder = Path.Combine(@"C:\Users\User\Documents\GitHub\Recipe-site\Netcore", "Images");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageFile.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    model.ImageFile.CopyTo(fileStream);
-                }
-            }
-            return uniqueFileName;
-        }
+        //private string UploadedFile(CategoryDTO model)
+        //{
+        //    string uniqueFileName = null;
+
+        //    if (model.ImageFile != null)
+        //    {
+        //        string uploadsFolder = Path.Combine(@"C:\Users\User\Documents\GitHub\Recipe-site\Netcore", "Images");
+        //        uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageFile.FileName;
+        //        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+        //        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        //        {
+        //            model.ImageFile.CopyTo(fileStream);
+        //        }
+        //    }
+        //    return uniqueFileName;
+        //}
     }
 }

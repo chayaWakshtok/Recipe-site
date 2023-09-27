@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,6 +59,11 @@ namespace BL.Repository
             return await Entities.ToListAsync();
         }
 
+        public async Task<T> FindOneAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await Entities.FirstOrDefaultAsync(predicate);
+        }
+
         public T Find(params object[] keyValues)
         {
             return Entities.Find(keyValues);
@@ -67,6 +73,13 @@ namespace BL.Repository
         {
             return await Entities.FindAsync(keyValues);
         }
+
+        public IList<T> Find(Func<T, bool> predicate)
+        {
+            return Entities.Where(predicate).ToList();
+        }
+
+
 
         public async Task InsertAsync(T entity, bool saveChanges = true)
         {

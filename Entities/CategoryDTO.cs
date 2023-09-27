@@ -14,7 +14,7 @@ namespace Entities
 
         public string? Description { get; set; }
 
-        public IFormFile ImageFile { get; set; }
+        public string? Image { get; set; }
 
         public int? Status { get; set; }
 
