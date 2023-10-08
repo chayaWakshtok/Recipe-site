@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using AutoMapper;
+using BL.Services;
+using DAL.Interfaces.Services;
+using DAL.Models.DB;
+using Entities;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 namespace Netcore.Controllers
@@ -18,16 +24,19 @@ namespace Netcore.Controllers
         /// <param name="data"></param>
         /// <returns></returns>
         private IConfiguration _config;
-
+        IUserService _userService;
+        private readonly IMapper _mapper;
         #endregion
 
         #region Contructor Injector
         /// <summary>
         /// Constructor Injection to access all methods or simply DI(Dependency Injection)
         /// </summary>
-        public AuthenticateController(IConfiguration config)
+        public AuthenticateController(IConfiguration config, IUserService userService, IMapper mapper)
         {
             _config = config;
+            _userService = userService;
+            _mapper = mapper;
         }
         #endregion
 
@@ -37,40 +46,42 @@ namespace Netcore.Controllers
         /// </summary>
         /// <param name="userInfo"></param>
         /// <returns></returns>
-        private string GenerateJSONWebToken(LoginModel userInfo)
+        private string GenerateJSONWebToken(UserDTO userDTO)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
+            IEnumerable<Claim> claims = new List<Claim>() { new Claim("Id",userDTO.Id.ToString()),
+                new Claim("RoleId",userDTO.RoleId.ToString()),
+                new Claim("Username",userDTO.Username),
+                new Claim("Email",userDTO.Email),};
+
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
-              null,
-              expires: DateTime.Now.AddMinutes(120),
+              claims,
+              expires: DateTime.Now.AddHours(24),
               signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
         #endregion
 
-        #region AuthenticateUser
-        /// <summary>
-        /// Hardcoded the User authentication
-        /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
-        private async Task<LoginModel> AuthenticateUser(LoginModel login)
+        [AllowAnonymous]
+        [HttpPost(nameof(Register))]
+        public async Task<IActionResult> Register([FromBody] UserDTO userDTO)
         {
-            LoginModel user = null;
-
-            //Validate the User Credentials    
-            //Demo Purpose, I have Passed HardCoded User Information    
-            if (login.UserName == "Jay")
+            try
             {
-                user = new LoginModel { UserName = "Jay", Password = "123456" };
+                var user = _mapper.Map<User>(userDTO);
+                await _userService.Add(user);
+                return Ok();
             }
-            return user;
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
-        #endregion
+
 
         #region Login Validation
         /// <summary>
@@ -83,31 +94,23 @@ namespace Netcore.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel data)
         {
             IActionResult response = Unauthorized();
-            var user = await AuthenticateUser(data);
-            if (data != null)
+            var user = await _userService.GetByUserNameAndPassword(data.UserName, data.Password);
+            if (user != null)
             {
-                var tokenString = GenerateJSONWebToken(user);
+                var userDto = _mapper.Map<UserDTO>(user);
+                var tokenString = GenerateJSONWebToken(userDto);
                 response = Ok(new { Token = tokenString, Message = "Success" });
             }
             return response;
         }
         #endregion
+        //[HttpGet(nameof(Get))]
+        //public async Task<IEnumerable<string>> Get()
+        //{
+        //    var accessToken = await HttpContext.GetTokenAsync("access_token");
 
-        #region Get
-        /// <summary>
-        /// Authorize the Method
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet(nameof(Get))]
-        public async Task<IEnumerable<string>> Get()
-        {
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
-
-            return new string[] { accessToken };
-        }
-
-
-        #endregion
+        //    return new string[] { accessToken };
+        //}
 
     }
 

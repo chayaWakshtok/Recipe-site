@@ -14,7 +14,6 @@ namespace DAL.Interfaces.Services
         Task Update(User user);
         Task Add(User user);
         Task Delete(int id);
-
-        Task<User> GetByIUserNameAndPassword(string username,string password);
+        Task<User> GetByUserNameAndPassword(string username, string password);
     }
 }

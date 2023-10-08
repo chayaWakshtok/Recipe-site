@@ -14,7 +14,8 @@ namespace BL.Profiles
         public CustomProfile()
         {
             CreateMap<Category, CategoryDTO>().ReverseMap();
-
+            CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<Role, RoleDTO>().ReverseMap();
         }
 
     }

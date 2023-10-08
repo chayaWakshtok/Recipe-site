@@ -10,7 +10,7 @@ namespace Netcore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoryController : BaseController
     {
         ICategoryService _categoryService;
         private readonly IMapper _mapper;

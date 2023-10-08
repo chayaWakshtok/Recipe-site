@@ -66,6 +66,11 @@ namespace BL.Services
 
         }
 
+        public async Task<User> GetByUserNameAndPassword(string username, string password)
+        {
+            return await _unitOfWork.Repository<User>().FindOneAsync(p => p.Password == password && p.Username == username);
+        }
+
         public async Task<User> GetOne(int id)
         {
             return await _unitOfWork.Repository<User>().FindAsync(id);
@@ -85,7 +90,7 @@ namespace BL.Services
 
                 work.Username = user.Username;
                 work.Email = user.Email;
-                work.Status=user.Status;
+                work.Status = user.Status;
                 work.Picture = user.Picture;
                 work.UpdateAt = DateTime.Now;
 
