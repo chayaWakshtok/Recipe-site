@@ -1,0 +1,9 @@
+.uk-cover {
+  /* 1 */
+  max-width: none;
+  /* 2 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
