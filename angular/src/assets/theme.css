@@ -83,7 +83,7 @@ body{
 
 .uk-input::placeholder{
   font-size: 1rem !important;
-  font-weight: 300 !important;  
+  font-weight: 300 !important;
 }
 
 .nice-select.wide .list {
@@ -665,7 +665,7 @@ form .required:after{
 .tas_card_1 .uk-card-badge{
 	background: var(--primary-color);
     border-radius: 100px;
-    padding: 3px 14px;
+    /* padding: 3px 14px; */
     text-transform: none;
     top: 14px;
     right: 14px;
@@ -1342,7 +1342,7 @@ form .required:after{
 
 .tas-footer .tas-widgets .tas-follow a{
 	padding: 0;
-	line-height: 26px;
+	/* line-height: 26px; */
 	color: #fff;
 }
 

@@ -99,7 +99,8 @@ namespace Netcore.Controllers
             {
                 var userDto = _mapper.Map<UserDTO>(user);
                 var tokenString = GenerateJSONWebToken(userDto);
-                response = Ok(new { Token = tokenString, Message = "Success" });
+                userDto.Password = "";
+                response = Ok(new { Token = tokenString,User=userDto, Message = "Success" });
             }
             return response;
         }

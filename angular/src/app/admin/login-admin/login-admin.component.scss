@@ -1,0 +1,16 @@
+.captcha_code {
+  margin: 0px;
+  height: 38px;
+  background-color: hsl(0, 0%, 90%);
+  transition: background-color 300ms;
+  span{
+    text-align: center;
+    display: grid;
+    padding: 7px;
+    font-weight: 700;
+  }
+}
+
+.invalid-feedback{
+  display: block !important;
+}

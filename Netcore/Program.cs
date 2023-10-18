@@ -50,6 +50,10 @@ builder.Services.AddSwaggerGen(swagger =>
                     }
                 });
 });
+//builder.Services.Configure<IISServerOptions>(options =>
+//{
+//options.AllowSynchronousIO = true;
+//});
 builder.Services.AddAutoMapper(typeof(CustomProfile));
 builder.Services.Configure<FormOptions>(o =>
 {
@@ -100,8 +104,6 @@ app.UseStaticFiles(new StaticFileOptions()
     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Images")),
     RequestPath = new PathString("/Images")
 });
-app.UseAuthorization();
-app.UseCors("CorsPolicy");
 
 app.MapControllers();
 

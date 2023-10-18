@@ -9,19 +9,19 @@ import { RecipeScrollCardComponent } from './recipe-scroll-card/recipe-scroll-ca
 import { CategoryCardComponent } from './category-card/category-card.component';
 
 @NgModule({
-  declarations: [
-    FooterComponent,
-    HeaderComponent,
-    RecipeCardComponent,
-    RecipeScrollCardComponent,
-    CategoryCardComponent
-  ],
   imports: [
     CommonModule,
     TablerIconsModule.pick(TablerIcons),
 
   ],
-  exports:[
+  declarations: [
+    FooterComponent,
+    HeaderComponent,
+    RecipeCardComponent,
+    RecipeScrollCardComponent,
+    CategoryCardComponent,
+  ],
+  exports: [
     FooterComponent,
     HeaderComponent,
     RecipeCardComponent,

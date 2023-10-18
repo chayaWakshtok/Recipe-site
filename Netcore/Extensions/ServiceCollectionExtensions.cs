@@ -5,6 +5,7 @@ using DAL.Interfaces;
 using DAL.Interfaces.Services;
 using DAL.Models.DB;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Netcore.Extensions
 {
@@ -40,7 +41,8 @@ namespace Netcore.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             return services.AddScoped<ICategoryService, CategoryService>()
-                .AddScoped<IUserService, UserService>(); ;
+                .AddScoped<IUserService, UserService>()
+                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }
 }

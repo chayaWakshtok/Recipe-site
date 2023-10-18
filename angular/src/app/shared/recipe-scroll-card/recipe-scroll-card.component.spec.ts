@@ -8,8 +8,8 @@ describe('RecipeScrollCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecipeScrollCardComponent ]
-    })
+    imports: [RecipeScrollCardComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(RecipeScrollCardComponent);

@@ -1,0 +1,200 @@
+.btn-primary {
+  background: #2d3a55;
+}
+
+.form-control {
+  border-color: #c1c1c1;
+  color: var(--dark-color);
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 3px;
+  display: unset;
+  line-height: normal;
+  padding: 0 0 0 15px;
+  min-height: 38px;
+}
+
+.dataTables_filter input {
+  display: inline-block;
+  width: 200pxpx;
+  margin: 0px 5px;
+  vertical-align: middle;
+  margin-left: 5px !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+  font-family: 'Roboto', Tahoma !important;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2a3f5a;
+  font-weight: 500;
+  margin: 0;
+}
+
+h5,
+.uk-h5 {
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.section-title h4:after,
+.section-title h5:after {
+  border-top: 2.4px solid rgb(42, 63, 90) !important;
+}
+
+a.btn.btn-small.btn-primary {
+  margin-right: 5px;
+}
+
+.page-link {
+  color: #2d3a55;
+  border: 1px solid #e5eaef;
+  ;
+}
+
+.page-item.active .page-link {
+  z-index: 2;
+  color: #fff;
+  ;
+  background-color: #2d3a55;
+  ;
+  border-color: #2d3a55;
+  ;
+}
+
+
+a.paginate_button.current {
+  color: #fff !important;
+  border-color: #2d3a55 !important;
+  background-color: #2d3a55 !important;
+}
+
+.paginate_button {
+  color: #2d3a55 !important;
+}
+
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  // border-radius: 2px;
+  background: transparent;
+  border: 1px solid #e5eaef;
+  color: #2d3a55;
+
+}
+div#table_id_info{
+  float: left;
+}
+
+.disabled {
+  color: #ccc !important;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+  width: 200px;
+  margin: 0px 5px;
+  border-color: #c1c1c1;
+  color: var(--dark-color);
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 3px;
+  display: unset;
+  line-height: normal;
+  padding: 0 0 0 15px;
+  min-height: 38px;
+  border-style: solid;
+  margin-left: 5px !important;
+  border-width: 1px !important;
+}
+
+:focus-visible {
+  outline: 1px solid;
+  border-color: #c1c1c1 !important;
+}
+
+table.dataTable thead>tr>th.sorting:before,
+table.dataTable thead>tr>th.sorting_asc:before,
+table.dataTable thead>tr>th.sorting_desc:before,
+table.dataTable thead>tr>th.sorting_asc_disabled:before,
+table.dataTable thead>tr>th.sorting_desc_disabled:before,
+table.dataTable thead>tr>td.sorting:before,
+table.dataTable thead>tr>td.sorting_asc:before,
+table.dataTable thead>tr>td.sorting_desc:before,
+table.dataTable thead>tr>td.sorting_asc_disabled:before,
+table.dataTable thead>tr>td.sorting_desc_disabled:before {
+  display: none;
+}
+
+table.dataTable thead>tr>th.sorting:after,
+table.dataTable thead>tr>th.sorting_asc:after,
+table.dataTable thead>tr>th.sorting_desc:after,
+table.dataTable thead>tr>th.sorting_asc_disabled:after,
+table.dataTable thead>tr>th.sorting_desc_disabled:after,
+table.dataTable thead>tr>td.sorting:after,
+table.dataTable thead>tr>td.sorting_asc:after,
+table.dataTable thead>tr>td.sorting_desc:after,
+table.dataTable thead>tr>td.sorting_asc_disabled:after,
+table.dataTable thead>tr>td.sorting_desc_disabled:after {
+  display: none;
+}
+
+thead th,
+tfoot th {
+  color: #a5b5c5;
+  font-size: 13px;
+  font-weight: 500;
+  border-top: 0 !important;
+
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 1px solid rgb(233, 236, 239) !important;
+}
+
+select {
+  height: calc(2.25rem + 2px);
+  border-color: #c1c1c1;
+  color: var(--dark-color);
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 3px;
+  display: unset;
+  line-height: normal;
+  padding: 0 0 0 15px;
+  min-height: 38px;
+}
+
+.table-bordered {
+  border-bottom-color: rgb(233, 236, 239) !important;
+}
+
+table#table_id {
+  margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background: #2d3a55 !important;
+  transition: all 0.3s;
+}
+
+a.btn.btn-small.btn-primary {
+  background: #868e96 !important;
+}
