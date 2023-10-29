@@ -38,6 +38,20 @@ namespace Netcore.Controllers
             return _mapper.Map<IList<UserDTO>>(users);
         }
 
+        [HttpGet]
+        [Route("GetUserById/{id}")]
+        public async Task<UserDTO> GetUserById(int id)
+        {
+            var user = await _userService.GetOne(id);
+            string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+
+                if (!string.IsNullOrEmpty(user.Picture))
+                user.Picture = myHostUrl + user.Picture;
+            user.Password = "";
+          
+            return _mapper.Map<UserDTO>(user);
+        }
+
         [HttpPost]
         [Route("Add")]
         public async Task<bool> Add([FromBody] UserDTO userDTO)

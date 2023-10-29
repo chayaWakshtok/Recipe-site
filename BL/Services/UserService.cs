@@ -56,6 +56,7 @@ namespace BL.Services
                     }
                     //if()
                 }
+                user.Role = _unitOfWork.Repository<Role>().Find(user.RoleId);
                 await workRepos.InsertAsync(user);
 
                 await _unitOfWork.CommitTransaction();
@@ -123,6 +124,7 @@ namespace BL.Services
                     throw new KeyNotFoundException();
 
                 work.Username = user.Username;
+                work.FirstName = user.FirstName;
                 work.Email = user.Email;
                 work.Status = user.Status;
                 work.Picture = user.Picture;

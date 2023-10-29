@@ -12,6 +12,7 @@ import { AddDifficultComponent } from './add-difficult/add-difficult.component';
 import { DifficultiesComponent } from './difficulties/difficulties.component';
 import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
       { path: "edit_difficult/:id", component: AddDifficultComponent },
       { path: "users", component: UsersComponent },
       { path: "new_user", component: AddUserComponent },
-      { path: "edit_user/:id", component: AddUserComponent },
+      { path: "edit_user/:id", component: EditUserComponent },
     ]
   },
   { path: "login", component: LoginAdminComponent },

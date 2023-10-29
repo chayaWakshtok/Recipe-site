@@ -2775,6 +2775,7 @@ a,button,select,.form-control{
     top: 0;
     z-index: 9;
     box-shadow: 1px 0 7px var(--primary-alpha-Dot25);
+    height: 72px;
   }
 
   .header .breadcrumb{

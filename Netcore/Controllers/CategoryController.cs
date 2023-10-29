@@ -14,20 +14,32 @@ namespace Netcore.Controllers
     {
         ICategoryService _categoryService;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CategoryController(ICategoryService categoryService,IMapper mapper)
+
+        public CategoryController(ICategoryService categoryService,IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _categoryService = categoryService;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
+        [Route("GetWithImage")]
         public async Task<IList<CategoryDTO>> Get()
         {
-            return _mapper.Map<IList<CategoryDTO>>( await _categoryService.GetAll());
+            string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+            var categories = await _categoryService.GetAll();
+            categories.ToList().ForEach(cat =>
+            {
+                if (!string.IsNullOrEmpty(cat.Image))
+                    cat.Image = myHostUrl + cat.Image;
+            });
+            return _mapper.Map<IList<CategoryDTO>>(categories);
         }
 
         [HttpPost]
+        [Route("Add")]
         public async Task< bool> Add([FromBody]CategoryDTO categoryDTO)
         {
             try

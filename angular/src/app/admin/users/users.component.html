@@ -62,10 +62,9 @@
                         <td *ngIf="user.status==1" class=" status text-center"><span
                             class="badge badge-pill bg-success"><i class="dripicons-checkmark"></i></span></td>
                         <td>{{user.createAt|date :'short'}}</td>
-                        <td class=" text-center"><a class="btn btn-small btn-primary"
-                            href="../controller/edit_user.php?id=178">Edit</a> <a
-                            class="btn btn-small btn-danger btn-delete deleteItem"
-                            data-url="../controller/delete_user.php?id=178">Delete</a></td>
+                        <td class=" text-center"><a class="btn btn-small btn-primary" href="javascript:void(1)" (click)="edit(user.id)">Edit</a>
+                          <a class="btn btn-small btn-danger btn-delete deleteItem"
+                            (click)="deleteUser(user.id)">Delete</a></td>
                       </tr>
                       <!-- <tr role="row" class="odd">
                         <td class=" text-center">178</td>

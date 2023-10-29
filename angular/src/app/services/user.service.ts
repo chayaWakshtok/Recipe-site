@@ -17,13 +17,20 @@ export class UserService {
     return this.http.get<User[]>(this.auth_api + "GetAllWithPicture");
   }
 
-  add(user:User):Observable<boolean>
-  {
-    return this.http.post<boolean>(this.auth_api + "Add",user);
+  add(user: User): Observable<boolean> {
+    return this.http.post<boolean>(this.auth_api + "Add", user);
   }
 
-  delete(id:number):Observable<boolean>
+  delete(id: number | undefined): Observable<boolean> {
+    return this.http.delete<boolean>(this.auth_api + "Delete/" + id);
+  }
+
+  getUser(id: number | undefined): Observable<User> {
+    return this.http.get<User>(this.auth_api + "GetUserById/" + id);
+  }
+
+  update(user:User)
   {
-    return this.http.delete<boolean>(this.auth_api + "Delete/"+id);
+    return this.http.put<boolean>(this.auth_api + "Update", user);
   }
 }

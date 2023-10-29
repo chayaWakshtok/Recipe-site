@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { User } from 'src/app/models/user';
@@ -20,7 +21,8 @@ export class UsersComponent {
 
   constructor(private userService: UserService,
     private cdRef: ChangeDetectorRef,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -37,7 +39,7 @@ export class UsersComponent {
     })
   }
 
-  delete(id: number) {
+  deleteUser(id: number | undefined) {
     Swal.fire({
       title: 'Are you sure?',
       text: 'You will not be able to recover this item!',
@@ -51,12 +53,16 @@ export class UsersComponent {
           if (res) {
             this.getUsers();
           }
-          else{
-            this.toastr.error('Fail to delete new user', 'Fail delete!');
+          else {
+            this.toastr.error('Fail to delete user', 'Fail delete!');
           }
         })
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
+  }
+
+  edit(id: number | undefined) {
+    this.router.navigate(["admin/edit_user", id]);
   }
 }

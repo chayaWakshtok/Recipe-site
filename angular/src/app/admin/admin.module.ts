@@ -20,6 +20,8 @@ import { AddDifficultComponent } from './add-difficult/add-difficult.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CategoriesComponent,
     AddCategoryComponent,
     DifficultiesComponent,
-    AddDifficultComponent
+    AddDifficultComponent,
+    EditUserComponent,
+    EditRecipeComponent
   ],
   exports: []
 })

@@ -198,3 +198,12 @@ table#table_id {
 a.btn.btn-small.btn-primary {
   background: #868e96 !important;
 }
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  background-color:var(--danger-color);
+  color: #fff;
+  font-size: 1em;
+}

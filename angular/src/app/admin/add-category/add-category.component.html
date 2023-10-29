@@ -1,1 +1,63 @@
-<p>add-category works!</p>
+<section class="page-container">
+  <div class="page-content-wrapper">
+
+    <!--Main Content-->
+
+    <div class="content sm-gutter">
+      <div class="container-fluid padding-25 sm-padding-10">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title">
+              <h5>Add New</h5>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-block mb-4">
+
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-9">
+                    <div class="block col-md-12">
+                      <label class="required">Title</label>
+                      <input type="text" placeholder="" name="category_title" class="form-control" required="">
+
+                      <label>Description</label>
+                      <textarea type="text" class="mceNoEditor form-control" name="category_description"
+                        spellcheck="false"></textarea>
+
+                        <label>Status</label>
+
+                        <select class="custom-select form-control" name="category_status">
+                          <option value="1" selected="">Enabled</option>
+                          <option value="0">Disabled</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-3 sidebar">
+
+                    <div class="block col-md-12">
+                      <label class="required">Image</label>
+
+                      <div class="new-image" id="image-preview">
+                        <label for="image-upload" id="image-label">Choose File</label>
+                        <input type="file" name="category_image" id="image-upload" required="">
+                      </div>
+
+                      <span class="text-danger recomendedsize">Recommended Size: <b>350 x 350</b> </span>
+                      <br>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" name="save">Save Changes</button>
+
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
