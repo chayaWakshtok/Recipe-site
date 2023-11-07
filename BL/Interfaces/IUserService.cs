@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces.Services
+namespace BL.Interfaces.Services
 {
     public interface IUserService
     {

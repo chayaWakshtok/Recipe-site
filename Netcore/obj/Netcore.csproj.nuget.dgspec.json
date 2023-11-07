@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Netcore.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\NetCore\\Netcore.csproj": {}
   },
   "projects": {
     "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\BL.csproj": {
@@ -132,7 +132,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -259,14 +263,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Netcore.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\NetCore\\Netcore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Netcore.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\NetCore\\Netcore.csproj",
         "projectName": "Netcore",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Netcore.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\NetCore\\Netcore.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\NetCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

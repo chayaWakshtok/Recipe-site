@@ -1,8 +1,7 @@
 ﻿using BL;
-using BL.Repository;
+using BL.Interfaces;
+using BL.Interfaces.Services;
 using BL.Services;
-using DAL.Interfaces;
-using DAL.Interfaces.Services;
 using DAL.Models.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -27,9 +26,7 @@ namespace Netcore.Extensions
             );
 
             services.AddScoped<Func<RecipesSiteContext>>((provider) => () => provider.GetService<RecipesSiteContext>());
-            services.AddScoped<DbFactory>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            
+
             return services;
         }
 
@@ -41,7 +38,8 @@ namespace Netcore.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             return services.AddScoped<ICategoryService, CategoryService>()
-                .AddScoped<IUserService, UserService>()
+                .AddScoped<IAuthRepository, AuthRepository>()
+                //.AddScoped<IUserService, UserService>()
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }

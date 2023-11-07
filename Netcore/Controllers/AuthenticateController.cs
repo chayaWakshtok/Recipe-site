@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
-using DAL.Interfaces.Services;
+using BL;
+using BL.Interfaces;
+using BL.Interfaces.Services;
 using DAL.Models.DB;
 using Entities;
 using Microsoft.AspNetCore.Authentication;
@@ -16,134 +18,52 @@ namespace Netcore.Controllers
 {
     public class AuthenticateController : BaseController
     {
-        #region Property
-        /// <summary>
-        /// Property Declaration
-        /// </summary>
-        /// <param name="data"></param>
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         /// <returns></returns>
-        private IConfiguration _config;
-        private IUserService _userService;
-        private readonly IMapper _mapper;
+        private readonly IAuthRepository _authRepo;
 
-
-        #endregion
-
-        #region Contructor Injector
-        /// <summary>
-        /// Constructor Injection to access all methods or simply DI(Dependency Injection)
-        /// </summary>
-        public AuthenticateController(IConfiguration config, IUserService userService, IMapper mapper
-)
+        public AuthenticateController(IAuthRepository authRepo, IHttpContextAccessor httpContextAccessor)
         {
-            _config = config;
-            _userService = userService;
-            _mapper = mapper;
-        }
-        #endregion
-
-        #region GenerateJWT
-        /// <summary>
-        /// Generate Json Web Token Method
-        /// </summary>
-        /// <param name="userInfo"></param>
-        /// <returns></returns>
-        private string GenerateJSONWebToken(UserDTO userInfo)
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var claims = new Claim[]
-                     {
-                        new Claim("role",userInfo.Role.Name),
-                        new Claim("email",userInfo.Email.ToString())
-
-                     };
-
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
-              claims,
-              expires: DateTime.Now.AddMinutes(120),
-              signingCredentials: credentials);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-        #endregion
-
-        #region AuthenticateUser
-        /// <summary>
-        /// Hardcoded the User authentication
-        /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
-        private async Task<User> AuthenticateUser(LoginModel login)
-        {
-            var resUser = await _userService.GetByIUserNameAndPassword(login.UserName, login.Password);
-            return resUser;
+            _authRepo = authRepo;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-
-        #region Login Validation
-        /// <summary>
-        /// Login Authenticaton using JWT Token Authentication
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        [AllowAnonymous]
-        [HttpPost(nameof(Login))]
-        public async Task<IActionResult> Login([FromBody] LoginModel data)
+        [HttpGet]
+        public async Task<ActionResult<ServiceResponse<int>>> GetUser()
         {
-            IActionResult response = Unauthorized();
-            var user = await _userService.GetByUserNameAndPassword(data.UserName, data.Password);
-            if (user != null)
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var id = int.Parse(userId);
+            //get user from db
+            return Ok(userId);
+        }
+
+        private int GetUserId() => int.Parse(_httpContextAccessor.HttpContext!.User
+     .FindFirst(ClaimTypes.NameIdentifier)!.ToString());
+
+
+        [HttpPost("Register")]
+        public async Task<ActionResult<ServiceResponse<int>>> Register(UserDTO request)
+        {
+            var response = await _authRepo.Register(
+                new User { Username = request.Username }, request.Password
+            );
+            if (!response.Success)
             {
-                var userDto = _mapper.Map<UserDTO>(user);
-                var tokenString = GenerateJSONWebToken(userDto);
-                userDto.Password = "";
-                response = Ok(new { Token = tokenString,User=userDto, Message = "Success" });
+                return BadRequest(response);
             }
-            return response;
+            return Ok(response);
         }
-        #endregion
-        //[HttpGet(nameof(Get))]
-        //public async Task<IEnumerable<string>> Get()
-        //{
-        //    var accessToken = await HttpContext.GetTokenAsync("access_token");
 
-        #region Get
-        /// <summary>
-        /// Authorize the Method
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet(nameof(Get))]
-        public async Task<IEnumerable<string>> Get()
+        [HttpPost("Login")]
+        public async Task<ActionResult<ServiceResponse<int>>> Login(UserDTO request)
         {
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
-            if (identity != null)
+            var response = await _authRepo.Login(request.Username, request.Password);
+            if (!response.Success)
             {
-                IEnumerable<Claim> claims = identity.Claims;
-                //identity.FindFirst("ClaimName").Value;
+                return BadRequest(response);
             }
-
-            return new string[] { accessToken };
+            return Ok(response);
         }
-
-
-        #endregion
-
     }
-
-    #region JsonProperties
-    /// <summary>
-    /// Json Properties
-    /// </summary>
-    public class LoginModel
-    {
-        [Required]
-        public string UserName { get; set; }
-        [Required]
-        public string Password { get; set; }
-    }
-    #endregion
 }

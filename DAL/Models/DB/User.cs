@@ -21,6 +21,8 @@ public partial class User
 
     public string? Picture { get; set; }
     public string? FirstName { get; set; }
+    public byte[] PasswordHash { get; set; }
+    public byte[] PasswordSalt { get; set; }
 
     public int? RoleId { get; set; }
 

@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class UserDTO:BaseEntity
+    public class UserDTO : BaseEntity
     {
         public string Username { get; set; } = null!;
 
         public int? Status { get; set; }
-
-        public DateTime CreateAt { get; set; }
-
-        public DateTime? UpdateAt { get; set; }
 
         public string? Email { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using DAL.Interfaces.Services;
+using BL;
+using BL.Interfaces.Services;
 using DAL.Models.DB;
 using Entities;
 using Microsoft.AspNetCore.Http;
@@ -24,35 +25,51 @@ namespace Netcore.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        [HttpGet]
-        [Route("GetWithImage")]
-        public async Task<IList<CategoryDTO>> Get()
+        [HttpGet("GetAll")]
+        public async Task<ActionResult<ServiceResponse<List<CategoryDTO>>>> Get()
         {
-            string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
-            var categories = await _categoryService.GetAll();
-            categories.ToList().ForEach(cat =>
-            {
-                if (!string.IsNullOrEmpty(cat.Image))
-                    cat.Image = myHostUrl + cat.Image;
-            });
-            return _mapper.Map<IList<CategoryDTO>>(categories);
+            return Ok(await _categoryService.GetAll());
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ServiceResponse<CategoryDTO>>> GetSingle(int id)
+        {
+            return Ok(await _categoryService.GetOne(id));
+        }
+
 
         [HttpPost]
         [Route("Add")]
-        public async Task< bool> Add([FromBody]CategoryDTO categoryDTO)
+
+        public async Task<ActionResult<ServiceResponse<List<CategoryDTO>>>> Add(CategoryDTO newObj)
         {
-            try
-            {
-                var category = _mapper.Map<Category>(categoryDTO);
-                await _categoryService.Add(category);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return Ok(await _categoryService.Add(newObj));
         }
+
+        [HttpPut]
+        [Route("Update")]
+        public async Task<ActionResult<ServiceResponse<List<CategoryDTO>>>> Update(CategoryDTO updatedObj)
+        {
+            var response = await _categoryService.Update(updatedObj);
+            if (response.Data is null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        [Route("Delete")]
+        public async Task<ActionResult<ServiceResponse<CategoryDTO>>> Delete(int id)
+        {
+            var response = await _categoryService.Delete(id);
+            if (response.Data is null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
 
         //[HttpPost, DisableRequestSizeLimit]
         //public IActionResult Upload()

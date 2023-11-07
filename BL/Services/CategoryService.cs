@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using DAL.Interfaces;
-using DAL.Interfaces.Services;
 using DAL.Models.DB;
 using System;
 using System.Collections.Generic;
@@ -13,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Entities;
+using BL.Interfaces.Services;
 
 namespace BL.Services
 {
@@ -28,29 +27,33 @@ namespace BL.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        private int GetUserId()
-        {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            return int.Parse(_httpContextAccessor.HttpContext.User
-                                   .FindFirst(ClaimTypes.NameIdentifier).ToString());
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-        }
+        private int GetUserId() => int.Parse(_httpContextAccessor.HttpContext!.User
+         .FindFirst(ClaimTypes.NameIdentifier)!.ToString());
 
-        public async Task Add(Category category)
+        public async Task<ServiceResponse<List<CategoryDTO>>> Add(CategoryDTO newcategory)
         {
 
-            //var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
+            var serviceResponse = new ServiceResponse<List<CategoryDTO>>();
 
             try
             {
-                var newCategory = _mapper.Map<Category>(category);
-                _context.Categories.Add(category);
+                var cat = _mapper.Map<Category>(newcategory);
+                _context.Categories.Add(cat);
                 await _context.SaveChangesAsync();
+
+                serviceResponse.Data =
+                   await _context.Categories
+                       .Select(c => _mapper.Map<CategoryDTO>(c)).ToListAsync();
+
+                return serviceResponse;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw;
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
             }
+
+            return serviceResponse;
         }
 
         public async Task<ServiceResponse<List<CategoryDTO>>> Delete(int workId)
@@ -79,58 +82,82 @@ namespace BL.Services
 
             return serviceResponse;
 
+        }
 
+        public async Task<ServiceResponse<List<CategoryDTO>>> GetAll()
+        {
+
+            var serviceResponse = new ServiceResponse<List<CategoryDTO>>();
+            var dbCharacters = await _context.Categories
+                .ToListAsync();
+
+            string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+
+            dbCharacters.ToList().ForEach(cat =>
+            {
+                if (!string.IsNullOrEmpty(cat.Image))
+                    cat.Image = myHostUrl + cat.Image;
+            });
+
+            serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<CategoryDTO>(c)).ToList();
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<CategoryDTO>> GetOne(int id)
+        {
+
+            var serviceResponse = new ServiceResponse<CategoryDTO>();
+            try
+            {
+                var dbCharacter = await _context.Categories
+                              .FirstOrDefaultAsync(c => c.Id == id);
+
+                if (dbCharacter is null)
+                    throw new Exception($"Category with Id '{id}' not found.");
+
+                string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+                if (!string.IsNullOrEmpty(dbCharacter.Image))
+                    dbCharacter.Image = myHostUrl + dbCharacter.Image;
+
+                serviceResponse.Data = _mapper.Map<CategoryDTO>(dbCharacter);
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<CategoryDTO>> Update(CategoryDTO categoryUpdate)
+        {
+            var serviceResponse = new ServiceResponse<CategoryDTO>();
 
             try
             {
-                await _unitOfWork.BeginTransaction();
+                var cat =
+                    await _context.Categories
+                        .FirstOrDefaultAsync(c => c.Id == categoryUpdate.Id);
+                if (cat is null)
+                    throw new Exception($"Category with Id '{categoryUpdate.Id}' not found.");
 
-                var workRepos = _unitOfWork.Repository<Category>();
-                var work = await workRepos.FindAsync(workId);
-                if (work == null)
-                    throw new KeyNotFoundException();
+                cat.UpdateAt = DateTime.Now;
+                cat.Description = categoryUpdate.Description;
+                cat.Status = categoryUpdate.Status;
+                cat.Image = categoryUpdate.Image;
+                cat.Name = categoryUpdate.Name;
 
-                await workRepos.DeleteAsync(work);
-
-                await _unitOfWork.CommitTransaction();
+                await _context.SaveChangesAsync();
+                serviceResponse.Data = _mapper.Map<CategoryDTO>(cat);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                await _unitOfWork.RollbackTransaction();
-                throw;
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
             }
-        }
 
-        public async Task<IList<Category>> GetAll()
-        {
-            return await _unitOfWork.Repository<Category>().GetAllAsync();
-        }
-
-        public async Task<Category> GetOne(int workId)
-        {
-            return await _unitOfWork.Repository<Category>().FindAsync(workId);
-        }
-
-        public async Task Update(Category category)
-        {
-            try
-            {
-                await _unitOfWork.BeginTransaction();
-
-                var workRepos = _unitOfWork.Repository<Category>();
-                var work = await workRepos.FindAsync(category.Id);
-                if (work == null)
-                    throw new KeyNotFoundException();
-
-                work.Name = category.Name;
-
-                await _unitOfWork.CommitTransaction();
-            }
-            catch (Exception e)
-            {
-                await _unitOfWork.RollbackTransaction();
-                throw;
-            }
+            return serviceResponse;
         }
     }
 }

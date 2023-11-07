@@ -12,3 +12,6 @@ C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\refint\DAL.dll
 C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\DAL.pdb
 C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\User\Documents\GitHub\Recipe-site\DAL\bin\Debug\net6.0\Entities.dll
+C:\Users\User\Documents\GitHub\Recipe-site\DAL\bin\Debug\net6.0\Entities.pdb
+C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
