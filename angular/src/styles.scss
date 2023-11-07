@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('./assets/styles.css');
+@import 'ngx-toastr/toastr';
+
+.uk-cover {
+  /* 1 */
+  max-width: none !important;
+  /* 2 */
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+

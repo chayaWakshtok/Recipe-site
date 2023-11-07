@@ -20,6 +20,7 @@ public partial class User
     public string? Password { get; set; }
 
     public string? Picture { get; set; }
+    public string? FirstName { get; set; }
 
     public int? RoleId { get; set; }
 

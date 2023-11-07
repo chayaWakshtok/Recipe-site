@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    internal class RoleDTO
+    public class RoleDTO: BaseEntity
     {
+        public string? Name { get; set; }
     }
 }

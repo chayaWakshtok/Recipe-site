@@ -81,7 +81,7 @@ namespace Netcore.Controllers
             var resUser = await _userService.GetByIUserNameAndPassword(login.UserName, login.Password);
             return resUser;
         }
-        #endregion
+
 
         #region Login Validation
         /// <summary>
@@ -94,17 +94,21 @@ namespace Netcore.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel data)
         {
             IActionResult response = Unauthorized();
-            var user = await AuthenticateUser(data);
-
+            var user = await _userService.GetByUserNameAndPassword(data.UserName, data.Password);
             if (user != null)
             {
                 var userDto = _mapper.Map<UserDTO>(user);
                 var tokenString = GenerateJSONWebToken(userDto);
-                response = Ok(new { Token = tokenString, Message = "Success", User = userDto });
+                userDto.Password = "";
+                response = Ok(new { Token = tokenString,User=userDto, Message = "Success" });
             }
             return response;
         }
         #endregion
+        //[HttpGet(nameof(Get))]
+        //public async Task<IEnumerable<string>> Get()
+        //{
+        //    var accessToken = await HttpContext.GetTokenAsync("access_token");
 
         #region Get
         /// <summary>
