@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using AutoMapper;
+using DAL.Interfaces.Services;
+using DAL.Models.DB;
+using Entities;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 
 namespace Netcore.Controllers
@@ -18,6 +23,9 @@ namespace Netcore.Controllers
         /// <param name="data"></param>
         /// <returns></returns>
         private IConfiguration _config;
+        private IUserService _userService;
+        private readonly IMapper _mapper;
+
 
         #endregion
 
@@ -25,9 +33,12 @@ namespace Netcore.Controllers
         /// <summary>
         /// Constructor Injection to access all methods or simply DI(Dependency Injection)
         /// </summary>
-        public AuthenticateController(IConfiguration config)
+        public AuthenticateController(IConfiguration config, IUserService userService, IMapper mapper
+)
         {
             _config = config;
+            _userService = userService;
+            _mapper = mapper;
         }
         #endregion
 
@@ -37,14 +48,21 @@ namespace Netcore.Controllers
         /// </summary>
         /// <param name="userInfo"></param>
         /// <returns></returns>
-        private string GenerateJSONWebToken(LoginModel userInfo)
+        private string GenerateJSONWebToken(UserDTO userInfo)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
+            var claims = new Claim[]
+                     {
+                        new Claim("role",userInfo.Role.Name),
+                        new Claim("email",userInfo.Email.ToString())
+
+                     };
+
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
-              null,
+              claims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 
@@ -58,17 +76,10 @@ namespace Netcore.Controllers
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        private async Task<LoginModel> AuthenticateUser(LoginModel login)
+        private async Task<User> AuthenticateUser(LoginModel login)
         {
-            LoginModel user = null;
-
-            //Validate the User Credentials    
-            //Demo Purpose, I have Passed HardCoded User Information    
-            if (login.UserName == "Jay")
-            {
-                user = new LoginModel { UserName = "Jay", Password = "123456" };
-            }
-            return user;
+            var resUser = await _userService.GetByIUserNameAndPassword(login.UserName, login.Password);
+            return resUser;
         }
         #endregion
 
@@ -84,10 +95,12 @@ namespace Netcore.Controllers
         {
             IActionResult response = Unauthorized();
             var user = await AuthenticateUser(data);
-            if (data != null)
+
+            if (user != null)
             {
-                var tokenString = GenerateJSONWebToken(user);
-                response = Ok(new { Token = tokenString, Message = "Success" });
+                var userDto = _mapper.Map<UserDTO>(user);
+                var tokenString = GenerateJSONWebToken(userDto);
+                response = Ok(new { Token = tokenString, Message = "Success", User = userDto });
             }
             return response;
         }
@@ -102,6 +115,12 @@ namespace Netcore.Controllers
         public async Task<IEnumerable<string>> Get()
         {
             var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                //identity.FindFirst("ClaimName").Value;
+            }
 
             return new string[] { accessToken };
         }
