@@ -22,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
     DifficultiesComponent,
     AddDifficultComponent,
     EditUserComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    EditCategoryComponent
   ],
   exports: []
 })

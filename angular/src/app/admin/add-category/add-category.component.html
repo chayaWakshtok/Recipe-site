@@ -1,8 +1,6 @@
 <section class="page-container">
   <div class="page-content-wrapper">
 
-    <!--Main Content-->
-
     <div class="content sm-gutter">
       <div class="container-fluid padding-25 sm-padding-10">
         <div class="row">
@@ -20,18 +18,19 @@
                   <div class="form-group col-md-9">
                     <div class="block col-md-12">
                       <label class="required">Title</label>
-                      <input type="text" placeholder="" name="category_title" class="form-control" required="">
+                      <input type="text" placeholder="" name="category_title" [(ngModel)]="category.name"
+                        class="form-control" required="">
 
                       <label>Description</label>
                       <textarea type="text" class="mceNoEditor form-control" name="category_description"
-                        spellcheck="false"></textarea>
+                        spellcheck="false" [(ngModel)]="category.description"></textarea>
 
-                        <label>Status</label>
+                      <label>Status</label>
 
-                        <select class="custom-select form-control" name="category_status">
-                          <option value="1" selected="">Enabled</option>
-                          <option value="0">Disabled</option>
-                        </select>
+                      <select class="custom-select form-control" name="category_status" [(ngModel)]="category.status">
+                        <option value="1" selected="">Enabled</option>
+                        <option value="0">Disabled</option>
+                      </select>
                     </div>
                   </div>
                   <div class="form-group col-md-3 sidebar">
@@ -39,16 +38,18 @@
                     <div class="block col-md-12">
                       <label class="required">Image</label>
 
-                      <div class="new-image" id="image-preview">
+                      <div class="new-image" id="image-preview"
+                        [ngStyle]="{'background-image': 'url(' + imageSrc + ')'}">
                         <label for="image-upload" id="image-label">Choose File</label>
-                        <input type="file" name="category_image" id="image-upload" required="">
+                        <input type="file" name="category_image" id="image-upload" required=""
+                          (change)="uploadImage($event)">
                       </div>
 
                       <span class="text-danger recomendedsize">Recommended Size: <b>350 x 350</b> </span>
                       <br>
                     </div>
 
-                    <button class="btn btn-primary" type="submit" name="save">Save Changes</button>
+                    <button class="btn btn-primary" type="submit" name="save" (click)="saveCat()">Save Changes</button>
 
                   </div>
                 </div>

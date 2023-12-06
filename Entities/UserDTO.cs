@@ -19,6 +19,9 @@ namespace Entities
         public string? Picture { get; set; }
 
         public int? RoleId { get; set; }
-        public RoleDTO Role { get; set; }
+        public RoleDTO? Role { get; set; }
+        public string? FirstName { get; set; }
+        public string? Token { get; set; }
+
     }
 }

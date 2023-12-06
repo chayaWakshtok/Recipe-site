@@ -17,6 +17,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.11",
           "Newtonsoft.Json": "13.0.3",
+          "PluralizeService.Core": "1.2.21147.2",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -505,6 +506,14 @@
           }
         }
       },
+      "PluralizeService.Core/1.2.21147.2": {
+        "runtime": {
+          "lib/netstandard2.1/PluralizeService.Core.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
         "dependencies": {
           "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": "4.4.0",
@@ -782,6 +791,7 @@
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.EntityFrameworkCore": "7.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
+          "PluralizeService.Core": "1.2.21147.2",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -791,7 +801,8 @@
       "Entities/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
-          "Microsoft.AspNetCore.Http.Features": "5.0.17"
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "PluralizeService.Core": "1.2.21147.2"
         },
         "runtime": {
           "Entities.dll": {}
@@ -1105,6 +1116,13 @@
       "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "path": "newtonsoft.json/13.0.3",
       "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+    },
+    "PluralizeService.Core/1.2.21147.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WcPxEg6bjNYSQDWSYlAC6sPRk7vyy4KZX/e8R7PeainOvsNvfL2ABis2HxBwEgPPoJ4P+hSp7/mb5xX3oP8h4w==",
+      "path": "pluralizeservice.core/1.2.21147.2",
+      "hashPath": "pluralizeservice.core.1.2.21147.2.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",

@@ -48,6 +48,7 @@ public partial class Recipe
     public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
     public virtual ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+    //public virtual ICollection<Instruction> Instructions { get; set; } = new List<Instruction>();
 
     public virtual User? User { get; set; }
 }

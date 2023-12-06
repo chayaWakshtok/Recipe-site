@@ -137,7 +137,6 @@ public partial class RecipesSiteContext : DbContext
         {
             entity.Property(e => e.CreateAt).HasColumnType("datetime");
             entity.Property(e => e.Email).HasMaxLength(50);
-            entity.Property(e => e.Password).HasMaxLength(50);
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
             entity.Property(e => e.Username).HasMaxLength(50);
 

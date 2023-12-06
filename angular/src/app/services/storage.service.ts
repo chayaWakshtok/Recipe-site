@@ -31,7 +31,7 @@ export class StorageService {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       var userData = JSON.parse(user);
-      if (userData.user.roleId == ROLE.Admin)
+      if (userData.roleId == ROLE.Admin)
         return true;
       return false;
     }

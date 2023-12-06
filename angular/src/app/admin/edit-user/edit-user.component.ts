@@ -59,7 +59,6 @@ export class EditUserComponent {
         this.router.navigate(["admin/users"]);
       else
         this.toastr.error('Fail to update user', 'Fail update!');
-
     })
   }
 

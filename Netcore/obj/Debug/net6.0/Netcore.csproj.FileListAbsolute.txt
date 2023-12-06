@@ -96,3 +96,9 @@ C:\Users\User\Documents\GitHub\Recipe-site\Netcore\bin\Debug\net6.0\Entities.dll
 C:\Users\User\Documents\GitHub\Recipe-site\Netcore\bin\Debug\net6.0\Entities.pdb
 C:\Users\User\Documents\GitHub\Recipe-site\Netcore\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\User\Documents\GitHub\Recipe-site\Netcore\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net6.0\staticwebassets\msbuild.Netcore.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net6.0\staticwebassets\msbuild.build.Netcore.props
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Netcore.props
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Netcore.props
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\bin\Debug\net6.0\PluralizeService.Core.dll

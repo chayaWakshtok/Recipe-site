@@ -13,6 +13,7 @@ import { DifficultiesComponent } from './difficulties/difficulties.component';
 import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
       { path: "edit_recipe/:id", component: AddRecipesComponent },
       { path: "categories", component: CategoriesComponent },
       { path: "new_category", component: AddCategoryComponent },
-      { path: "edit_category/:id", component: AddCategoryComponent },
+      { path: "edit_category/:id", component: EditCategoryComponent },
       { path: "difficulties", component: DifficultiesComponent },
       { path: "new_difficult", component: AddDifficultComponent },
       { path: "edit_difficult/:id", component: AddDifficultComponent },

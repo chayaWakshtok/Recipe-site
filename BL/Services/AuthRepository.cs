@@ -1,8 +1,12 @@
-﻿using BL.Interfaces;
+﻿using AutoMapper;
+using BL.Interfaces;
 using DAL.Models.DB;
+using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,16 +21,19 @@ namespace BL.Services
     {
         private readonly RecipesSiteContext _context;
         private readonly IConfiguration _configuration;
-        public AuthRepository(RecipesSiteContext context, IConfiguration configuration)
+        private readonly IMapper _mapper;
+
+        public AuthRepository(RecipesSiteContext context, IConfiguration configuration, IMapper mapper)
         {
             _configuration = configuration;
             _context = context;
+            _mapper = mapper;
 
         }
 
-        public async Task<ServiceResponse<string>> Login(string username, string password)
+        public async Task<ServiceResponse<UserDTO>> Login(string username, string password)
         {
-            var response = new ServiceResponse<string>();
+            var response = new ServiceResponse<UserDTO>();
             var user = await _context.Users.Include(p => p.Role)
                 .FirstOrDefaultAsync(u => u.Username.ToLower().Equals(username.ToLower()));
             if (user is null)
@@ -41,13 +48,25 @@ namespace BL.Services
             }
             else
             {
-                response.Data = CreateToken(user);
+                var userdto = _mapper.Map<UserDTO>(user);
+                userdto.Token = CreateToken(user);
+                response.Data = userdto;
             }
 
             return response;
         }
 
-        public async Task<ServiceResponse<int>> Register(User user, string password)
+
+        public class NameGender
+        {
+            public string Name { get; set; }
+            public Gender? Gender { get; set; }
+            public float Probability { get; set; }
+            public int Count { get; set; }
+        }
+
+
+        public async Task<ServiceResponse<int>> Register(UserDTO user, string password)
         {
             var response = new ServiceResponse<int>();
             if (await UserExists(user.Username))
@@ -57,12 +76,15 @@ namespace BL.Services
                 return response;
             }
 
-            CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+            GlobalService.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+            GlobalService.SetPictureByGender(user);
+            var userDB = _mapper.Map<User>(user);
+            userDB.CreateAt = DateTime.Now;
+            userDB.UpdateAt = DateTime.Now;
+            userDB.PasswordHash = passwordHash;
+            userDB.PasswordSalt = passwordSalt;
 
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
-
-            _context.Users.Add(user);
+            _context.Users.Add(userDB);
             await _context.SaveChangesAsync();
             response.Data = user.Id;
             return response;
@@ -77,14 +99,7 @@ namespace BL.Services
             return false;
         }
 
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
-        }
+       
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
@@ -106,20 +121,29 @@ namespace BL.Services
 
             };
 
-            var appSettingsToken = _configuration.GetSection("AppSettings:Token").Value;
-            if (appSettingsToken is null)
-                throw new Exception("AppSettings Token is null!");
+            var issuer = _configuration.GetSection("Jwt:Issuer").Value;
+            var audience = _configuration.GetSection("Jwt:Audience").Value;
+            var key = Encoding.ASCII.GetBytes
+            (_configuration.GetSection("Jwt:Key").Value);
 
-            SymmetricSecurityKey key = new SymmetricSecurityKey(System.Text.Encoding.UTF8
-                .GetBytes(appSettingsToken));
+            //var appSettingsToken = _configuration.GetSection("AppSettings:Token").Value;
+            //if (appSettingsToken is null)
+            //    throw new Exception("AppSettings Token is null!");
 
-            SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            //SymmetricSecurityKey key = new SymmetricSecurityKey(System.Text.Encoding.UTF8
+            //    .GetBytes(appSettingsToken));
+
+            //SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(1),
-                SigningCredentials = creds
+                Issuer = issuer,
+                Audience = audience,
+                SigningCredentials = new SigningCredentials
+            (new SymmetricSecurityKey(key),
+            SecurityAlgorithms.HmacSha512Signature)
             };
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();

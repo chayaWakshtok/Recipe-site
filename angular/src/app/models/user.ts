@@ -10,6 +10,7 @@ export class User {
   password: string | undefined;
   picture: string | undefined;
   roleId!: number;
-  firstName:string | undefined;
+  firstName: string | undefined;
   role: Role = new Role();
+  token: string | undefined;
 }

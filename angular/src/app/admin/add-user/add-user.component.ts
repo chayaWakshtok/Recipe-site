@@ -22,8 +22,7 @@ export class AddUserComponent {
 
   saveUser() {
     this.userService.add(this.user).subscribe(res => {
-
-      if (res == true)
+      if (res.length > 0)
         this.router.navigate(["admin/users"]);
       else {
         this.toastr.error('Fail to save new user', 'Fail save!');

@@ -15,6 +15,7 @@ namespace BL.Profiles
         {
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<Role, RoleDTO>().ReverseMap();
         }
 
     }

@@ -43,10 +43,11 @@ namespace Netcore.Controllers
 
 
         [HttpPost("Register")]
+        [AllowAnonymous]
         public async Task<ActionResult<ServiceResponse<int>>> Register(UserDTO request)
         {
             var response = await _authRepo.Register(
-                new User { Username = request.Username }, request.Password
+                request, request.Password
             );
             if (!response.Success)
             {
@@ -55,8 +56,9 @@ namespace Netcore.Controllers
             return Ok(response);
         }
 
+        [AllowAnonymous]
         [HttpPost("Login")]
-        public async Task<ActionResult<ServiceResponse<int>>> Login(UserDTO request)
+        public async Task<ActionResult<ServiceResponse<UserDTO>>> Login(UserDTO request)
         {
             var response = await _authRepo.Login(request.Username, request.Password);
             if (!response.Success)

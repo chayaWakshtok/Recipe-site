@@ -16,10 +16,5 @@ namespace BL.Interfaces.Services
         Task<ServiceResponse<CategoryDTO>> GetOne(int id);
         Task<ServiceResponse<CategoryDTO>> Update(CategoryDTO categoryUpdate);
 
-        //Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id);
-        //Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter);
-        //Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updatedCharacter);
-        //Task<ServiceResponse<List<GetCharacterDto>>> DeleteCharacter(int id);
-        //Task<ServiceResponse<GetCharacterDto>> AddCharacterSkill(AddCharacterSkillDto newCharacterSkill);
     }
 }

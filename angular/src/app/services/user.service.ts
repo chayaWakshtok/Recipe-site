@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { User } from '../models/user';
+import { ServiceResponse } from '../models/service-response';
 
 @Injectable({
   providedIn: 'root'
@@ -14,23 +15,27 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.auth_api + "GetAllWithPicture");
+    return this.http.get<ServiceResponse<User[]>>(this.auth_api + "GetAllWithPicture")
+      .pipe(map((response: ServiceResponse<User[]>) => { return response.data }));
   }
 
-  add(user: User): Observable<boolean> {
-    return this.http.post<boolean>(this.auth_api + "Add", user);
+  add(user: User): Observable<User[]> {
+    return this.http.post<ServiceResponse<User[]>>(this.auth_api + "Add", user)
+      .pipe(map((response: ServiceResponse<User[]>) => { return response.data }));
   }
 
-  delete(id: number | undefined): Observable<boolean> {
-    return this.http.delete<boolean>(this.auth_api + "Delete/" + id);
+  delete(id: number | undefined): Observable<User[]> {
+    return this.http.delete<ServiceResponse<User[]>>(this.auth_api + "Delete/" + id)
+      .pipe(map((response: ServiceResponse<User[]>) => { return response.data }));
   }
 
   getUser(id: number | undefined): Observable<User> {
-    return this.http.get<User>(this.auth_api + "GetUserById/" + id);
+    return this.http.get<ServiceResponse<User>>(this.auth_api + "GetUserById/" + id)
+      .pipe(map((response: ServiceResponse<User>) => { return response.data; }));
   }
 
-  update(user:User)
-  {
-    return this.http.put<boolean>(this.auth_api + "Update", user);
+  update(user: User) {
+    return this.http.put<ServiceResponse<User[]>>(this.auth_api + "Update", user)
+      .pipe(map((response: ServiceResponse<User[]>) => { return response.data; }));
   }
 }

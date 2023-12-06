@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { User } from '../models/user';
+import { ServiceResponse } from '../models/service-response';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<{ token: string, user: User, message: string }> {
-    return this.http.post<{ token: string, user: User, message: string }>(
+  login(username: string, password: string): Observable<User> {
+    return this.http.post<ServiceResponse<User>>(
       this.auth_api + 'Login',
       {
         username,
         password,
-      });
+      }).pipe(map((res: ServiceResponse<User>) => { return res.data }));
   }
 
   register(user: User): Observable<any> {

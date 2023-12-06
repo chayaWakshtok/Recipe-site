@@ -1,4 +1,5 @@
 ﻿using DAL.Models.DB;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,10 @@ namespace BL.Interfaces.Services
 {
     public interface IUserService
     {
-        Task<IList<User>> GetAll();
-        Task<User> GetOne(int id);
-        Task Update(User user);
-        Task Add(User user);
-        Task Delete(int id);
-        Task<User> GetByUserNameAndPassword(string username, string password);
+        Task<ServiceResponse<List<UserDTO>>> GetAll();
+        Task<ServiceResponse<List<UserDTO>>> Add(UserDTO userDTO);
+        Task<ServiceResponse<List<UserDTO>>> Delete(int id);
+        Task<ServiceResponse<UserDTO>> GetOne(int id);
+        Task<ServiceResponse<UserDTO>> Update(UserDTO userDTO);
     }
 }

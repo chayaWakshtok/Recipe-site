@@ -58,9 +58,8 @@ namespace Netcore.Controllers
             return Ok(response);
         }
 
-        [HttpDelete("{id}")]
-        [Route("Delete")]
-        public async Task<ActionResult<ServiceResponse<CategoryDTO>>> Delete(int id)
+        [HttpDelete("Delete/{id}")]
+        public async Task<ActionResult<ServiceResponse<List<CategoryDTO>>>> Delete(int id)
         {
             var response = await _categoryService.Delete(id);
             if (response.Data is null)

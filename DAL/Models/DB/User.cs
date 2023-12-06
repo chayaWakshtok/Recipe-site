@@ -16,13 +16,10 @@ public partial class User
     public DateTime? UpdateAt { get; set; }
 
     public string? Email { get; set; }
-
-    public string? Password { get; set; }
-
     public string? Picture { get; set; }
     public string? FirstName { get; set; }
-    public byte[] PasswordHash { get; set; }
-    public byte[] PasswordSalt { get; set; }
+    public byte[]? PasswordHash { get; set; }
+    public byte[]? PasswordSalt { get; set; }
 
     public int? RoleId { get; set; }
 

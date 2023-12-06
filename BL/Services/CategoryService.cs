@@ -38,6 +38,7 @@ namespace BL.Services
             try
             {
                 var cat = _mapper.Map<Category>(newcategory);
+                cat.Image = GlobalService.SaveImage(cat.Image);
                 _context.Categories.Add(cat);
                 await _context.SaveChangesAsync();
 
@@ -66,13 +67,25 @@ namespace BL.Services
                 if (cat is null)
                     throw new Exception($"Category with Id '{workId}' not found.");
 
+                if (string.IsNullOrEmpty(cat.Image))
+                    GlobalService.RemoveImage(cat.Image);
+
                 _context.Categories.Remove(cat);
 
                 await _context.SaveChangesAsync();
 
-                serviceResponse.Data =
-                    await _context.Categories
+                string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+
+                var dbCats = await _context.Categories
                         .Select(c => _mapper.Map<CategoryDTO>(c)).ToListAsync();
+
+                dbCats.ToList().ForEach(cat =>
+                {
+                    if (!string.IsNullOrEmpty(cat.Image))
+                        cat.Image = myHostUrl + cat.Image;
+                });
+
+                serviceResponse.Data = dbCats;
             }
             catch (Exception ex)
             {
@@ -142,10 +155,17 @@ namespace BL.Services
                 if (cat is null)
                     throw new Exception($"Category with Id '{categoryUpdate.Id}' not found.");
 
+                if (categoryUpdate.Image.Contains(";base64"))
+                {
+                    if (!string.IsNullOrEmpty(cat.Image))
+                        GlobalService.RemoveImage(cat.Image);
+                    cat.Image = GlobalService.SaveImage(categoryUpdate.Image);
+
+                }
+
                 cat.UpdateAt = DateTime.Now;
                 cat.Description = categoryUpdate.Description;
                 cat.Status = categoryUpdate.Status;
-                cat.Image = categoryUpdate.Image;
                 cat.Name = categoryUpdate.Name;
 
                 await _context.SaveChangesAsync();

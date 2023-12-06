@@ -21,7 +21,7 @@ namespace Netcore.Extensions
             // Configure DbContext with Scoped lifetime   
             services.AddDbContext<RecipesSiteContext>(options =>
             {
-                options.UseSqlServer("");
+                options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=RecipesSite;Integrated Security=true");
             }
             );
 
@@ -39,7 +39,7 @@ namespace Netcore.Extensions
         {
             return services.AddScoped<ICategoryService, CategoryService>()
                 .AddScoped<IAuthRepository, AuthRepository>()
-                //.AddScoped<IUserService, UserService>()
+                .AddScoped<IUserService, UserService>()
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }

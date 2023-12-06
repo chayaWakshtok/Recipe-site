@@ -51,7 +51,7 @@ export class UsersComponent {
       if (result.value) {
         this.userService.delete(id).subscribe(res => {
           if (res) {
-            this.getUsers();
+            this.users = res;
           }
           else {
             this.toastr.error('Fail to delete user', 'Fail delete!');

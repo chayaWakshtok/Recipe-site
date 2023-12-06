@@ -31,8 +31,7 @@ export class LoginAdminComponent implements OnInit {
     console.log(JSON.stringify({ user: this.username, password: this.password, captch: this.captcha }));
     this.authService.login(this.username, this.password).subscribe(res => {
       debugger;
-      if (res.user.roleId != ROLE.Admin)
-      {
+      if (res.roleId != ROLE.Admin) {
         this.errorLogin = "INCORRECT LOGIN DATA OR ACCESS DENIED";
         this.captchaCode = (Math.random()).toString(36).substr(2, 8);
       }
