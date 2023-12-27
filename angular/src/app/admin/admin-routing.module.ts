@@ -14,6 +14,7 @@ import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { EditDifficultComponent } from './edit-difficult/edit-difficult.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
       { path: "edit_category/:id", component: EditCategoryComponent },
       { path: "difficulties", component: DifficultiesComponent },
       { path: "new_difficult", component: AddDifficultComponent },
-      { path: "edit_difficult/:id", component: AddDifficultComponent },
+      { path: "edit_difficult/:id", component: EditDifficultComponent },
       { path: "users", component: UsersComponent },
       { path: "new_user", component: AddUserComponent },
       { path: "edit_user/:id", component: EditUserComponent },

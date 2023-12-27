@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { EditDifficultComponent } from './edit-difficult/edit-difficult.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
     AddDifficultComponent,
     EditUserComponent,
     EditRecipeComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    EditDifficultComponent
   ],
   exports: []
 })

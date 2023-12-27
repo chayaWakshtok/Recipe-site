@@ -1,0 +1,43 @@
+<section class="page-container">
+  <div class="page-content-wrapper">
+
+    <div class="content sm-gutter">
+      <div class="container-fluid padding-25 sm-padding-10">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title">
+              <h5>Edit</h5>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-block mb-4" *ngIf="difficulty">
+
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label class="required">Name</label>
+                    <input type="text" placeholder="" name="category_title" [(ngModel)]="difficulty.name"
+                      class="form-control" required="">
+                    <label>Status</label>
+
+                    <select class="custom-select form-control" name="category_status" [(ngModel)]="difficulty.status">
+                      <option value="1" selected="">Enabled</option>
+                      <option value="0">Disabled</option>
+                    </select>
+
+                    <hr>
+                    <button class="btn btn-primary" type="submit" name="save" style="margin-right:5px;"
+                      (click)="updateCat()">Update</button>
+                    <button class="btn btn-danger deleteItem" type="button" (click)="deleteCat()">Delete</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

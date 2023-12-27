@@ -39,6 +39,7 @@ namespace Netcore.Extensions
         {
             return services.AddScoped<ICategoryService, CategoryService>()
                 .AddScoped<IAuthRepository, AuthRepository>()
+                 .AddScoped<IDifficultyService, DifficultyService>()
                 .AddScoped<IUserService, UserService>()
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
