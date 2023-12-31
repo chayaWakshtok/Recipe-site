@@ -17,6 +17,9 @@ namespace BL.Profiles
             CreateMap<Difficulty, DifficultyDTO>().ReverseMap();
             CreateMap<User, UserDTO>().ReverseMap();
             CreateMap<Role, RoleDTO>().ReverseMap();
+            CreateMap<Recipe, RecipeDTO>().ReverseMap();
+            CreateMap<Ingredient, IngredientDTO>().ReverseMap();
+            CreateMap<Instruction, InstructionDTO>().ReverseMap();
         }
 
     }

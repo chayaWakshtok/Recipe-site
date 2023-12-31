@@ -43,18 +43,18 @@ namespace Entities
 
         public int? CategoryId { get; set; }
 
-        public virtual CategoryDTO? Category { get; set; }
+        public CategoryDTO? Category { get; set; }
 
-        public virtual DifficultyDTO? Difficulty { get; set; }
+        public DifficultyDTO? Difficulty { get; set; }
 
-        public virtual ICollection<FeedbackDTO> Feedbacks { get; set; } = new List<FeedbackDTO>();
+        public ICollection<FeedbackDTO> Feedbacks { get; set; } = new List<FeedbackDTO>();
 
-        //public virtual ICollection<Image> Images { get; set; } = new List<Image>();
+        public string? ImageUrl { get; set; }
 
-        //public virtual ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
-        //public virtual ICollection<Instruction> Instructions { get; set; } = new List<Instruction>();
+        public ICollection<IngredientDTO> Ingredients { get; set; } = new List<IngredientDTO>();
+        public ICollection<InstructionDTO> Instructions { get; set; } = new List<InstructionDTO>();
 
 
-        public virtual UserDTO? User { get; set; }
+        public UserDTO? User { get; set; }
     }
 }

@@ -38,6 +38,7 @@ public partial class Recipe
     public DateTime? UpdateAt { get; set; }
 
     public int? CategoryId { get; set; }
+    public string? ImageUrl { get; set; }
 
     public virtual Category? Category { get; set; }
 
@@ -45,10 +46,8 @@ public partial class Recipe
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
-    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
-
     public virtual ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
-    //public virtual ICollection<Instruction> Instructions { get; set; } = new List<Instruction>();
+    public virtual ICollection<Instruction> Instructions { get; set; } = new List<Instruction>();
 
     public virtual User? User { get; set; }
 }

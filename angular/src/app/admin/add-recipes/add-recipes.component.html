@@ -1,1 +1,186 @@
-<p>add-recipes works!</p>
+<section class="page-container">
+  <div class="page-content-wrapper">
+
+    <!--Main Content-->
+
+    <div class="content sm-gutter">
+      <div class="container-fluid padding-25 sm-padding-10">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title">
+              <h5>Add New</h5>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-block mb-4">
+
+              <form enctype="multipart/form-data" action="/realfood/admin/controller/new_recipe.php" method="post">
+
+                <div class="form-row">
+                  <div class="form-group col-md-9">
+                    <div class="block col-md-12">
+
+                      <input type="hidden" value="1" name="recipe_author">
+
+                      <label class="required">Title</label>
+                      <input type="text" placeholder="" name="recipe_title" class="form-control" required="">
+
+                      <label class="required">Description</label>
+                      <textarea type="text" class="mceNoEditor form-control" name="recipe_description"
+                        required=""></textarea>
+
+                      <label>Ingredients</label>
+                      <div id="ingredients">
+                        <div id="rowIng1">
+                          <div class="row small-margin-bottom">
+                            <div class="col-11"><input type="text" name="recipe_ingredients[]" placeholder="Enter Value"
+                                class=" form-control"></div>
+                            <div class="col-1 no-padding-left"><button type="button" name="add" id="addIng"
+                                class="btn btn-block btn-success"><i class="fa fa-plus"></i></button></div>
+                          </div>
+                        </div>
+                        <div id="rowIng2">
+                          <div class="row small-margin-bottom">
+                            <div class="col-md-11"><input type="text" name="recipe_ingredients[]"
+                                placeholder="Enter Value" class="form-control"></div>
+                            <div class="col-md-1 no-padding-left"><button type="button" name="remove" id="2"
+                                class="btn btn-block btn-danger remove_ing"><i class="fa fa-times"></i></button></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <label>Instructions</label>
+                      <div id="instructions">
+                        <div id="rowIns1">
+                          <div class="row small-margin-bottom">
+                            <div class="col-11"><input type="text" name="recipe_instructions[]"
+                                placeholder="Enter Value" class=" form-control"></div>
+                            <div class="col-1 no-padding-left"><button type="button" name="add" id="addIns"
+                                class="btn btn-block btn-success"><i class="fa fa-plus"></i></button></div>
+                          </div>
+                        </div>
+                        <div id="rowIns2">
+                          <div class="row small-margin-bottom">
+                            <div class="col-md-11"><input type="text" name="recipe_instructions[]"
+                                placeholder="Enter Value" class="form-control"></div>
+                            <div class="col-md-1 no-padding-left"><button type="button" name="remove" id="2"
+                                class="btn btn-block btn-danger remove_ins"><i class="fa fa-times"></i></button></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-6">
+                          <label class="required">Time</label>
+                          <input type="text" placeholder="Example: 60 Min." name="recipe_time" class="form-control"
+                            required="">
+                        </div>
+
+                        <div class="col-6">
+                          <label class="required">Servings</label>
+                          <input type="text" placeholder="" name="recipe_servings" class="form-control" required="">
+                        </div>
+
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-3">
+                          <label>Carbs</label>
+                          <input type="text" name="recipe_carbs" class="form-control">
+                        </div>
+
+                        <div class="col-3">
+                          <label>Protein</label>
+                          <input type="text" name="recipe_protein" class="form-control">
+                        </div>
+
+                        <div class="col-3">
+                          <label>Fat</label>
+                          <input type="text" name="recipe_fat" class="form-control">
+                        </div>
+
+                        <div class="col-3">
+                          <label>kCal</label>
+                          <input type="text" name="recipe_kcal" class="form-control">
+                        </div>
+
+                      </div>
+
+                      <label class="control-label required">Category</label>
+
+                      <select class="custom-select form-control" name="recipe_category" required="">
+                        <option value="8">Vegan</option>
+                        <option value="7">Breakfast</option>
+                        <option value="6">Burger</option>
+                        <option value="5">Pasta</option>
+                        <option value="4">Pizza</option>
+                        <option value="3">Smoothies</option>
+                        <option value="2">Desserts</option>
+                      </select>
+
+                      <label class="control-label required">Difficult</label>
+                      <select class="custom-select form-control" name="recipe_difficult" required="">
+                        <option value="1">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                      </select>
+
+                      <label>Video ID</label>
+                      <input type="text" placeholder="" name="recipe_video" class="form-control">
+
+                      <label class="control-label">Featured</label>
+                      <select class="custom-select form-control" name="recipe_featured">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                      </select>
+
+                      <label class="control-label">Show Nutrition Facts</label>
+                      <select class="custom-select form-control" name="recipe_facts">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                      </select>
+
+                      <br>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-3 sidebar">
+
+                    <div class="block col-md-12">
+                      <label>Status</label>
+
+                      <select class="custom-select form-control" name="recipe_status" required="">
+                        <option value="1" selected="">Enabled</option>
+                        <option value="2">Disabled</option>
+                        <option value="3">Pending</option>
+                      </select>
+
+                    </div>
+
+                    <div class="block col-md-12">
+                      <label class="required">Image</label>
+
+                      <div class="new-image" id="image-preview">
+                        <label for="image-upload" id="image-label">Choose File</label>
+                        <input type="file" name="recipe_image" id="image-upload" required="">
+                      </div>
+
+                      <span class="text-danger recomendedsize">Recommended Size: <b>650 x 350</b> </span>
+                      <br>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" name="save">Save Changes</button>
+
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

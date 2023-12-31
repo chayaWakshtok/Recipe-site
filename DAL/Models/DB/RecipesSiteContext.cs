@@ -23,8 +23,6 @@ public partial class RecipesSiteContext : DbContext
 
     public virtual DbSet<Follow> Follows { get; set; }
 
-    public virtual DbSet<Image> Images { get; set; }
-
     public virtual DbSet<Ingredient> Ingredients { get; set; }
 
     public virtual DbSet<Instruction> Instructions { get; set; }
@@ -82,15 +80,6 @@ public partial class RecipesSiteContext : DbContext
                 .HasConstraintName("FK_Follows_Users1");
         });
 
-        modelBuilder.Entity<Image>(entity =>
-        {
-            entity.Property(e => e.Image1).HasColumnName("Image");
-
-            entity.HasOne(d => d.Recipe).WithMany(p => p.Images)
-                .HasForeignKey(d => d.RecipeId)
-                .HasConstraintName("FK_Images_Recipes");
-        });
-
         modelBuilder.Entity<Ingredient>(entity =>
         {
             entity.Property(e => e.Name).HasMaxLength(50);
@@ -102,8 +91,6 @@ public partial class RecipesSiteContext : DbContext
 
         modelBuilder.Entity<Instruction>(entity =>
         {
-            entity.HasNoKey();
-
             entity.HasOne(d => d.Recipe).WithMany()
                 .HasForeignKey(d => d.RecipeId)
                 .HasConstraintName("FK_Instructions_Recipes");
