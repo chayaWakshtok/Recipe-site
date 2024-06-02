@@ -15,5 +15,6 @@ namespace BL.Interfaces.Services
         Task<ServiceResponse<List<UserDTO>>> Delete(int id);
         Task<ServiceResponse<UserDTO>> GetOne(int id);
         Task<ServiceResponse<UserDTO>> Update(UserDTO userDTO);
+        Task<ServiceResponse<UserDTO>> GetUserDetails(int id);
     }
 }

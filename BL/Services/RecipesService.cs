@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure;
 using BL.Interfaces;
 using DAL.Models.DB;
 using Entities;
@@ -27,27 +28,83 @@ namespace BL.Services
         public async Task<ServiceResponse<List<RecipeDTO>>> Add(RecipeDTO newrecipe)
         {
             var response = new ServiceResponse<List<RecipeDTO>>();
-            var recipeDB = _mapper.Map<Recipe>(newrecipe);
-            recipeDB.CreateAt = DateTime.Now;
-            recipeDB.UpdateAt = DateTime.Now;
-            recipeDB.Category = _context.Categories.FirstOrDefault(p => p.Id == recipeDB.CategoryId);
-            recipeDB.Difficulty = _context.Difficulties.FirstOrDefault(p => p.Id == recipeDB.DifficultyId);
-            recipeDB.User = _context.Users.FirstOrDefault(p => p.Id == recipeDB.UserId);
-            if (recipeDB.Instructions != null && recipeDB.Instructions.Count() > 0)
+
+            try
             {
-                for (int i = 0; i < recipeDB.Instructions.Count(); i++)
+                var recipeDB = _mapper.Map<Recipe>(newrecipe);
+                recipeDB.CreateAt = DateTime.Now;
+                recipeDB.UpdateAt = DateTime.Now;
+                recipeDB.ImageUrl = GlobalService.SaveImage(newrecipe.ImageUrl, "recipe");
+
+                recipeDB.Category = null;
+                recipeDB.Difficulty = null;
+                recipeDB.User = null;
+
+                if (recipeDB.Instructions != null && recipeDB.Instructions.Count() > 0)
                 {
-                    recipeDB.Instructions.ToArray()[i].Step = i + 1;
+                    for (int i = 0; i < recipeDB.Instructions.Count(); i++)
+                    {
+                        recipeDB.Instructions.ToArray()[i].Step = i + 1;
+                        //var instruction = _mapper.Map<Instruction>(newrecipe.Instructions.ToArray()[i]);
+                        //instruction.RecipeId = recipeDB.Id;
+                        //_context.Instructions.Add(instruction);
+                        //_context.SaveChanges();
+                    }
                 }
+
+
+
+                if (recipeDB.Ingredients != null && recipeDB.Ingredients.Count() > 0)
+                {
+
+                    foreach (var item in recipeDB.Ingredients)
+                    {
+                        if (item.Product.Id > 0)
+                        {
+                            item.ProductId = item.Product.Id;
+                            item.Product = null;
+                            //item.Product = _context.Products.FirstOrDefault(p => p.Id == item.Product.Id);
+
+                        }
+                        else
+                        {
+                            var newProduct = new Product() { Name = item.Product.Name };
+                            _context.Products.Add(newProduct);
+                            _context.SaveChanges();
+                            item.ProductId = _context.Products.FirstOrDefault(p => p.Id == newProduct.Id).Id;
+                            item.Product = null;
+                            //item.Product = _context.Products.FirstOrDefault(p => p.Id == newProduct.Id);
+                        }
+
+                        //var prodDB = _mapper.Map<Ingredient>(item);
+                        //prodDB.RecipeId = recipeDB.Id;
+                        //prodDB.Recipe = null;
+                        //_context.Ingredients.Add(prodDB);
+                        //_context.SaveChanges();
+                    }
+                }
+
+
+                _context.Recipes.Add(recipeDB);
+                await _context.SaveChangesAsync();
+
+
+
+                response.Data =
+                    await _context.Recipes
+                        .Select(c => _mapper.Map<RecipeDTO>(c)).ToListAsync();
+                return response;
+            }
+            catch (Exception ex)
+            {
+
+                response.Success = false;
+                response.Message = ex.Message;
             }
 
-            _context.Recipes.Add(recipeDB);
-            await _context.SaveChangesAsync();
-
-            response.Data =
-                await _context.Recipes
-                    .Select(c => _mapper.Map<RecipeDTO>(c)).ToListAsync();
             return response;
+
+
         }
 
         public async Task<ServiceResponse<List<RecipeDTO>>> Delete(int workId)
@@ -55,7 +112,7 @@ namespace BL.Services
             var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
             try
             {
-                var cat = await _context.Recipes.Include(p => p.Ingredients).Include(p => p.Instructions)
+                var cat = await _context.Recipes.Include(p => p.Ingredients).Include(p => p.Instructions).Include(p => p.Likes)
                     .Include(p => p.Feedbacks)
                     .FirstOrDefaultAsync(c => c.Id == workId);
                 if (cat is null)
@@ -77,10 +134,52 @@ namespace BL.Services
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<List<RecipeDTO>>> GetLaster()
+        {
+            var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
+            var recipes = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p => p.Product).Include(p => p.Instructions).Include(p => p.Likes)
+                .Include(p => p.User).Include(p=>p.Category)
+                    .Include(p => p.Feedbacks).OrderByDescending(p=>p.CreateAt).Take(9)
+                .ToListAsync();
+
+            //string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+
+            //recipes.ToList().ForEach(cat =>
+            //{
+            //    if (!string.IsNullOrEmpty(cat.ImageUrl))
+            //        cat.ImageUrl = myHostUrl + cat.ImageUrl;
+            //});
+
+            serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
+            return serviceResponse;
+        }
+
         public async Task<ServiceResponse<List<RecipeDTO>>> GetAll()
         {
             var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
-            var recipes = await _context.Recipes
+            var recipes = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p=>p.Product).Include(p => p.Instructions).Include(p => p.Likes)
+                .Include(p=>p.User)
+                    .Include(p => p.Feedbacks)
+                .ToListAsync();
+
+            string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+
+            recipes.ToList().ForEach(cat =>
+            {
+                if (!string.IsNullOrEmpty(cat.ImageUrl))
+                    cat.ImageUrl = myHostUrl + cat.ImageUrl;
+            });
+
+            serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<RecipeDTO>>> GetAllByUser(int userId)
+        {
+            var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
+            var recipes = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p => p.Product).Include(p => p.Instructions).Include(p => p.Likes)
+                .Include(p => p.User)
+                    .Include(p => p.Feedbacks).Where(p=>p.UserId==userId)
                 .ToListAsync();
 
             string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
@@ -100,7 +199,9 @@ namespace BL.Services
             var serviceResponse = new ServiceResponse<RecipeDTO>();
             try
             {
-                var dbRecipe = await _context.Recipes
+                var dbRecipe = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p => p.Product).Include(p => p.Instructions).Include(p => p.Likes)
+                .Include(p => p.User)
+                    .Include(p => p.Feedbacks)
                               .FirstOrDefaultAsync(c => c.Id == id);
 
                 if (dbRecipe is null)
@@ -128,13 +229,22 @@ namespace BL.Services
             try
             {
                 var cat =
-                    await _context.Recipes
+                    await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p => p.Product).Include(p => p.Instructions)
+                .Include(p => p.User)
+                    .Include(p => p.Feedbacks)
                         .FirstOrDefaultAsync(c => c.Id == recUpdate.Id);
                 if (cat is null)
                     throw new Exception($"Recipe with Id '{recUpdate.Id}' not found.");
 
                 cat.UpdateAt = DateTime.Now;
                 cat.ImageUrl = recUpdate.ImageUrl;
+                if (recUpdate.ImageUrl.Contains(";base64"))
+                {
+                    if (!string.IsNullOrEmpty(cat.ImageUrl))
+                        GlobalService.RemoveImage(cat.ImageUrl);
+                    cat.ImageUrl = GlobalService.SaveImage(recUpdate.ImageUrl, "category");
+
+                }
                 cat.Status = recUpdate.Status;
                 cat.Carbs = recUpdate.Carbs;
                 cat.VideoUrl = recUpdate.VideoUrl;
@@ -180,6 +290,30 @@ namespace BL.Services
                 }
 
 
+                var addInIngredients = recUpdate.Ingredients?.Where(p => p.Id == 0).ToList();
+
+                var intDBIngredients = cat.Ingredients.ToList();
+
+                cat.Ingredients = cat.Ingredients.Where(p => recUpdate.Ingredients?.Any(pp => pp.Id == p.Id) == true).ToList();
+
+
+                for (int i = 0; i < cat.Ingredients.Count(); i++)
+                {
+                    var up = recUpdate.Ingredients?.First(p => p.Id == intDB[i].Id);
+                    //intDBIngredients[i].Product.Name = up.Product.Name;
+                    intDBIngredients[i].Count = up.Count;
+                    intDBIngredients[i].TypeCount = up.TypeCount;
+                }
+
+
+                if (addInIngredients?.Count() > 0)
+                {
+                    addInIngredients.ForEach(p =>
+                    {
+                        cat.Ingredients.Add(new Ingredient() { Count = p.Count, Product = _context.Products.First(pp => pp.Id == p.ProductId), TypeCount = p.TypeCount });
+                    });
+                }
+
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = _mapper.Map<RecipeDTO>(cat);
             }
@@ -189,6 +323,56 @@ namespace BL.Services
                 serviceResponse.Message = ex.Message;
             }
 
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<RecipeDTO>>> GetAllByUserAndLikes(int userId)
+        {
+            var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
+            var recipes = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p => p.Product).Include(p => p.Instructions)
+                .Include(p => p.User).Include(p=>p.Likes)
+                    .Include(p => p.Feedbacks).Where(p => p.UserId == userId)
+                .ToListAsync();
+
+            //string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+
+            //recipes.ToList().ForEach(cat =>
+            //{
+            //    if (!string.IsNullOrEmpty(cat.ImageUrl))
+            //        cat.ImageUrl = myHostUrl + cat.ImageUrl;
+            //});
+
+            serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<RecipeDTO>>> MostLiked()
+        {
+            var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
+            var recipes = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p => p.Product).Include(p => p.Instructions).Include(p => p.Likes)
+                .Include(p => p.User).Include(p => p.Category)
+                    .Include(p => p.Feedbacks).OrderByDescending(p => p.Likes.Count).Take(6)
+                .ToListAsync();
+
+            //string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+
+            //recipes.ToList().ForEach(cat =>
+            //{
+            //    if (!string.IsNullOrEmpty(cat.ImageUrl))
+            //        cat.ImageUrl = myHostUrl + cat.ImageUrl;
+            //});
+
+            serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<RecipeDTO>>> GetRecipesLikes(int userId)
+        {
+            var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
+            var recipes = await _context.Likes.Where(p=>p.UserId==userId).Include(p=>p.Recipe).Select(p=>p.Recipe)
+                .ToListAsync();
+
+            serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
             return serviceResponse;
         }
     }

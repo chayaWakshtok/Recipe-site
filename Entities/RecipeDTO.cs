@@ -31,8 +31,6 @@ namespace Entities
 
         public int? UserId { get; set; }
 
-        public int? Likes { get; set; }
-
         public int? DifficultyId { get; set; }
 
         public int? Status { get; set; }
@@ -53,8 +51,10 @@ namespace Entities
 
         public ICollection<IngredientDTO> Ingredients { get; set; } = new List<IngredientDTO>();
         public ICollection<InstructionDTO> Instructions { get; set; } = new List<InstructionDTO>();
+        public ICollection<LikesDTO> Likes { get; set; } = new List<LikesDTO>();
 
 
         public UserDTO? User { get; set; }
+        public int CountLikes { get; set; } 
     }
 }

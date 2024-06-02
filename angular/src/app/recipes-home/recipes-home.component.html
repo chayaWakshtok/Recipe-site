@@ -1,0 +1,182 @@
+<div class="page-title uk-section uk-section-small uk-section-default">
+  <div class="uk-container">
+    <h3 class="uk-heading-line uk-text-center uk-text-left@m"><span>Recipes</span></h3>
+  </div>
+</div>
+<div class="uk-container">
+  <div class="uk-grid-large uk-grid uk-grid-stack" uk-grid="">
+    <div class="uk-width-expand@m uk-first-column">
+      <div class="uk-grid-medium uk-grid" uk-grid="">
+        <div class="uk-width-auto uk-width-expand@s uk-flex uk-flex-middle uk-first-column">
+          <div class="tas-listing-title">
+            <h5 class="uk-margin-remove">9 Total Recipes</h5>
+          </div>
+        </div>
+        <div class="uk-width-expand uk-width-1-2@s uk-width-1-4@l">
+          <div class="uk-grid-small uk-grid" uk-grid="">
+            <div class="uk-width-expand uk-first-column">
+              <select class="tas-order-by nc-select wide uk-form-large uk-border-rounded" id="sortby"
+                style="display: none;">
+                <option value="default">Default</option>
+                <option value="date-desc">Date New to Old</option>
+                <option value="date-asc">Date Old to New</option>
+                <option value="best-rated">Best Rated</option>
+              </select>
+              <div class="nice-select tas-order-by nc-select wide uk-form-large uk-border-rounded" tabindex="0"><span
+                  class="current">Default</span>
+                <ul class="list">
+                  <li data-value="default" class="option selected">Default</li>
+                  <li data-value="date-desc" class="option">Date New to Old</li>
+                  <li data-value="date-asc" class="option">Date Old to New</li>
+                  <li data-value="best-rated" class="option">Best Rated</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="uk-width-auto">
+
+              <a class="uk-button uk-button-primary uk-border-rounded uk-form-large" type="button"
+                uk-toggle="target: #search-form; animation: uk-animation-fade" aria-expanded="false">
+                <i class="ti ti-chevron-down uk-padding-small"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="uk-width-1-1" id="search-form" hidden="">
+          <form class="uk-grid-small uk-grid uk-grid-stack" method="get"
+            action="https://demos.wicombit.com/realfood/search" id="searchForm" uk-grid="">
+            <div class="uk-width-1-1 uk-width-expand@s">
+              <input class="uk-input uk-form-large uk-border-rounded uk-width-1-1" name="query" value=""
+                placeholder="Find a recipe..." type="text">
+            </div>
+            <div class="uk-width-1-1 uk-width-expand@s">
+              <select class="nc-select wide uk-form-large uk-border-rounded" name="category" style="display: none;">
+                <option selected="" value=""> Any </option>
+                <option value="2">Desserts</option>
+                <option value="3">Smoothies</option>
+                <option value="4">Pizza</option>
+                <option value="5">Pasta</option>
+                <option value="6">Burger</option>
+                <option value="7">Breakfast</option>
+                <option value="8">Vegan</option>
+              </select>
+              <div class="nice-select nc-select wide uk-form-large uk-border-rounded" tabindex="0"><span
+                  class="current"> Any </span>
+                <ul class="list">
+                  <li data-value="" class="option selected"> Any </li>
+                  <li data-value="2" class="option">Desserts</li>
+                  <li data-value="3" class="option">Smoothies</li>
+                  <li data-value="4" class="option">Pizza</li>
+                  <li data-value="5" class="option">Pasta</li>
+                  <li data-value="6" class="option">Burger</li>
+                  <li data-value="7" class="option">Breakfast</li>
+                  <li data-value="8" class="option">Vegan</li>
+                </ul>
+              </div>
+            </div>
+            <div class="uk-width-1-1 uk-width-auto@s">
+              <button class="uk-button uk-button-large uk-button-default uk-border-rounded uk-width-1-1" value="Search"
+                type="submit">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div
+        class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-2@m uk-child-width-1-3@l uk-grid"
+        uk-grid="" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 100">
+        <div class="tas_card_1 uk-first-column uk-scrollspy-inview uk-animation-fade" style="">
+
+          <div class="uk-card uk-card-default uk-border-rounded">
+            <a href="https://demos.wicombit.com/realfood/recipe/1/mighty-super-cheesecake">
+              <div class="uk-card-media-top uk-cover-container">
+                <img src="https://demos.wicombit.com/realfood/images/recipe_1618205715.jpg"
+                  alt="Mighty Super Cheesecake" uk-cover="" class="uk-cover" style="height: 281px; width: 374px;">
+                <canvas width="600" height="300"></canvas>
+              </div>
+            </a>
+            <div class="uk-card-body">
+              <div class="uk-card-badge uk-label">Desserts</div>
+
+              <div class="tas_rating">
+                <img src="https://demos.wicombit.com/realfood/assets/img/like.svg"><span>18</span>
+              </div>
+
+              <a class="uk-card-title"
+                href="https://demos.wicombit.com/realfood/recipe/1/mighty-super-cheesecake">Mighty Super Cheesecake</a>
+
+              <ul class="uk-subnav" uk-margin="">
+                <li class="uk-first-column"><span><i class="tas_icon ti ti-users"></i> 4 Serv.</span></li>
+                <li><span><i class="tas_icon ti ti-clock"></i> 45 Min</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tas_card_1 uk-scrollspy-inview uk-animation-fade" style="">
+
+          <div class="uk-card uk-card-default uk-border-rounded">
+            <a
+              href="https://demos.wicombit.com/realfood/recipe/2/broad-beans-tomato-garlic-mozzarella-cheese-bruschetta">
+              <div class="uk-card-media-top uk-cover-container">
+                <img src="https://demos.wicombit.com/realfood/images/recipe_1620056120.jpg"
+                  alt="Mozzarella Cheese Bruschetta" uk-cover="" class="uk-cover" style="height: 249px; width: 374px;">
+                <canvas width="600" height="300"></canvas>
+              </div>
+            </a>
+            <div class="uk-card-body">
+              <div class="uk-card-badge uk-label">Pasta</div>
+
+              <div class="tas_rating">
+                <img src="https://demos.wicombit.com/realfood/assets/img/like.svg"><span>6</span>
+              </div>
+
+              <a class="uk-card-title"
+                href="https://demos.wicombit.com/realfood/recipe/2/broad-beans-tomato-garlic-mozzarella-cheese-bruschetta">Mozzarella
+                Cheese Bruschetta</a>
+
+              <ul class="uk-subnav" uk-margin="">
+                <li class="uk-first-column"><span><i class="tas_icon ti ti-users"></i> 2 Serv.</span></li>
+                <li><span><i class="tas_icon ti ti-clock"></i> 5 Min</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tas_card_1 uk-scrollspy-inview uk-animation-fade" style="">
+
+          <div class="uk-card uk-card-default uk-border-rounded">
+            <a href="https://demos.wicombit.com/realfood/recipe/3/spinach-and-cheese-pasta">
+              <div class="uk-card-media-top uk-cover-container">
+                <img src="https://demos.wicombit.com/realfood/images/recipe_1619359174.jpg"
+                  alt="Spinach and Cheese Pasta" uk-cover="" class="uk-cover" style="height: 259px; width: 374px;">
+                <canvas width="600" height="300"></canvas>
+              </div>
+            </a>
+            <div class="uk-card-body">
+              <div class="uk-card-badge uk-label">Vegan</div>
+
+              <div class="tas_rating">
+                <img src="https://demos.wicombit.com/realfood/assets/img/like.svg"><span>6</span>
+              </div>
+
+              <a class="uk-card-title"
+                href="https://demos.wicombit.com/realfood/recipe/3/spinach-and-cheese-pasta">Spinach and Cheese
+                Pasta</a>
+
+              <ul class="uk-subnav" uk-margin="">
+                <li class="uk-first-column"><span><i class="tas_icon ti ti-users"></i> 4 Serv.</span></li>
+                <li><span><i class="tas_icon ti ti-clock"></i> 15 Min</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin-large-top"></div>
+      <p class="uk-text-small uk-text-muted">Page 1 - 1</p>
+      <hr>
+      <div class="tas-pagination uk-margin-top">
+        <ul class="uk-pagination uk-flex-center" uk-margin="">
+          <li class="uk-active uk-first-column"><span>1</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

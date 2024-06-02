@@ -14,4 +14,5 @@ C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\DAL.genruntimeco
 C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\ref\DAL.dll
 C:\Users\User\Documents\GitHub\Recipe-site\DAL\bin\Debug\net6.0\Entities.dll
 C:\Users\User\Documents\GitHub\Recipe-site\DAL\bin\Debug\net6.0\Entities.pdb
-C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\DAL.sourcelink.json
+C:\Users\User\Documents\GitHub\Recipe-site\DAL\obj\Debug\net6.0\DAL.csproj.Up2Date

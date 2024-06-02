@@ -1,3 +1,4 @@
+import { Like } from "./like";
 import { Role } from "./role";
 
 export class User {
@@ -13,4 +14,11 @@ export class User {
   firstName: string | undefined;
   role: Role = new Role();
   token: string | undefined;
+  aboutMe:string | undefined;
+  likes: Like[] = [];
+  countRecipe: number = 0;
+  countLikes: number = 0;
+  countFollowFromUser: number = 0;
+  countFollowToUser: number = 0;
+
 }

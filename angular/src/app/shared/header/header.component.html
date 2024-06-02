@@ -1,1 +1,60 @@
-<p>header works!</p>
+<div class="uk-section-primary uk-visible@m">
+  <div class="uk-container">
+    <div class="tas_top_nav uk-padding-small">
+      <div class="uk-container">
+        <nav class="uk-navbar-container uk-navbar-transparent uk-navbar" uk-navbar="">
+          <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo">
+              <img src="../../assets/logo-home.png">
+            </a>
+          </div>
+          <div class="uk-navbar-center">
+            <ul class="uk-navbar-nav">
+              <li><a href="javascript:void(1)" routerLink="/home" target="_self">Home</a></li>
+              <li><a href="javascript:void(1)" routerLink="/recipes" target="_self">Recipes</a></li>
+              <li><a href="javascript:void(1)" routerLink="/search" target="_self">Search</a></li>
+              <li><a href="javascript:void(1)" routerLink="/members" target="_self">Members</a></li>
+            </ul>
+          </div>
+          <div class="uk-navbar-right">
+
+            <div class="uk-grid-small uk-flex-middle uk-grid" *ngIf="isLogin" uk-grid="">
+              <div class="uk-width-auto uk-first-column">
+                <div class="uk-cover-container uk-border-circle">
+                  <img [src]="user.picture" uk-cover="" class="uk-cover" style="height: 50px; width: 50px;">
+                  <canvas width="50" height="50"></canvas>
+                </div>
+              </div>
+              <div class="uk-width-expand">
+                <h5 class="uk-margin-remove-bottom uk-text-bold">{{user.username}}</h5>
+                <p class="uk-comment-meta uk-margin-remove-top"><a
+                    [routerLink]="['/users/profile']">View Profile</a></p>
+              </div>
+            </div>
+
+            <a class="uk-button uk-button-default uk-text-truncate uk-border-pill" *ngIf="!isLogin" (click)="goTo()">
+              <i class="ti ti-plus"></i> Create Recipe </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="tas_mobile_nav uk-navbar-container uk-padding uk-hidden@m uk-navbar" uk-navbar="">
+  <div class="uk-navbar-left">
+    <a class="uk-button uk-button-link tas_button" href="#sidemenu" uk-toggle="" aria-expanded="false">
+      <i class="ti ti-align-justified"></i>
+    </a>
+  </div>
+  <div class="uk-navbar-center">
+    <a class="uk-navbar-item uk-logo" href="https://wicombit.com/demo/realfood">
+      <img src="https://wicombit.com/demo/realfood/images/1618276318.png">
+    </a>
+  </div>
+  <div class="uk-navbar-right">
+    <a class="uk-button uk-button-link tas_button" href="https://wicombit.com/demo/realfood/search">
+      <i class="ti ti-search"></i>
+    </a>
+  </div>
+</nav>

@@ -43,7 +43,7 @@ body{
  body {
   font-size: 14px;
   font-family: 'Roboto', Tahoma !important;
-  background: #f3f5f7;
+  background: white;
   overflow-x: hidden !important;
   height: 100%;
 }
@@ -512,8 +512,10 @@ a,button,select,.form-control{
   }
   .user-div .dropdown-item:focus,.dropdown-item:active,.dropdown-item.active{
     color: #fff !important;
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
+    background: #d0d4db !important;
   }
+
 
   #email-availability-status{
     display: block !important;

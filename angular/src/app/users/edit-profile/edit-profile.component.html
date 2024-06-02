@@ -1,0 +1,56 @@
+<div class="uk-width-expand" style="width: 44vw;">
+  <h4 class="uk-heading-line"><span>Edit Profile</span></h4>
+  <div class="update-profile">
+    <form class="uk-child-width-1-1 uk-child-width-1-1@s uk-margin-medium-top uk-grid uk-grid-stack" uk-grid="">
+      <div class="uk-first-column">
+        <label class="uk-form-label" for="form-stacked-text">First Name</label>
+        <div class="uk-form-controls">
+          <input class="uk-input uk-border-rounded" type="text" id="user_name" name="user_name" [(ngModel)]="user.firstName">
+        </div>
+      </div>
+
+      <div class="uk-grid-margin uk-first-column">
+        <label class="uk-form-label" for="form-stacked-text">New Password</label>
+        <div class="uk-form-controls">
+          <input class="uk-input uk-border-rounded" id="user_password" name="user_password" [(ngModel)]="user.password" type="password">
+        </div>
+      </div>
+      <div class="uk-grid-margin uk-first-column">
+        <label class="uk-form-label" for="form-stacked-text">Confirm Password</label>
+        <div class="uk-form-controls">
+          <input class="uk-input uk-border-rounded" id="user_confirm_password" name="user_confirm_password"
+            type="password">
+        </div>
+      </div>
+      <div class="uk-grid-margin uk-first-column">
+        <label class="uk-form-label" for="form-stacked-text">About Me</label>
+        <div class="uk-form-controls">
+          <textarea class="uk-textarea uk-border-rounded uk-padding-small" rows="5" maxlength="255"
+            id="user_description" name="user_description" [(ngModel)]="user.aboutMe"></textarea>
+        </div>
+      </div>
+      <div class="uk-width-1-1 uk-grid-margin uk-first-column">
+        <label class="uk-form-label" for="form-stacked-text">Avatar</label>
+        <div class="new-image" id="image-preview"
+          style="height: 200px; width: 200px;margin-top: 5px;"
+          [ngStyle]="{'background-image': 'url(' + imageSrc + ')'}">
+          <label for="image-upload" id="image-label">Choose Image</label>
+          <input type="file" id="image-upload" name="user_avatar"  (change)="uploadImage($event)">
+        </div>
+      </div>
+      <div class="uk-width-1-1 uk-grid-margin uk-first-column">
+        <hr>
+        <button class="uk-button uk-button-primary uk-border-rounded" value="Save Changes" type="submit"
+          id="submit-send" (click)="save()">Save Changes</button>
+        <a class="uk-button uk-button-default uk-border-rounded" onclick="window.history.back();"
+          style="margin-left: 5px;">Cancel</a>
+        <div id="showresults" *ngIf="message"><br>
+          <div *ngIf="!error" class="tas-notify tas-notify-success uk-text-small uk-border-rounded uk-margin-remove uk-padding-small">
+           {{message}}</div>
+           <div *ngIf="error" class="tas-notify tas-notify-error uk-text-small uk-border-rounded uk-margin-remove uk-padding-small">
+            {{message}}</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

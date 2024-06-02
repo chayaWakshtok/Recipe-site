@@ -14,6 +14,7 @@ C:\Users\User\Documents\GitHub\Recipe-site\BL\obj\Debug\net6.0\BL.genruntimeconf
 C:\Users\User\Documents\GitHub\Recipe-site\BL\obj\Debug\net6.0\ref\BL.dll
 C:\Users\User\Documents\GitHub\Recipe-site\BL\bin\Debug\net6.0\DAL.dll
 C:\Users\User\Documents\GitHub\Recipe-site\BL\bin\Debug\net6.0\DAL.pdb
-C:\Users\User\Documents\GitHub\Recipe-site\BL\obj\Debug\net6.0\BL.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\Recipe-site\BL\bin\Debug\net6.0\Entities.dll
 C:\Users\User\Documents\GitHub\Recipe-site\BL\bin\Debug\net6.0\Entities.pdb
+C:\Users\User\Documents\GitHub\Recipe-site\BL\obj\Debug\net6.0\BL.sourcelink.json
+C:\Users\User\Documents\GitHub\Recipe-site\BL\obj\Debug\net6.0\BL.csproj.Up2Date

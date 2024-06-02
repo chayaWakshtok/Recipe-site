@@ -19,9 +19,22 @@ namespace Entities
         public string? Picture { get; set; }
 
         public int? RoleId { get; set; }
+
         public RoleDTO? Role { get; set; }
+
         public string? FirstName { get; set; }
+
         public string? Token { get; set; }
+        public string? AboutMe { get; set; }
+
+        public ICollection<LikesDTO> Likes { get; set; } = new List<LikesDTO>();
+
+        public int CountRecipe { get; set; }
+
+        public int CountLikes { get; set; }
+        public int CountFollowFromUser { get; set; }
+        public int CountFollowToUser { get; set; }
+
 
     }
 }

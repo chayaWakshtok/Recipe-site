@@ -22,6 +22,7 @@ namespace Netcore.Extensions
             services.AddDbContext<RecipesSiteContext>(options =>
             {
                 options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=RecipesSite;Integrated Security=true");
+                //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             }
             );
 
@@ -41,6 +42,10 @@ namespace Netcore.Extensions
                 .AddScoped<IAuthRepository, AuthRepository>()
                  .AddScoped<IDifficultyService, DifficultyService>()
                 .AddScoped<IUserService, UserService>()
+                .AddScoped<IRecipeService, RecipesService>()
+                 .AddScoped<IProductService, ProductService>()
+                 .AddScoped<IlikeService, LikeService>()
+                  .AddScoped<IFollowService, FollowService>()
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }

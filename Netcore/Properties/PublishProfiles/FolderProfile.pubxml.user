@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\User\Documents\GitHub\Recipe-site\Netcore\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2023-10-18T12:21:55.0443021Z;</History>
+    <History>True|2024-05-14T14:37:30.9085983Z;False|2024-05-14T17:22:15.4565807+03:00;False|2024-05-14T17:20:41.0343534+03:00;False|2024-05-14T17:20:22.1585545+03:00;True|2024-05-14T17:13:18.9867256+03:00;True|2023-10-18T15:21:55.0443021+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

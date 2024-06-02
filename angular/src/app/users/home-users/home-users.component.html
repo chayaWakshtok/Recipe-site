@@ -1,0 +1,76 @@
+<div class="page-title uk-section uk-section-small uk-section-default">
+  <div class="uk-container">
+    <h3 class="uk-heading-line uk-text-center uk-text-left@m"><span>Profile</span></h3>
+  </div>
+</div>
+<div class="uk-container" *ngIf="user">
+  <div class="uk-grid-medium uk-grid" uk-grid="">
+    <div class="uk-width-1-3@s uk-width-1-4@m uk-first-column">
+      <div class="profile uk-box-shadow-small uk-border-rounded uk-padding">
+        <div class="uk-block uk-margin-remove uk-text-center">
+          <div class="uk-inline uk-margin">
+            <div class="uk-cover-container uk-border-pill uk-box-shadow-small">
+              <a [routerLink]="['/user/'+user.id]"><img [src]="user.picture" [alt]="user.firstName" uk-cover=""
+                  class="uk-cover" style="height: 150px; width: 150px;">
+              </a>
+              <canvas width="150" height="150"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="uk-margin uk-margin-remove-top uk-text-center">
+          <div class="uk-flex uk-flex-middle uk-flex-center">
+            <a [routerLink]="['/user/'+user.id]" class="uk-link-reset">
+              <p class="uk-text-bold uk-margin-remove">{{user.firstName}}</p>
+            </a>
+          </div>
+
+          <p class="uk-text-muted uk-text-small uk-margin-remove">{{user.email}}</p>
+        </div>
+
+        <div
+          class="uk-grid-divider uk-flex uk-flex-center uk-text-center uk-grid-small uk-margin-small-top uk-margin-bottom uk-grid"
+          uk-grid="">
+
+          <div class="uk-first-column">
+            <h5 class="uk-margin-remove">Following</h5>
+            <a routerLink="/users/following" class="uk-margin-remove uk-link-muted">{{user.countFollowFromUser}}</a>
+          </div>
+
+          <div>
+            <h5 class="uk-margin-remove">Followers</h5>
+            <a routerLink="/users/followers" class="uk-margin-remove uk-link-muted">{{user.countFollowToUser}}</a>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <ul class="uk-list">
+          <li><a class="uk-link-muted" routerLink="/users/edit-profile"><span class="uk-margin-small-right uk-icon"
+                uk-icon="icon: file-edit"><svg width="20" height="20" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                </svg></span> Edit Profile</a></li>
+          <li><a class="uk-link-muted" routerLink="/users/favorites"><span class="uk-margin-small-right uk-icon"
+                uk-icon="icon: heart"><svg width="20" height="20" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                </svg></span> My Favorites</a></li>
+          <li><a class="uk-link-muted" routerLink="/users/my-recipes"><span class="uk-margin-small-right uk-icon"
+                uk-icon="icon: album"><svg width="20" height="20" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                </svg></span> My Recipes</a></li>
+          <li><a class="uk-link-muted" routerLink="/users/submit-recipe">
+              <span class="uk-margin-small-right uk-icon" uk-icon="icon: plus-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                </svg>
+              </span> Submit Recipe</a></li>
+        </ul>
+        <hr>
+        <a class="uk-button uk-button-secondary uk-text-truncate uk-border-rounded uk-width-1-1"
+          (click)="signOut()"><i class="fas fa-lock uk-margin-small-right"></i> Sign Out
+        </a>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -29,7 +29,7 @@ export class EditDifficultComponent {
     }
   }
 
-  deleteCat() {
+  deleteDifficulty() {
     Swal.fire({
       title: 'Are you sure?',
       text: 'You will not be able to recover this item!',

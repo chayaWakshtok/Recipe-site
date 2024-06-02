@@ -1,28 +1,27 @@
-<div class="uk-card uk-card-default uk-border-rounded">
-  <a href="https://wicombit.com/demo/realfood/recipe/1/mighty-super-cheesecake">
+<div class="uk-card uk-card-default uk-border-rounded" *ngIf="recipe">
+  <a (click)="goToDetails(recipe.id)" href="javascript:void(1)">
     <div class="uk-card-media-top uk-cover-container">
-      <img src="../../assets/recipe_1618205715.jpg" alt="Mighty Super Cheesecake" uk-cover="" class="uk-cover"
+      <img [src]="recipe.imageUrl" [alt]="recipe.title" uk-cover="" class="uk-cover"
         style="height: 281px; width: 374px;">
       <canvas width="600" height="300"></canvas>
     </div>
   </a>
   <div class="uk-card-body">
-    <div class="uk-card-badge uk-label">Desserts</div>
+    <div class="uk-card-badge uk-label">{{recipe.category?.name}}</div>
 
     <div class="tas_rating">
-      <img src="../../../assets/like.svg"><span>15</span>
+      <img src="../../../assets/like.svg"><span>{{recipe.countLikes}}</span>
     </div>
 
-    <a class="uk-card-title" href="https://wicombit.com/demo/realfood/recipe/1/mighty-super-cheesecake">Mighty
-      Super Cheesecake</a>
+    <a class="uk-card-title" (click)="goToDetails(recipe.id)" href="javascript:void(1)">{{recipe.title}}</a>
 
     <ul class="uk-subnav" uk-margin="">
       <li class="uk-first-column"><span>
           <i-tabler name="users"></i-tabler>
-          4 Serv.</span></li>
+          {{recipe.servings}} Serv.</span></li>
       <li><span>
           <i-tabler name="clock"></i-tabler>
-          45 Min</span></li>
+          {{recipe.prepTime}} Min</span></li>
     </ul>
   </div>
 
@@ -32,7 +31,7 @@
 
         <a href="https://wicombit.com/demo/realfood/user/1">
           <div class="uk-cover-container uk-border-circle">
-            <img src="../../../assets/1621537827.jpg" uk-cover="" class="uk-cover" style="height: 40px; width: 40px;">
+            <img [src]="recipe.user.picture" uk-cover="" class="uk-cover" style="height: 40px; width: 40px;">
             <canvas width="40" height="40"></canvas>
           </div>
         </a>
@@ -40,11 +39,11 @@
       </div>
       <div class="uk-width-expand">
         <h5 class="uk-margin-remove-bottom uk-flex uk-flex-middle"> <a class="uk-link-muted"
-            href="https://wicombit.com/demo/realfood/user/1">Wicombit</a>
+            href="https://wicombit.com/demo/realfood/user/1">{{recipe.user.username}}</a>
           <img class="verify-badge" width="14" src="../../../assets/badge.svg">
         </h5>
         <p class="uk-text-meta uk-margin-remove-top">
-          14/04/2021 </p>
+         {{recipe.user.createAt|date:"dd/MM/yyyy"}}</p>
       </div>
     </div>
   </div>

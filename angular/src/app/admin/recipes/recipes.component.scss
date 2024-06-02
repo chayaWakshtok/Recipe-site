@@ -16,7 +16,7 @@
 
 .dataTables_filter input {
   display: inline-block;
-  width: 200pxpx;
+  width: 200px;
   margin: 0px 5px;
   vertical-align: middle;
   margin-left: 5px !important;
@@ -62,17 +62,13 @@ a.btn.btn-small.btn-primary {
 .page-link {
   color: #2d3a55;
   border: 1px solid #e5eaef;
-  ;
 }
 
 .page-item.active .page-link {
   z-index: 2;
   color: #fff;
-  ;
   background-color: #2d3a55;
-  ;
   border-color: #2d3a55;
-  ;
 }
 
 
@@ -86,8 +82,6 @@ a.paginate_button.current {
   color: #2d3a55 !important;
 }
 
-
-
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   box-sizing: border-box;
   display: inline-block;
@@ -100,8 +94,8 @@ a.paginate_button.current {
   background: transparent;
   border: 1px solid #e5eaef;
   color: #2d3a55;
-
 }
+
 div#table_id_info{
   float: left;
 }
@@ -166,7 +160,6 @@ tfoot th {
   font-size: 13px;
   font-weight: 500;
   border-top: 0 !important;
-
 }
 
 .table thead th {

@@ -57,9 +57,9 @@ namespace BL.Services
             return Path.Combine(Directory.GetCurrentDirectory(), @"Images\") + FileName;
         }
 
-        public static string SaveImage(string imageSrc)
+        public static string SaveImage(string imageSrc,string folder)
         {
-            string FileName = "category_" + Guid.NewGuid().ToString()+".jpg";
+            string FileName = folder+"_" + Guid.NewGuid().ToString()+".jpg";
             string imagepath = GetActualpath(FileName);
             try
             {

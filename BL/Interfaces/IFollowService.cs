@@ -10,6 +10,8 @@ namespace BL.Interfaces
     public interface IFollowService
     {
         Task<ServiceResponse<List<FollowDTO>>> GetAll();
+        Task<ServiceResponse<List<FollowDTO>>> GetFromUser();
+        Task<ServiceResponse<List<FollowDTO>>> GetToUser();
         Task<ServiceResponse<List<FollowDTO>>> Add(FollowDTO newcategory);
         Task<ServiceResponse<List<FollowDTO>>> Delete(int workId);
         Task<ServiceResponse<FollowDTO>> GetOne(int id);

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ROLE } from '../models/role';
+import { Subject } from 'rxjs';
 
 const USER_KEY = 'auth-user';
 
@@ -7,6 +8,9 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class StorageService {
+
+  subjectLogin:Subject<boolean>=new Subject<boolean>();
+
   constructor() { }
 
   clean(): void {

@@ -1,3 +1,7 @@
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>
+
 <section class="page-container">
   <div class="page-content-wrapper">
 
@@ -15,38 +19,77 @@
           <div class="col-md-12">
             <div class="form-block mb-4">
 
-              <form enctype="multipart/form-data" action="/realfood/admin/controller/new_recipe.php" method="post">
+              <form>
 
                 <div class="form-row">
                   <div class="form-group col-md-9">
                     <div class="block col-md-12">
 
-                      <input type="hidden" value="1" name="recipe_author">
-
                       <label class="required">Title</label>
-                      <input type="text" placeholder="" name="recipe_title" class="form-control" required="">
+                      <input type="text" placeholder="" name="recipe_title" [(ngModel)]="recipe.title"
+                        class="form-control" required>
 
                       <label class="required">Description</label>
                       <textarea type="text" class="mceNoEditor form-control" name="recipe_description"
+                        spellcheck="false" [(ngModel)]="recipe.description" name="recipe_description"
                         required=""></textarea>
 
                       <label>Ingredients</label>
                       <div id="ingredients">
                         <div id="rowIng1">
                           <div class="row small-margin-bottom">
-                            <div class="col-11"><input type="text" name="recipe_ingredients[]" placeholder="Enter Value"
-                                class=" form-control"></div>
+                            <div class="col-5">
+                              <input id="typeahead-http" type="text" class="form-control" name="recipe_ingredients[]"
+                                [class.is-invalid]="searchFailed" [inputFormatter]="formatter"
+                                [(ngModel)]="this.recipe.ingredients[0].product" [ngbTypeahead]="search"
+                                [resultTemplate]="rt" placeholder="Enter Product" required />
+                            </div>
+                            <div class="col-3">
+                              <select name="recipe_ingredientsunit[]" placeholder="Enter Unit" class=" form-control"
+                                [(ngModel)]="recipe.ingredients[0].typeCount">
+                                <option></option>
+                                <option *ngFor="let item of unitsList" [value]="item.id">{{item.name}}</option>
+                              </select>
+                            </div>
+                            <div class="col-3">
+                              <input type="number" name="recipe_ingredientscount[]" placeholder="Enter Count"
+                                class=" form-control" [(ngModel)]="recipe.ingredients[0].count">
+                            </div>
                             <div class="col-1 no-padding-left"><button type="button" name="add" id="addIng"
-                                class="btn btn-block btn-success"><i class="fa fa-plus"></i></button></div>
+                                (click)="addIngredients()" class="btn btn-block btn-success"><i
+                                  class="fa fa-plus"></i></button></div>
                           </div>
                         </div>
-                        <div id="rowIng2">
+                        <div id="rowIng2"
+                          *ngFor="let item of recipe.ingredients| slice:1:recipe.ingredients.length;let index=index">
                           <div class="row small-margin-bottom">
-                            <div class="col-md-11"><input type="text" name="recipe_ingredients[]"
+                            <div class="col-5">
+                              <input id="typeahead-http" type="text" class="form-control"
+                                [name]="'recipe_ingredients[]'+index" [class.is-invalid]="searchFailed"
+                                [inputFormatter]="formatter" [(ngModel)]="item.product" [ngbTypeahead]="search"
+                                [resultTemplate]="rt" placeholder="Enter Product"  required />
+                            </div>
+                            <div class="col-3">
+                              <select [name]="'recipe_ingredientsunit[]'+index" [(ngModel)]="item.typeCount"
+                                placeholder="Enter Unit" class=" form-control">
+                                <option></option>
+                                <option *ngFor="let item of unitsList" [value]="item.id">{{item.name}}</option>
+                              </select>
+                            </div>
+                            <div class="col-3">
+                              <input type="number" [name]="'recipe_ingredientscount[]'+index" [(ngModel)]="item.count"
+                                placeholder="Enter Count" class=" form-control">
+                            </div>
+                            <div class="col-1 no-padding-left"><button type="button" name="remove" id="2"
+                                (click)="removeIngredient(index)" class="btn btn-block btn-danger remove_ing"><i
+                                  class="fa fa-times"></i></button></div>
+                          </div>
+                          <!-- <div class="row small-margin-bottom">
+                            <div class="col-md-11"><input type="text" [name]="'recipe_ingredients[]'+index"
                                 placeholder="Enter Value" class="form-control"></div>
                             <div class="col-md-1 no-padding-left"><button type="button" name="remove" id="2"
                                 class="btn btn-block btn-danger remove_ing"><i class="fa fa-times"></i></button></div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
 
@@ -54,18 +97,23 @@
                       <div id="instructions">
                         <div id="rowIns1">
                           <div class="row small-margin-bottom">
-                            <div class="col-11"><input type="text" name="recipe_instructions[]"
-                                placeholder="Enter Value" class=" form-control"></div>
+                            <div class="col-11"><input type="text" name="recipe_instructions0[]"
+                                [placeholder]="'Enter Step 1'" class=" form-control"
+                                [(ngModel)]="recipe.instructions[0].description"></div>
                             <div class="col-1 no-padding-left"><button type="button" name="add" id="addIns"
-                                class="btn btn-block btn-success"><i class="fa fa-plus"></i></button></div>
+                                (click)="addInstruction()" class="btn btn-block btn-success"><i
+                                  class="fa fa-plus"></i></button></div>
                           </div>
                         </div>
-                        <div id="rowIns2">
+                        <div id="rowIns2"
+                          *ngFor="let item of recipe.instructions| slice:1:recipe.instructions.length;let index=index">
                           <div class="row small-margin-bottom">
-                            <div class="col-md-11"><input type="text" name="recipe_instructions[]"
-                                placeholder="Enter Value" class="form-control"></div>
+                            <div class="col-md-11"><input type="text" [name]="'recipe_instructions[]'+index"
+                                [placeholder]="'Enter Step '+(index+2)" class="form-control"
+                                [(ngModel)]="item.description"></div>
                             <div class="col-md-1 no-padding-left"><button type="button" name="remove" id="2"
-                                class="btn btn-block btn-danger remove_ins"><i class="fa fa-times"></i></button></div>
+                                (click)="removeInstruction(index)" class="btn btn-block btn-danger remove_ins"><i
+                                  class="fa fa-times"></i></button></div>
                           </div>
                         </div>
                       </div>
@@ -73,14 +121,15 @@
                       <div class="row">
 
                         <div class="col-6">
-                          <label class="required">Time</label>
-                          <input type="text" placeholder="Example: 60 Min." name="recipe_time" class="form-control"
-                            required="">
+                          <label class="required">Time In Minutes</label>
+                          <input type="number" id="recipe_time" [(ngModel)]="recipe.prepTime"
+                            placeholder="Example: 60 Min." name="recipe_time" class="form-control" required>
                         </div>
 
                         <div class="col-6">
                           <label class="required">Servings</label>
-                          <input type="text" placeholder="" name="recipe_servings" class="form-control" required="">
+                          <input type="number" placeholder="" [(ngModel)]="recipe.servings" name="recipe_servings"
+                            class="form-control" required="">
                         </div>
 
                       </div>
@@ -89,59 +138,54 @@
 
                         <div class="col-3">
                           <label>Carbs</label>
-                          <input type="text" name="recipe_carbs" class="form-control">
+                          <input type="number" name="recipe_carbs" [(ngModel)]="recipe.carbs" class="form-control">
                         </div>
 
                         <div class="col-3">
                           <label>Protein</label>
-                          <input type="text" name="recipe_protein" class="form-control">
+                          <input type="number" name="recipe_protein" [(ngModel)]="recipe.protein" class="form-control">
                         </div>
 
                         <div class="col-3">
                           <label>Fat</label>
-                          <input type="text" name="recipe_fat" class="form-control">
+                          <input type="number" name="recipe_fat" [(ngModel)]="recipe.fat" class="form-control">
                         </div>
 
                         <div class="col-3">
-                          <label>kCal</label>
-                          <input type="text" name="recipe_kcal" class="form-control">
+                          <label>kcal</label>
+                          <input type="number" name="recipe_kcal" [(ngModel)]="recipe.calories" class="form-control">
                         </div>
 
                       </div>
 
                       <label class="control-label required">Category</label>
 
-                      <select class="custom-select form-control" name="recipe_category" required="">
-                        <option value="8">Vegan</option>
-                        <option value="7">Breakfast</option>
-                        <option value="6">Burger</option>
-                        <option value="5">Pasta</option>
-                        <option value="4">Pizza</option>
-                        <option value="3">Smoothies</option>
-                        <option value="2">Desserts</option>
+                      <select class="custom-select form-control" name="recipe_category" required=""
+                        [(ngModel)]="recipe.categoryId">
+                        <option *ngFor="let item of categoriesList" [value]="item.id">{{item.name}}</option>
                       </select>
 
                       <label class="control-label required">Difficult</label>
-                      <select class="custom-select form-control" name="recipe_difficult" required="">
-                        <option value="1">Easy</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Hard</option>
+                      <select class="custom-select form-control" name="recipe_difficult" required=""
+                        [(ngModel)]="recipe.difficultyId">
+                        <option [value]="item.id" *ngFor="let item of difficultiesList">{{item.name}}</option>
                       </select>
 
-                      <label>Video ID</label>
-                      <input type="text" placeholder="" name="recipe_video" class="form-control">
+                      <label>Video Url</label>
+                      <input type="text" placeholder="" name="recipe_video" class="form-control"
+                        [(ngModel)]="recipe.videoUrl">
 
-                      <label class="control-label">Featured</label>
-                      <select class="custom-select form-control" name="recipe_featured">
+                      <!-- <label class="control-label">Featured</label>
+                      <select class="custom-select form-control" name="recipe_featured" [(ngModel)]="recipe.categoryId">
                         <option value="0">No</option>
                         <option value="1">Yes</option>
-                      </select>
+                      </select> -->
 
-                      <label class="control-label">Show Nutrition Facts</label>
+                      <!-- <label class="control-label">Show Nutrition Facts</label>
                       <select class="custom-select form-control" name="recipe_facts">
                         <option value="0">No</option>
                         <option value="1">Yes</option>
-                      </select>
+                      </select> -->
 
                       <br>
                     </div>
@@ -151,7 +195,9 @@
                     <div class="block col-md-12">
                       <label>Status</label>
 
-                      <select class="custom-select form-control" name="recipe_status" required="">
+
+                      <select class="custom-select form-control" name="recipe_status" required=""
+                        [(ngModel)]="recipe.status">
                         <option value="1" selected="">Enabled</option>
                         <option value="2">Disabled</option>
                         <option value="3">Pending</option>
@@ -162,16 +208,24 @@
                     <div class="block col-md-12">
                       <label class="required">Image</label>
 
-                      <div class="new-image" id="image-preview">
+                      <!-- <div class="new-image" id="image-preview">
                         <label for="image-upload" id="image-label">Choose File</label>
                         <input type="file" name="recipe_image" id="image-upload" required="">
+                      </div> -->
+
+                      <div class="new-image" id="image-preview"
+                        [ngStyle]="{'background-image': 'url(' + imageSrc + ')'}">
+                        <label for="image-upload" id="image-label">Choose File</label>
+                        <input type="file" name="category_image" id="image-upload" required=""
+                          (change)="uploadImage($event)">
                       </div>
 
                       <span class="text-danger recomendedsize">Recommended Size: <b>650 x 350</b> </span>
                       <br>
                     </div>
 
-                    <button class="btn btn-primary" type="submit" name="save">Save Changes</button>
+                    <button class="btn btn-primary" type="submit" name="save" (click)="saveRecipe()">Save
+                      Changes</button>
 
                   </div>
                 </div>

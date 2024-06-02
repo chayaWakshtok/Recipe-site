@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TablerIconsModule } from 'angular-tabler-icons';
+import { Recipe } from 'src/app/models/recipe';
 
 @Component({
     selector: 'app-recipe-scroll-card',
@@ -8,4 +9,5 @@ import { TablerIconsModule } from 'angular-tabler-icons';
 })
 export class RecipeScrollCardComponent {
 
+    @Input() recipe!:Recipe;
 }

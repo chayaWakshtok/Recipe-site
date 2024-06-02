@@ -1,0 +1,36 @@
+
+<h4 class="uk-heading-line"><span>Followers</span></h4>
+
+<div id="followers_table_wrapper" class="dataTables_wrapper uk-form dt-uikit no-footer">
+  <div class="row uk-grid">
+    <div class="uk-width-1-2"></div>
+    <div class="uk-width-1-2"></div>
+  </div>
+  <div class="row uk-grid dt-merge-grid">
+    <div class="uk-width-1-1">
+      <table id="followers_table" class="uk-table uk-table-hover uk-table-middle uk-table-divider dataTable no-footer"
+        style="width: 100%;" role="grid"
+        datatable [dtOptions]="dtOptions" *ngIf="follows.length>0">
+
+        <thead>
+          <tr role="row">
+            <th class="avatar uk-text-center sorting_disabled sorting_asc" rowspan="1" colspan="1" aria-label=""
+              style="width: 20%;"></th>
+            <th class="sorting" tabindex="0" aria-controls="followers_table" rowspan="1" colspan="1"
+              aria-label=": activate to sort column ascending" style="width: 672px;"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="odd" *ngFor="let item of follows">
+            <td class="avatar uk-text-center sorting_1"><a [routerLink]="'/user/'+ item.fromUser"><img [src]="item.fromUserNavigation.picture"
+                  class="uk-border-rounded"></a></td>
+            <td><a [routerLink]="'/user/'+ item.fromUser"
+                class="uk-link-reset uk-text-small">{{item.fromUserNavigation.firstName}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

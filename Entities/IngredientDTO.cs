@@ -10,13 +10,14 @@ namespace Entities
     {
         public int Id { get; set; }
 
-        public string? Name { get; set; }
 
-        public int? Count { get; set; }
+        public decimal? Count { get; set; }
 
         public int? TypeCount { get; set; }
 
         public int? RecipeId { get; set; }
+        public int ProductId { get; set; }
+        public ProductDTO Product { get; set; }
 
     }
 }

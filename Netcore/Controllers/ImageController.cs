@@ -39,6 +39,7 @@ namespace Netcore.Controllers
             return Ok(Result);
 
         }
+
         [HttpPost("RemoveImage/{imageName}")]
         public ActionResult RemoveImage(string imageName)
         {
@@ -66,19 +67,6 @@ namespace Netcore.Controllers
         {
             return Path.Combine(Directory.GetCurrentDirectory(), @"Images") + FileName;
         }
-
-        //[NonAction]
-        //private string GetImagebycode(int Code)
-        //{
-        //    string hosturl = "https://localhost:44308";
-        //    string mainimagepath = GetActualpath(Code.ToString());
-        //    string Filepath = mainimagepath + "\\1.png";
-
-        //    if (System.IO.File.Exists(Filepath))
-        //        return hosturl + "/Uploads/Product/" + Code + "/1.png";
-        //    else
-        //        return hosturl + "/Uploads/Common/noimage.png";
-        //}
 
         [HttpPost]
         [Route("Upload")]

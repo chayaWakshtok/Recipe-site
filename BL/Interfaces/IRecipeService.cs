@@ -14,5 +14,10 @@ namespace BL.Interfaces
         Task<ServiceResponse<List<RecipeDTO>>> Delete(int workId);
         Task<ServiceResponse<RecipeDTO>> GetOne(int id);
         Task<ServiceResponse<RecipeDTO>> Update(RecipeDTO categoryUpdate);
+        Task<ServiceResponse<List<RecipeDTO>>> GetLaster();
+        Task<ServiceResponse<List<RecipeDTO>>> MostLiked();
+        Task<ServiceResponse<List<RecipeDTO>>> GetAllByUser(int userId);
+        Task<ServiceResponse<List<RecipeDTO>>> GetAllByUserAndLikes(int userId);
+        Task<ServiceResponse<List<RecipeDTO>>> GetRecipesLikes(int userId);
     }
 }

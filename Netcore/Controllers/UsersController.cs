@@ -6,6 +6,7 @@ using DAL.Models.DB;
 using Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Netcore.Controllers
 {
@@ -24,6 +25,14 @@ namespace Netcore.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
+        [HttpGet("GetUserDetails")]
+        public async Task<ActionResult<ServiceResponse<UserDTO>>> GetUserDetails()
+        {
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var id = int.Parse(userId);
+            //get user from db
+            return Ok(await _userService.GetUserDetails(id));
+        }
 
         [HttpGet("GetAllWithPicture")]
         public async Task<ActionResult<ServiceResponse<List<UserDTO>>>> Get()

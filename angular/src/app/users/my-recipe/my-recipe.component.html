@@ -1,0 +1,48 @@
+<div class="uk-width-expand">
+  <h4 class="uk-heading-line"><span>My Recipes</span></h4>
+  <div id="recipes_table_wrapper" class="dataTables_wrapper uk-form dt-uikit no-footer">
+    <div class="row uk-grid">
+      <div class="uk-width-1-2"></div>
+      <!-- <div class="uk-width-1-2">
+        <div id="recipes_table_filter" class="dataTables_filter"><label>Search:<input type="search"
+              class="uk-form-small uk-input" placeholder="" aria-controls="recipes_table"></label></div>
+      </div> -->
+    </div>
+    <div class="row uk-grid dt-merge-grid">
+      <div class="uk-width-1-1">
+        <table id="recipes_table" class="uk-table uk-table-hover uk-table-middle uk-table-divider dataTable no-footer"
+          style="width: 100%;" role="grid" aria-describedby="recipes_table_info" datatable [dtOptions]="dtOptions"
+          *ngIf="recipes.length>0">
+
+          <thead>
+            <tr role="row">
+              <th class="uk-text-center sorting sorting_asc" tabindex="0" aria-controls="recipes_table" rowspan="1"
+                colspan="1" aria-label="Image: activate to sort column descending" style="width: 66px;"
+                aria-sort="ascending">Image</th>
+              <th class="sorting" tabindex="0" aria-controls="recipes_table" rowspan="1" colspan="1"
+                aria-label="Title: activate to sort column ascending" style="width: 209px;">Title</th>
+              <th class="uk-text-center sorting" tabindex="0" aria-controls="recipes_table" rowspan="1" colspan="1"
+                aria-label="Status: activate to sort column ascending" style="width: 66px;">Status</th>
+              <th class="sorting" tabindex="0" aria-controls="recipes_table" rowspan="1" colspan="1"
+                aria-label="Date: activate to sort column ascending" style="width: 261px;">Date</th>
+              <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 101px;">Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="id-45 odd" *ngFor="let recipe of recipes">
+              <td class="uk-text-center sorting_1"><a [routerLink]="'/recipe/'+recipe.id"><img [src]="recipe.imageUrl"
+                    class="uk-border-rounded"></a></td>
+              <td><a [routerLink]="'/recipe/'+recipe.id" class="uk-link-reset uk-text-small">{{recipe.title}}</a></td>
+              <td class=" uk-text-center"><span
+                  class="uk-label uk-label-warning uk-text-warning">{{recipe.status}}</span></td>
+              <td><span>{{recipe.updateAt|date:"dd.MM.yyyy"}}</span></td>
+              <td><a uk-icon="icon: trash" class="deleteItem uk-text-danger uk-icon" (click)="delete(recipe.id)"></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

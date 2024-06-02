@@ -1,9 +1,10 @@
 export class Category {
   id: number;
   name: string;
-  description: string;
+  description?: string;
   image?: string;
-  status: number;
+  status: number=1;
+  countRecipe:number=0;
 
   constructor(id: number, name: string, description: string, image: string, status: number) {
     this.id = id;

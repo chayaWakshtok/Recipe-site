@@ -34,6 +34,11 @@ export class UserService {
       .pipe(map((response: ServiceResponse<User>) => { return response.data; }));
   }
 
+  getUserDetail(): Observable<User> {
+    return this.http.get<ServiceResponse<User>>(this.auth_api + "GetUserDetails")
+      .pipe(map((response: ServiceResponse<User>) => { return response.data; }));
+  }
+
   update(user: User) {
     return this.http.put<ServiceResponse<User[]>>(this.auth_api + "Update", user)
       .pipe(map((response: ServiceResponse<User[]>) => { return response.data; }));

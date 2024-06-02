@@ -7,12 +7,14 @@ import * as TablerIcons from 'angular-tabler-icons/icons';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import { RecipeScrollCardComponent } from './recipe-scroll-card/recipe-scroll-card.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
+import { RouterModule } from '@angular/router';
+import { MemberCardComponent } from './member-card/member-card.component';
 
 @NgModule({
   imports: [
     CommonModule,
     TablerIconsModule.pick(TablerIcons),
-
+    RouterModule
   ],
   declarations: [
     FooterComponent,
@@ -20,13 +22,15 @@ import { CategoryCardComponent } from './category-card/category-card.component';
     RecipeCardComponent,
     RecipeScrollCardComponent,
     CategoryCardComponent,
+    MemberCardComponent,
   ],
   exports: [
     FooterComponent,
     HeaderComponent,
     RecipeCardComponent,
     RecipeScrollCardComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    MemberCardComponent
   ]
 })
 export class SharedModule { }

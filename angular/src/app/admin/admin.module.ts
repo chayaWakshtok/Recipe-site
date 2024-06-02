@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
@@ -24,6 +24,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { EditDifficultComponent } from './edit-difficult/edit-difficult.component';
+import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,6 +35,9 @@ import { EditDifficultComponent } from './edit-difficult/edit-difficult.componen
     HttpClientModule,
     TablerIconsModule.pick(TablerIcons),
     DataTablesModule,
+    NgbModule,
+    NgbTypeaheadModule,
+    JsonPipe,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-top-right',
@@ -56,7 +60,7 @@ import { EditDifficultComponent } from './edit-difficult/edit-difficult.componen
     EditUserComponent,
     EditRecipeComponent,
     EditCategoryComponent,
-    EditDifficultComponent
+    EditDifficultComponent,
   ],
   exports: []
 })

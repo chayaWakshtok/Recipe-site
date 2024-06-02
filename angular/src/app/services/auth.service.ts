@@ -20,15 +20,13 @@ export class AuthService {
       {
         username,
         password,
-      }).pipe(map((res: ServiceResponse<User>) => { return res.data }));
+      }).pipe(map((res: ServiceResponse<User>) => {
+        return res.data }));
   }
 
-  register(user: User): Observable<any> {
-    return this.http.post(
+  register(user: User): Observable<ServiceResponse<number>> {
+    return this.http.post<ServiceResponse<number>>(
       this.auth_api + 'Register', user);
   }
 
-  logout(): Observable<any> {
-    return this.http.post(this.auth_api + 'signout', {});
-  }
 }

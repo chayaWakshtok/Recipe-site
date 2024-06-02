@@ -26,12 +26,14 @@ public partial class RecipesSiteContext : DbContext
     public virtual DbSet<Ingredient> Ingredients { get; set; }
 
     public virtual DbSet<Instruction> Instructions { get; set; }
+    public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<Recipe> Recipes { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<Likes> Likes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -50,6 +52,19 @@ public partial class RecipesSiteContext : DbContext
         modelBuilder.Entity<Difficulty>(entity =>
         {
             entity.Property(e => e.Name).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Likes>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_likes");
+
+            entity.HasOne(d => d.Recipe).WithMany(p => p.Likes)
+                .HasForeignKey(d => d.RecipeId)
+                .HasConstraintName("FK_Likes_Recipes");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Likes)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_Likes_Users");
         });
 
         modelBuilder.Entity<Feedback>(entity =>
@@ -79,10 +94,13 @@ public partial class RecipesSiteContext : DbContext
                 .HasForeignKey(d => d.ToUser)
                 .HasConstraintName("FK_Follows_Users1");
         });
-
         modelBuilder.Entity<Ingredient>(entity =>
         {
-            entity.Property(e => e.Name).HasMaxLength(50);
+            entity.Property(e => e.Count).HasColumnType("decimal(18, 2)");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.Ingredients)
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_Ingredients_Products");
 
             entity.HasOne(d => d.Recipe).WithMany(p => p.Ingredients)
                 .HasForeignKey(d => d.RecipeId)
@@ -91,9 +109,15 @@ public partial class RecipesSiteContext : DbContext
 
         modelBuilder.Entity<Instruction>(entity =>
         {
-            entity.HasOne(d => d.Recipe).WithMany()
+
+            entity.HasOne(d => d.Recipe).WithMany(p => p.Instructions)
                 .HasForeignKey(d => d.RecipeId)
                 .HasConstraintName("FK_Instructions_Recipes");
+        });
+
+        modelBuilder.Entity<Product>(entity =>
+        {
+            entity.Property(e => e.Name).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Recipe>(entity =>
@@ -124,9 +148,12 @@ public partial class RecipesSiteContext : DbContext
         {
             entity.Property(e => e.CreateAt).HasColumnType("datetime");
             entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.FirstName).HasMaxLength(50);
+            entity.Property(e => e.PasswordHash).HasMaxLength(1024);
+            entity.Property(e => e.PasswordSalt).HasMaxLength(1024);
             entity.Property(e => e.UpdateAt).HasColumnType("datetime");
             entity.Property(e => e.Username).HasMaxLength(50);
-
+            //entity.Property(e => e.AboutMe).HasMaxLength(1024);
             entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)
                 .HasConstraintName("FK_Users_Roles");

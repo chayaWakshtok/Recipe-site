@@ -35,7 +35,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
           errorMsg = `Error: ${error.error.message}`;
         } else {
           console.log('This is server side error');
-          errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
+          errorMsg = `${error.error.message}`;
           switch (error.status) {
             case 401:      //login
               this.router.navigateByUrl("/login");
@@ -50,7 +50,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
           }
         }
         console.log(errorMsg);
-        return throwError(errorMsg);
+        return throwError(error);
 
         //   let handled: boolean = false;
         //   console.error(error);

@@ -1,0 +1,37 @@
+<div class="uk-width-expand">
+  <h4 class="uk-heading-line"><span>My Favorites</span></h4>
+  <div id="favorites_table_wrapper" class="dataTables_wrapper uk-form dt-uikit no-footer">
+    <div class="row uk-grid">
+      <div class="uk-width-1-2"></div>
+      <div class="uk-width-1-2"></div>
+    </div>
+    <div class="row uk-grid dt-merge-grid">
+      <div class="uk-width-1-1">
+        <table id="favorites_table" class="uk-table uk-table-hover uk-table-middle uk-table-divider dataTable no-footer"
+          style="width: 100%;" role="grid" datatable [dtOptions]="dtOptions" *ngIf="likes.length>0">
+
+          <thead>
+            <tr role="row">
+              <th class="uk-text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Image"
+                style="width: 12%;">Image</th>
+              <th class="sorting" tabindex="0" aria-controls="favorites_table" rowspan="1" colspan="1"
+                aria-label="Title: activate to sort column ascending" style="width: 619px;">Title</th>
+              <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 14%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="id-2 odd" *ngFor="let item of likes">
+              <td class="uk-text-center sorting_1"><a [routerLink]="'/recipe/'+ item.recipe.id"><img
+                    [src]="item.recipe.imageUrl" class="uk-border-rounded"></a></td>
+              <td><a [routerLink]="'/recipe/'+ item.recipe.id"
+                  class="uk-link-reset uk-text-small">{{item.recipe.title}}</a></td>
+              <td><a class="deleteItem"><span class="uk-label uk-label-danger uk-text-danger"
+                    (click)="removeLike(item.id)">Remove</span></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

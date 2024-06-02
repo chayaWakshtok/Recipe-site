@@ -83,6 +83,7 @@ namespace BL.Services
             userDB.UpdateAt = DateTime.Now;
             userDB.PasswordHash = passwordHash;
             userDB.PasswordSalt = passwordSalt;
+            userDB.Role=_context.Roles.FirstOrDefault(p=>p.Id==user.RoleId);
 
             _context.Users.Add(userDB);
             await _context.SaveChangesAsync();

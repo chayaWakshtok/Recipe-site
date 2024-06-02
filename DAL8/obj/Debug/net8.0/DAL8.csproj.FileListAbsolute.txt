@@ -1,0 +1,6 @@
+C:\Users\User\Documents\GitHub\Recipe-site\DAL8\obj\Debug\net8.0\DAL8.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\Recipe-site\DAL8\obj\Debug\net8.0\DAL8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\Recipe-site\DAL8\obj\Debug\net8.0\DAL8.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\Recipe-site\DAL8\obj\Debug\net8.0\DAL8.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\Recipe-site\DAL8\obj\Debug\net8.0\DAL8.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Recipe-site\DAL8\obj\Debug\net8.0\DAL8.sourcelink.json

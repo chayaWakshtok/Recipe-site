@@ -1,0 +1,7 @@
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net8.0\Netcore.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net8.0\Netcore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net8.0\Netcore.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net8.0\Netcore.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net8.0\Netcore.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net8.0\Netcore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Documents\GitHub\Recipe-site\Netcore\obj\Debug\net8.0\Netcore.sourcelink.json

@@ -38,7 +38,7 @@ namespace BL.Services
             try
             {
                 var cat = _mapper.Map<Category>(newcategory);
-                cat.Image = GlobalService.SaveImage(cat.Image);
+                cat.Image = GlobalService.SaveImage(cat.Image, "category");
                 _context.Categories.Add(cat);
                 await _context.SaveChangesAsync();
 
@@ -101,18 +101,20 @@ namespace BL.Services
         {
 
             var serviceResponse = new ServiceResponse<List<CategoryDTO>>();
-            var dbCharacters = await _context.Categories
+            var dbCharacters = await _context.Categories.Include(p=>p.Recipes)
                 .ToListAsync();
 
             string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
 
             dbCharacters.ToList().ForEach(cat =>
             {
+                
                 if (!string.IsNullOrEmpty(cat.Image))
                     cat.Image = myHostUrl + cat.Image;
             });
 
             serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<CategoryDTO>(c)).ToList();
+
             return serviceResponse;
         }
 
@@ -159,7 +161,7 @@ namespace BL.Services
                 {
                     if (!string.IsNullOrEmpty(cat.Image))
                         GlobalService.RemoveImage(cat.Image);
-                    cat.Image = GlobalService.SaveImage(categoryUpdate.Image);
+                    cat.Image = GlobalService.SaveImage(categoryUpdate.Image, "category");
 
                 }
 

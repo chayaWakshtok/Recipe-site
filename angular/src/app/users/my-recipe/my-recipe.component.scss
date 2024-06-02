@@ -1,0 +1,12 @@
+table {
+  border: none !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: white !important;
+  border: none;
+  background-color: transparent;
+  background: transparent;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+  box-shadow: none;
+}

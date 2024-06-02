@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Category } from 'src/app/models/category';
 
 @Component({
     selector: 'app-category-card',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class CategoryCardComponent {
 
+  @Input() category!:Category;
 }

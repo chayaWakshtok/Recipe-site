@@ -1,0 +1,37 @@
+<div class="uk-position-top-right uk-position-z-index uk-padding-small">
+  <a routerLink="/home" uk-close="" class="uk-icon uk-close"><svg width="14" height="14" viewBox="0 0 14 14"
+      xmlns="http://www.w3.org/2000/svg">
+    </svg></a>
+</div>
+
+<div class="uk-height-1-1 tas-section-padding-v-s uk-panel uk-flex uk-flex-wrap uk-flex-middle uk-flex-center"
+  uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 100">
+
+  <div class="tas-auth-1 uk-scrollspy-inview uk-animation-fade" style="">
+
+    <a href="https://demos.wicombit.com/realfood">
+      <img class="tas-logo" src="https://demos.wicombit.com/realfood/images/1618276438.png">
+    </a>
+
+    <h5 class="uk-heading-line"><span>Reset Password</span></h5>
+
+    <form class="uk-form" action="https://demos.wicombit.com/realfood/forgot" id="submit-form" method="post">
+
+      <div class="uk-margin">
+        <div class="uk-width-1-1 uk-inline">
+          <input class="uk-input uk-border-pill" placeholder="Email" name="user_email" type="email" required="">
+        </div>
+      </div>
+      <div>
+        <div class="grecaptcha-badge" data-style="bottomright"
+          style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
+          <div class="grecaptcha-logo">
+          </div>
+        </div><iframe style="display: none;"></iframe>
+      </div><button class="g-recaptcha uk-button uk-button uk-width-1-1 uk-border-pill" type="submit">Enter</button>
+      <div class="uk-margin uk-width-1-1 uk-link">
+        <a class="uk-link" routerLink="/auth/signin">Back to Sign In</a>
+      </div>
+    </form>
+  </div>
+</div>

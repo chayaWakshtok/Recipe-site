@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +16,7 @@ namespace Entities
         public string? Image { get; set; }
 
         public int? Status { get; set; }
+        public int CountRecipe { get; set; } = 0;
 
 
     }

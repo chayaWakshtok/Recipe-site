@@ -39,7 +39,7 @@ namespace Netcore.Controllers
         }
 
         private int GetUserId() => int.Parse(_httpContextAccessor.HttpContext!.User
-     .FindFirst(ClaimTypes.NameIdentifier)!.ToString());
+     .FindFirst(ClaimTypes.NameIdentifier)!.Value.ToString());
 
 
         [HttpPost("Register")]

@@ -1,0 +1,155 @@
+<div class="uk-container">
+
+  <div class="uk-section uk-section-default">
+    <div class="uk-container">
+      <h2 class="uk-text-bold">Submit a Recipe</h2>
+      <p>Do you have a delicious and wildlife-friendly veggie-based dish you think everyone should try? We're looking
+        for easy and creative plant-based recipes that anyone can make at home. By sharing a recipe for a
+        wildlife-friendly breakfast, lunch, dinner or “anytime dish,” you can help others choose wild by eating less
+        meat to save more wildlife.</p>
+    </div>
+  </div>
+
+  <div class="uk-grid-large uk-grid" uk-grid="">
+
+    <div class="uk-width-expand@s uk-first-column">
+
+      <h4 class="uk-text-bold" id="top">Recipe Details</h4>
+
+      <div class="tas-notify tas-notify-success uk-margin-medium uk-text-small uk-border-rounded" id="success"
+        *ngIf="message">
+        <p>Recipe Successfully Submitted</p>
+      </div>
+
+      <div class="tas-notify tas-notify-danger uk-margin-medium uk-text-small uk-border-rounded" id="error"
+        *ngIf="error">
+        <p>Recipe Fail Submitted</p>
+      </div>
+
+      <div class="insert-form" *ngIf="!error&&!message">
+        <form>
+
+          <div class="uk-child-width-1-1 uk-margin-medium-bottom">
+            <label class="uk-text-bold required">Recipe Title</label>
+            <div class="uk-form-controls uk-margin-small-top">
+              <input class="uk-input uk-form-large uk-border-rounded" type="text" name="title" id="title" [(ngModel)]="recipe.title">
+            </div>
+          </div>
+
+
+          <div class="uk-child-width-1-1 uk-margin-medium-bottom">
+            <label class="uk-text-bold required">Recipe Description</label>
+            <div class="uk-form-controls uk-margin-small-top">
+              <textarea class="uk-textarea uk-form-large uk-border-rounded" rows="5" name="description" id="description" [(ngModel)]="recipe.description"
+                maxlength="250"></textarea>
+            </div>
+
+            <label class="tas-error-label errors" id="errorDescriptionText" style="display: none;"></label>
+
+          </div>
+
+          <div class="uk-child-width-1-2 uk-grid-medium uk-grid" uk-grid="">
+
+            <div class="uk-first-column">
+              <label class="uk-text-bold required">Servings</label>
+              <div class="uk-form-controls uk-margin-small-top">
+                <input class="uk-input uk-form-large uk-border-rounded" placeholder="Eg. 6" type="text" name="servings"
+                  id="servings" [(ngModel)]="recipe.servings">
+              </div>
+            </div>
+
+            <div>
+              <label class="uk-text-bold required">Prep Time</label>
+              <div class="uk-form-controls uk-margin-small-top">
+                <input class="uk-input uk-form-large uk-border-rounded" placeholder="45 Min" type="text" name="time"
+                  id="time" [(ngModel)]="recipe.prepTime">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="uk-width-1-1 uk-margin-medium-top">
+            <label class="uk-text-bold required">Recipe Ingredients</label>
+            <label class="uk-text-small uk-text-muted uk-display-block uk-margin-small-top">Ingredients should all be
+              separated by commas. e.g. Sugar, Milk, Cheese...</label>
+            <div class="uk-form-controls uk-margin-small-top">
+              <textarea class="uk-textarea uk-form-large uk-border-rounded" rows="5" name="ingredients"
+                id="ingredients" [(ngModel)]="ingredients"></textarea>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1 uk-margin-medium-top">
+            <label class="uk-text-bold required">Recipe Instructions</label>
+            <label class="uk-text-small uk-text-muted uk-display-block uk-margin-small-top">Instructions should all be
+              separated by commas. e.g. Step 1, Step 2, Step 3...</label>
+            <div class="uk-form-controls uk-margin-small-top">
+              <textarea class="uk-textarea uk-form-large uk-border-rounded" rows="5" name="instructions"
+                id="instructions" [(ngModel)]="instructions"></textarea>
+            </div>
+          </div>
+
+          <div class="uk-child-width-1-1 uk-margin-medium-top">
+            <label class="uk-text-bold required">Recipe Image</label>
+
+            <div class="new-image" id="image-preview" >
+              <label for="image-upload" id="image-label">Choose Image</label>
+              <input type="file" id="image-upload" name="image">
+            </div>
+
+            <p class="uk-text-small uk-text-meta uk-margin-remove">PNG or JPEG, max 2MB</p>
+          </div>
+
+          <div class="uk-margin-medium-top uk-grid-small uk-child-width-auto uk-grid">
+            <label id="checked">
+              <input class="uk-checkbox uk-border-rounded" type="checkbox" name="ischecked" id="ischecked">By checking
+              this box, I warrant that I am the creator and have all applicable rights to this recipe and photo (i.e.,
+              it was not taken from a cookbook or website that is not mine) </label>
+          </div>
+
+          <hr>
+
+
+          <div class="uk-child-width-1-1 uk-margin-medium-bottom">
+            <button (click)="save()"
+              class="uk-button uk-button-primary uk-width-1-1 uk-text-bold uk-button-large uk-button-primary uk-border-rounded"
+              type="submit">
+              <span id="submit">Submit <i class="fas fa-angle-right uk-margin-small-left"></i></span>
+              <span id="loading" style="display: none;"><span class="anim-rotate uk-icon" uk-icon="refresh"><svg
+                    width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="none" stroke="#000" stroke-width="1.1"
+                      d="M17.08,11.15 C17.09,11.31 17.1,11.47 17.1,11.64 C17.1,15.53 13.94,18.69 10.05,18.69 C6.16,18.68 3,15.53 3,11.63 C3,7.74 6.16,4.58 10.05,4.58 C10.9,4.58 11.71,4.73 12.46,5">
+                    </path>
+                    <polyline fill="none" stroke="#000" points="9.9 2 12.79 4.89 9.79 7.9"></polyline>
+                  </svg></span></span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+    <div class="uk-width-1-2@s">
+
+      <div class="uk-section-default">
+        <div class="uk-container">
+          <h3 class="uk-text-bold">Recipe Guidelines</h3>
+          <p>Please follow these guidelines when submitting a recipe. Your recipe may be rejected if your recipe does
+            not meet the guidelines.</p>
+        </div>
+
+        <ul class="uk-list uk-list-hyphen uk-list-custom">
+          <li>The title should be clear and simple and give a good idea of ​​the content and the recipes.</li>
+          <li>Landscape (horizontal) photos</li>
+          <li>Photo including your dish</li>
+          <li>No portrait (vertical) photo</li>
+          <li>No people or pets in your photo</li>
+          <li>No personal information (name, age, etc.)</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
