@@ -3,8 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|c:\\users\\user\\documents\\github\\recipe-site\\netcore\\controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|solutionrelative:controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|c:\\users\\user\\documents\\github\\recipe-site\\netcore\\controllers\\recipecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|solutionrelative:controllers\\recipecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|c:\\users\\user\\documents\\github\\recipe-site\\netcore\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|solutionrelative:controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\idifficultyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27F77463-B98C-4F7D-8EC6-B22F68EBB7E6}|..\\DAL\\DAL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\dal\\models\\db\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27F77463-B98C-4F7D-8EC6-B22F68EBB7E6}|..\\DAL\\DAL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\dal\\models\\db\\recipessitecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\irecipeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -18,12 +50,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{27F77463-B98C-4F7D-8EC6-B22F68EBB7E6}|..\\DAL\\DAL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\dal\\models\\db\\recipessitecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{27F77463-B98C-4F7D-8EC6-B22F68EBB7E6}|..\\DAL\\DAL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\dal\\models\\db\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -58,13 +84,6 @@
       "RelativeMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|solutionrelative:extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|c:\\users\\user\\documents\\github\\recipe-site\\netcore\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|solutionrelative:controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -79,10 +98,6 @@
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\followservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|c:\\users\\user\\documents\\github\\recipe-site\\netcore\\controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08C68403-C3DC-438E-826C-2528E3FD4922}|Netcore.csproj|solutionrelative:controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{828D51EF-E408-4771-9FAC-FE51738FECF2}|..\\Entities\\Entities.csproj|c:\\users\\user\\documents\\github\\recipe-site\\entities\\followdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -90,9 +105,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\difficultyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -106,9 +118,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{27F77463-B98C-4F7D-8EC6-B22F68EBB7E6}|..\\DAL\\DAL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\dal\\models\\db\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -159,13 +168,7 @@
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\serviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\idifficultyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\ifeedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A56CF6F3-B14D-4317-B309-D3FE0CB9C4C7}|..\\BL\\BL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\bl\\interfaces\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{27F77463-B98C-4F7D-8EC6-B22F68EBB7E6}|..\\DAL\\DAL.csproj|c:\\users\\user\\documents\\github\\recipe-site\\dal\\dal.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
@@ -208,120 +211,154 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAADgvzwAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-07T10:52:38.467Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\UserService.cs",
-              "RelativeToolTip": "..\\BL\\Services\\UserService.cs",
-              "ViewState": "AQIAAKUAAAAAAAAAAAAAAMAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T15:02:04.705Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\User.cs",
-              "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\User.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\User.cs",
-              "RelativeToolTip": "..\\DAL\\Models\\DB\\User.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T16:29:11.946Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CustomProfile.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Profiles\\CustomProfile.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Profiles\\CustomProfile.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Profiles\\CustomProfile.cs",
-              "RelativeToolTip": "..\\BL\\Profiles\\CustomProfile.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAADwvxsAAABbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T20:00:06.213Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "RecipeController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\RecipeController.cs",
               "RelativeDocumentMoniker": "Controllers\\RecipeController.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\RecipeController.cs",
               "RelativeToolTip": "Controllers\\RecipeController.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAAADYAAAAeAAAA",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAHMAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-28T13:37:38.793Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RecipesService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\RecipesService.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Services\\RecipesService.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\RecipesService.cs",
-              "RelativeToolTip": "..\\BL\\Services\\RecipesService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAwAAAA",
+              "DocumentIndex": 5,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Services\\AuthRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\AuthRepository.cs",
+              "RelativeToolTip": "..\\BL\\Services\\AuthRepository.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAArwDMAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-28T13:37:38.756Z"
+              "WhenOpened": "2023-11-07T10:48:05.251Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IRecipeService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IRecipeService.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IRecipeService.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IRecipeService.cs",
-              "RelativeToolTip": "..\\BL\\Interfaces\\IRecipeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAjAAAA",
+              "DocumentIndex": 8,
+              "Title": "IAuthRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IAuthRepository.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IAuthRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IAuthRepository.cs",
+              "RelativeToolTip": "..\\BL\\Interfaces\\IAuthRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA4AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-18T18:44:44.08Z"
+              "WhenOpened": "2023-11-07T10:47:17.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ICategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\ICategoryService.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\ICategoryService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\ICategoryService.cs",
+              "RelativeToolTip": "..\\BL\\Interfaces\\ICategoryService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T17:05:17.278Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "IDifficultyService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IDifficultyService.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IDifficultyService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IDifficultyService.cs",
+              "RelativeToolTip": "..\\BL\\Interfaces\\IDifficultyService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-18T18:44:44.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthenticateController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\AuthenticateController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthenticateController.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\AuthenticateController.cs",
+              "RelativeToolTip": "Controllers\\AuthenticateController.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAADgvzAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-07T10:45:04.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "RecipesSiteContext.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\RecipesSiteContext.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\RecipesSiteContext.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\RecipesSiteContext.cs",
               "RelativeToolTip": "..\\DAL\\Models\\DB\\RecipesSiteContext.cs",
-              "ViewState": "AQIAAIUAAAAAAAAAAADgv5sAAABBAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAADgv5sAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-28T16:37:31.76Z"
+              "WhenOpened": "2024-01-28T16:37:31.76Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 9,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Category.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Category.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Category.cs",
+              "RelativeToolTip": "..\\DAL\\Models\\DB\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T18:12:45.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LikeService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\LikeService.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Services\\LikeService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\LikeService.cs",
+              "RelativeToolTip": "..\\BL\\Services\\LikeService.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAADgvzMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T15:03:43.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Services\\CategoryService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\CategoryService.cs",
+              "RelativeToolTip": "..\\BL\\Services\\CategoryService.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAKUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-26T15:50:26.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "Controllers\\CategoryController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAgwEQAAAAJAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwEQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T18:38:51.692Z"
+              "WhenOpened": "2024-03-26T18:38:51.692Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -333,19 +370,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\CategoryService.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Services\\CategoryService.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\CategoryService.cs",
-              "RelativeToolTip": "..\\BL\\Services\\CategoryService.cs",
-              "ViewState": "AQIAAI0AAAAAAAAAAAAAAKUAAAARAAAA",
+              "DocumentIndex": 11,
+              "Title": "IRecipeService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IRecipeService.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IRecipeService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IRecipeService.cs",
+              "RelativeToolTip": "..\\BL\\Interfaces\\IRecipeService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T15:50:26.739Z"
+              "WhenOpened": "2023-11-18T18:44:44.08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
+              "Title": "RecipesService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\RecipesService.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Services\\RecipesService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\RecipesService.cs",
+              "RelativeToolTip": "..\\BL\\Services\\RecipesService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-28T13:37:38.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CustomProfile.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Profiles\\CustomProfile.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Profiles\\CustomProfile.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Profiles\\CustomProfile.cs",
+              "RelativeToolTip": "..\\BL\\Profiles\\CustomProfile.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAADwvxsAAABbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T20:00:06.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\User.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\User.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\User.cs",
+              "RelativeToolTip": "..\\DAL\\Models\\DB\\User.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T16:29:11.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "..\\BL\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\UserService.cs",
+              "RelativeToolTip": "..\\BL\\Services\\UserService.cs",
+              "ViewState": "AQIAAKUAAAAAAAAAAAAAAMAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T15:02:04.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAADgvzwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-07T10:52:38.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "LikesDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\LikesDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\LikesDTO.cs",
@@ -357,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "RoleDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\RoleDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\RoleDTO.cs",
@@ -369,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\UserDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\UserDTO.cs",
@@ -381,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "Likes.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Likes.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Likes.cs",
@@ -393,7 +491,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "RecipeDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\RecipeDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\RecipeDTO.cs",
@@ -405,19 +503,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "LikeService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\LikeService.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Services\\LikeService.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\LikeService.cs",
-              "RelativeToolTip": "..\\BL\\Services\\LikeService.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAADgvzMAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T15:03:43.019Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "Recipe.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Recipe.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Recipe.cs",
@@ -429,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "LikeController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\LikeController.cs",
               "RelativeDocumentMoniker": "Controllers\\LikeController.cs",
@@ -441,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 24,
               "Title": "ServiceCollectionExtensions.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Extensions\\ServiceCollectionExtensions.cs",
               "RelativeDocumentMoniker": "Extensions\\ServiceCollectionExtensions.cs",
@@ -453,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "IlikeService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IlikeService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IlikeService.cs",
@@ -465,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "FollowController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\FollowController.cs",
               "RelativeDocumentMoniker": "Controllers\\FollowController.cs",
@@ -477,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "FollowService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\FollowService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Services\\FollowService.cs",
@@ -489,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "IFollowService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IFollowService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IFollowService.cs",
@@ -501,19 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AuthenticateController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\AuthenticateController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthenticateController.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\AuthenticateController.cs",
-              "RelativeToolTip": "Controllers\\AuthenticateController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwCgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-07T10:45:04.046Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "DifficultyService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\DifficultyService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Services\\DifficultyService.cs",
@@ -525,19 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "AuthRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\AuthRepository.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Services\\AuthRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\AuthRepository.cs",
-              "RelativeToolTip": "..\\BL\\Services\\AuthRepository.cs",
-              "ViewState": "AQIAAIEAAAAAAAAAAADgvzMAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-07T10:48:05.251Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "FollowDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\FollowDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\FollowDTO.cs",
@@ -549,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IUserService.cs",
@@ -561,7 +623,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "Follow.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Follow.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Follow.cs",
@@ -573,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Services\\ProductService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Services\\ProductService.cs",
@@ -585,7 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
@@ -597,19 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "ICategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\ICategoryService.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\ICategoryService.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\ICategoryService.cs",
-              "RelativeToolTip": "..\\BL\\Interfaces\\ICategoryService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T17:05:17.278Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "Feedback.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Feedback.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Feedback.cs",
@@ -621,7 +671,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "Ingredient.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Ingredient.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Ingredient.cs",
@@ -633,7 +683,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "FeedbackDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\FeedbackDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\FeedbackDTO.cs",
@@ -645,7 +695,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Product.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Product.cs",
@@ -657,7 +707,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "BaseController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\BaseController.cs",
               "RelativeDocumentMoniker": "Controllers\\BaseController.cs",
@@ -669,7 +719,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "ImageController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\ImageController.cs",
               "RelativeDocumentMoniker": "Controllers\\ImageController.cs",
@@ -677,11 +727,12 @@
               "RelativeToolTip": "Controllers\\ImageController.cs",
               "ViewState": "AQIAACkAAAAAAAAAAAAewCoAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-18T18:56:14.033Z"
+              "WhenOpened": "2023-11-18T18:56:14.033Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "dbo.Users [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/RecipesSite/True/SqlTable/dbo.Users.sql",
               "ToolTip": "dbo.Users [Data]",
@@ -690,7 +741,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "CategoryDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\CategoryDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\CategoryDTO.cs",
@@ -702,7 +753,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "Instruction.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Instruction.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Instruction.cs",
@@ -714,7 +765,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -726,7 +777,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "IngredientDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\IngredientDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\IngredientDTO.cs",
@@ -738,7 +789,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "IProductService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IProductService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IProductService.cs",
@@ -750,7 +801,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 48,
               "Title": "ProductDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\ProductDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\ProductDTO.cs",
@@ -762,7 +813,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "InstructionDTO.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\InstructionDTO.cs",
               "RelativeDocumentMoniker": "..\\Entities\\InstructionDTO.cs",
@@ -774,7 +825,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 49,
               "Title": "Image.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\Models\\DB\\Image.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\DB\\Image.cs",
@@ -786,7 +837,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "DifficultyController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\DifficultyController.cs",
               "RelativeDocumentMoniker": "Controllers\\DifficultyController.cs",
@@ -798,7 +849,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 50,
               "Title": "ServiceResponse.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\ServiceResponse.cs",
               "RelativeDocumentMoniker": "..\\BL\\ServiceResponse.cs",
@@ -810,19 +861,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "IDifficultyService.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IDifficultyService.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IDifficultyService.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IDifficultyService.cs",
-              "RelativeToolTip": "..\\BL\\Interfaces\\IDifficultyService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-18T18:44:44.093Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "IFeedbackService.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IFeedbackService.cs",
               "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IFeedbackService.cs",
@@ -834,19 +873,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "IAuthRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IAuthRepository.cs",
-              "RelativeDocumentMoniker": "..\\BL\\Interfaces\\IAuthRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Interfaces\\IAuthRepository.cs",
-              "RelativeToolTip": "..\\BL\\Interfaces\\IAuthRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-07T10:47:17.536Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "DAL.csproj",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\DAL\\DAL.csproj",
               "RelativeDocumentMoniker": "..\\DAL\\DAL.csproj",
@@ -858,7 +885,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "Gender.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Entities\\Gender.cs",
               "RelativeDocumentMoniker": "..\\Entities\\Gender.cs",
@@ -870,7 +897,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "BL.csproj",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\BL.csproj",
               "RelativeDocumentMoniker": "..\\BL\\BL.csproj",
@@ -882,7 +909,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
@@ -894,7 +921,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Repository\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "..\\BL\\Repository\\UnitOfWork.cs",
@@ -905,7 +932,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "Netcore.csproj",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Netcore.csproj",
               "RelativeDocumentMoniker": "Netcore.csproj",
@@ -917,7 +944,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "DbFactory.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\DbFactory.cs",
               "RelativeDocumentMoniker": "..\\BL\\DbFactory.cs",
@@ -928,7 +955,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\BL\\Repository\\Repository.cs",
               "RelativeDocumentMoniker": "..\\BL\\Repository\\Repository.cs",
