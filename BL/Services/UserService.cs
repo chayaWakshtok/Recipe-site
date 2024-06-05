@@ -209,5 +209,23 @@ namespace BL.Services
 
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<int>> CountUser()
+        {
+            var serviceResponse = new ServiceResponse<int>();
+            try
+            {
+                var count = _context.Users.Where(p => p.Status == 1).Count();
+                serviceResponse.Data = count;
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        }
     }
 }

@@ -14,7 +14,7 @@
 
           <div class="col-12 col-sm-6 col-md-6 col-lg-6">
             <div class="block counter-block mb-6">
-              <div class="value">22</div>
+              <div class="value">{{countRecipes}}</div>
               <i class="dripicons-home i-icon"></i>
               <p class="label">Recipes</p>
             </div>
@@ -22,7 +22,7 @@
 
           <div class="col-12 col-sm-6 col-md-6 col-lg-6">
             <div class="block counter-block mb-6">
-              <div class="value">232</div>
+              <div class="value">{{countUsers}}</div>
               <i class="dripicons-user-group i-icon"></i>
               <p class="label">Users</p>
             </div>
@@ -41,7 +41,7 @@
                 <div class="graph-pills graph-home">
                   <ul class="nav nav-pills" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active active-2" href="../controller/recipes.php">View All <i
+                      <a class="nav-link active active-2" routerLink="/admin/recipes">View All <i
                           class="fa fa-angle-right"></i></a>
                     </li>
                   </ul>
@@ -51,52 +51,14 @@
               <div class="table-responsive text-no-wrap">
                 <table class="table">
                   <tbody class="text-middle">
-                    <tr>
+                    <tr *ngFor="let item of recipes">
                       <td class="product" width="70px">
-                        <img class="product-img product-img-w" src="../../../assets/recipe_1620056120.jpg">
+                        <img class="product-img product-img-w" [src]="item.imageUrl">
                       </td>
                       <td class="name"><span class="span-title"><a class="btn-link"
-                            href="../controller/edit_recipe.php?id=42">Пунш</a></span></td>
-                      <td align="right" class="text-muted">24/01/2023</td>
+                            [routerLink]="'/admin/edit_recipe/'+item.id">{{item.title}}</a></span></td>
+                      <td align="right" class="text-muted">{{item.updateAt|date: 'dd/MM/yyyy'}}</td>
                     </tr>
-
-                    <tr>
-                      <td class="product" width="70px">
-                        <img class="product-img product-img-w"  src="../../../assets/recipe_1620056120.jpg">
-                      </td>
-                      <td class="name"><span class="span-title"><a class="btn-link"
-                            href="../controller/edit_recipe.php?id=41">Пунш – безалкогольный</a></span></td>
-                      <td align="right" class="text-muted">20/01/2023</td>
-                    </tr>
-
-                    <tr>
-                      <td class="product" width="70px">
-                        <img class="product-img product-img-w"  src="../../../assets/recipe_1620056120.jpg">
-                      </td>
-                      <td class="name"><span class="span-title"><a class="btn-link"
-                            href="../controller/edit_recipe.php?id=40">Test</a></span></td>
-                      <td align="right" class="text-muted">18/01/2023</td>
-                    </tr>
-
-                    <tr>
-                      <td class="product" width="70px">
-                        <img class="product-img product-img-w"  src="../../../assets/recipe_1620056120.jpg">
-                      </td>
-                      <td class="name"><span class="span-title"><a class="btn-link"
-                            href="../controller/edit_recipe.php?id=39">sdfsd</a></span></td>
-                      <td align="right" class="text-muted">28/12/2022</td>
-                    </tr>
-
-                    <tr>
-                      <td class="product" width="70px">
-                        <img class="product-img product-img-w"  src="../../../assets/recipe_1620056120.jpg">
-                      </td>
-                      <td class="name"><span class="span-title"><a class="btn-link"
-                            href="../controller/edit_recipe.php?id=38">Donut</a></span></td>
-                      <td align="right" class="text-muted">02/01/2022</td>
-                    </tr>
-
-
                   </tbody>
                 </table>
               </div>

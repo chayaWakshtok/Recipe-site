@@ -346,6 +346,26 @@ namespace BL.Services
             return serviceResponse;
         }
 
+
+        public async Task<ServiceResponse<int>> CountRecipe()
+        {
+            var serviceResponse = new ServiceResponse<int>();
+            try
+            {
+                var count = _context.Recipes.Where(p => p.Status == 1).Count();
+                serviceResponse.Data = count;
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        }
+
+
         public async Task<ServiceResponse<List<RecipeDTO>>> MostLiked()
         {
             var serviceResponse = new ServiceResponse<List<RecipeDTO>>();

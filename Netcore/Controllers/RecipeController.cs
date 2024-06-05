@@ -38,6 +38,12 @@ namespace Netcore.Controllers
             return Ok(await _recipeService.MostLiked());
         }
 
+        [HttpGet("GetCount")]
+        public async Task<ActionResult<ServiceResponse<int>>> GetCount()
+        {
+            return Ok(await _recipeService.CountRecipe());
+        }
+
         [AllowAnonymous]
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<RecipeDTO>>>> Get()

@@ -19,5 +19,6 @@ namespace BL.Interfaces
         Task<ServiceResponse<List<RecipeDTO>>> GetAllByUser(int userId);
         Task<ServiceResponse<List<RecipeDTO>>> GetAllByUserAndLikes(int userId);
         Task<ServiceResponse<List<RecipeDTO>>> GetRecipesLikes(int userId);
+        Task<ServiceResponse<int>> CountRecipe();
     }
 }

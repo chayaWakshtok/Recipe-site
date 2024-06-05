@@ -19,6 +19,11 @@ export class RecipeService {
       .pipe(map((response: ServiceResponse<Recipe[]>) => { return response.data }));
   }
 
+  getCount() {
+    return this.http.get<ServiceResponse<number>>(this.auth_api + "GetCount")
+      .pipe(map((response: ServiceResponse<number>) => { return response.data }));
+  }
+
   getLaters(): Observable<Recipe[]> {
     return this.http.get<ServiceResponse<Recipe[]>>(this.auth_api + "GetLaster")
       .pipe(map((response: ServiceResponse<Recipe[]>) => { return response.data }));

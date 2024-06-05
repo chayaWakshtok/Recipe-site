@@ -19,6 +19,11 @@ export class UserService {
       .pipe(map((response: ServiceResponse<User[]>) => { return response.data }));
   }
 
+  getCount() {
+    return this.http.get<ServiceResponse<number>>(this.auth_api + "GetCount")
+      .pipe(map((response: ServiceResponse<number>) => { return response.data }));
+  }
+
   add(user: User): Observable<User[]> {
     return this.http.post<ServiceResponse<User[]>>(this.auth_api + "Add", user)
       .pipe(map((response: ServiceResponse<User[]>) => { return response.data }));
