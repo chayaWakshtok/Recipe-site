@@ -11,7 +11,6 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class RecipesComponent {
 
-  title = 'datatables';
   dtOptions: DataTables.Settings = {};
   recipes: Recipe[] = [];
 
