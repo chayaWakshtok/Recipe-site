@@ -25,6 +25,7 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { EditDifficultComponent } from './edit-difficult/edit-difficult.component';
 import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
     EditRecipeComponent,
     EditCategoryComponent,
     EditDifficultComponent,
+    CommentsComponent,
   ],
   exports: []
 })

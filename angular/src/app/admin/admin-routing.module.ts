@@ -15,6 +15,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { EditDifficultComponent } from './edit-difficult/edit-difficult.component';
+import { CommentsComponent } from './comments/comments.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: "users", component: UsersComponent },
       { path: "new_user", component: AddUserComponent },
       { path: "edit_user/:id", component: EditUserComponent },
+      {path:"comments", component: CommentsComponent },
     ]
   },
   { path: "login", component: LoginAdminComponent },
