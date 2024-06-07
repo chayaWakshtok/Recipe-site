@@ -1,0 +1,169 @@
+<div class="uk-container uk-margin-large-top" id="comments-section">
+  <h3 class="uk-heading-line uk-text-bold uk-margin-medium-bottom"><span><span
+        id="comments_count">{{feedbacks.length}}</span>
+      Comment(s)</span></h3>
+
+  <div class="uk-alert-warning uk-alert" uk-alert="" *ngIf="!isLogin">
+    <a class="uk-alert-close uk-icon uk-close" uk-close=""><svg width="14" height="14" viewBox="0 0 14 14"
+        xmlns="http://www.w3.org/2000/svg">
+      </svg></a>
+    <p><a href="javascript:void(0)" routerLink="/auth/signin" class="uk-link-reset">Sign in to post a comment</a></p>
+  </div>
+
+  <form class="clearfix uk-margin-bottom" id="comment_form" *ngIf="isLogin">
+    <textarea [(ngModel)]="newFeedback.mark" class="uk-textarea uk-border-rounded" name="comment_text" id="comment_text"
+      cols="30" rows="3"></textarea>
+    <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small" (click)="postFeedback()"
+      id="submit_comment">Submit
+      Comment</button>
+  </form>
+  <div id="comments-wrapper">
+    <app-comment-reply></app-comment-reply>
+    <!-- comments -->
+    <div class="comment clearfix">
+
+      <article class="comment-box uk-comment uk-border-rounded">
+        <header class="uk-comment-header uk-margin-remove uk-position-relative">
+          <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
+            <div class="uk-width-auto uk-first-column">
+
+              <div class="uk-cover-container uk-border-rounded">
+                <img src="https://demos.wicombit.com/realfood/images/avatar.png" uk-cover="" class="uk-cover"
+                  style="height: 80px; width: 80px;">
+                <canvas width="80" height="80"></canvas>
+              </div>
+
+            </div>
+            <div class="uk-width-expand">
+              <h5 class="uk-comment-title uk-margin-remove">cccc <span
+                  class="uk-margin-small-left uk-text-muted uk-text-small">08/05/2024</span></h5>
+              <p class="uk-comment-meta uk-margin-remove-top">tfyyrt67y</p>
+            </div>
+          </div>
+          <div class="uk-position-top-right uk-position-small">
+            <a class="reply-btn" href="#" data-id="87"><span uk-icon="reply" class="uk-icon"><svg width="20" height="20"
+                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                </svg></span></a>
+          </div>
+        </header>
+      </article>
+
+      <!-- reply form -->
+      <form class="reply_form uk-margin-bottom uk-margin-small-top" id="comment_reply_form_87" data-id="87">
+        <input type="hidden" id="reply_user_87" value="1" disabled="">
+        <textarea class="uk-textarea uk-border-rounded" name="reply_text" cols="30" rows="4" required=""></textarea>
+        <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top submit-reply">Submit
+          reply</button>
+      </form>
+
+      <!-- GET ALL REPLIES -->
+
+
+      <ul class="replies" id="replies_87">
+
+        <div class="replies_wrapper_87">
+
+        </div>
+      </ul>
+
+    </div>
+    <!-- // comment -->
+    <div class="comment clearfix" *ngFor="let item of feedbacks">
+
+      <article class="comment-box uk-comment uk-border-rounded">
+        <header class="uk-comment-header uk-margin-remove uk-position-relative">
+          <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
+            <div class="uk-width-auto uk-first-column">
+              <div class="uk-cover-container uk-border-rounded">
+                <img [src]="item.user.picture" uk-cover="" class="uk-cover" style="height: 80px; width: 80px;">
+                <canvas width="80" height="80"></canvas>
+              </div>
+            </div>
+            <div class="uk-width-expand">
+              <h5 class="uk-comment-title uk-margin-remove">{{item.user.firstName}} <span
+                  class="uk-margin-small-left uk-text-muted uk-text-small">{{item.createAt}}</span></h5>
+              <p class="uk-comment-meta uk-margin-remove-top">{{item.mark}}</p>
+            </div>
+          </div>
+          <div class="uk-position-top-right uk-position-small">
+            <a href="javascript:void(0)" routerLink="/auth/signin" *ngIf="!isLogin"><span uk-icon="reply"
+                class="uk-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                </svg></span></a>
+          </div>
+        </header>
+      </article>
+
+      <form class="reply_form uk-margin-bottom uk-margin-small-top" id="comment_reply_form_87" data-id="87"
+        style="display: block;">
+        <input type="hidden" id="reply_user_87" value="1" disabled="">
+        <textarea class="uk-textarea uk-border-rounded" name="reply_text" cols="30" rows="4" required=""
+          spellcheck="false"></textarea>
+        <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top submit-reply">Submit
+          reply</button>
+      </form>
+
+      <!-- GET ALL REPLIES -->
+
+
+      <ul class="replies" id="replies_83">
+
+        <div class="replies_wrapper_83">
+
+          <li>
+
+            <article class="reply-box uk-comment uk-border-rounded uk-margin-bottom">
+              <header class="uk-comment-header uk-margin-remove">
+                <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
+                  <div class="uk-width-auto uk-first-column">
+
+                    <div class="uk-cover-container uk-border-rounded">
+                      <img src="https://demos.wicombit.com/realfood/images/1621537827.jpg" uk-cover="" class="uk-cover"
+                        style="height: 80px; width: 80px;">
+                      <canvas width="80" height="80"></canvas>
+                    </div>
+
+                  </div>
+                  <div class="uk-width-expand">
+                    <h5 class="uk-comment-title uk-margin-remove">Wicombit <span
+                        class="uk-margin-small-left uk-text-muted uk-text-small">07/06/2024</span></h5>
+                    <p class="uk-comment-meta uk-margin-remove-top">hhhhh</p>
+                  </div>
+                </div>
+              </header>
+            </article>
+          </li>
+
+        </div>
+      </ul>
+
+    </div>
+
+
+
+    <div class="uk-margin-large-top"></div>
+
+    <p class="uk-text-small uk-text-muted">Page 1 - 9</p>
+
+    <hr>
+
+    <div class="uk-margin-top">
+      <ul class="uk-pagination uk-flex-center" uk-margin="">
+        <li class="uk-active uk-first-column"><span>1</span></li>
+
+        <li>
+          <a class="change-page" data-page="2">2</a>
+        </li>
+
+        <li><a class="change-page" data-page="3">3</a></li>
+
+        <li><span>...</span></li>
+        <li><a class="change-page" data-page="9">9</a></li>
+        <li><a class="change-page" data-page="2"><i class="ti ti-chevron-right"></i></a></li>
+
+      </ul>
+    </div>
+
+
+
+  </div>
+</div>

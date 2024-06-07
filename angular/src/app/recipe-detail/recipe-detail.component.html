@@ -1,24 +1,16 @@
 <div class="uk-container">
-
   <div class="tas-single uk-width-1-1">
-
     <div class="uk-flex uk-flex-middle uk-grid" uk-grid="">
-
       <div class="uk-width-1-1 uk-width-expand@s uk-first-column">
         <h1 class="single-title">Mighty Super Cheesecake</h1>
-
       </div>
       <div class="uk-width-1-1 uk-width-auto@s">
         <ul class="tas-actions uk-iconnav">
-          <li><a href="#share-item" uk-scroll=""><i class="ti ti-share"></i></a></li>
-
+          <li><a href="javascript:void(1)" (click)="onClick()"><i class="ti ti-share"></i></a></li>
           <li class="like"><a class="addfav" data-item="1" data-user="1"><i class="ti ti-heart"></i></a></li>
           <li class="unlike uk-hidden"><a class="removefav" data-item="1" data-user="1"><i
                 class="ti ti-heart uk-text-danger"></i></a></li>
-
-
-
-          <li><a href="https://demos.wicombit.com/realfood/print.php?id=1"><i class="ti ti-file-download"></i></a></li>
+          <!-- <li><a href="javascript:void(1)" (click)="SavePDF()"><i class="ti ti-file-download"></i></a></li> -->
         </ul>
       </div>
 
@@ -53,18 +45,13 @@
         <div>
           <p class="uk-text-muted"><span uk-icon="icon: calendar" class="uk-margin-small-right uk-icon"><svg width="20"
                 height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 2,3 2,17 18,17 18,3 2,3 Z M 17,16 3,16 3,8 17,8 17,16 Z M 17,7 3,7 3,4 17,4 17,7 Z"></path>
-                <rect width="1" height="3" x="6" y="2"></rect>
-                <rect width="1" height="3" x="13" y="2"></rect>
               </svg></span> 14/04/2021</p>
         </div>
 
         <div>
           <span uk-icon="icon: heart" class="uk-margin-small-right uk-icon"><svg width="20" height="20"
               viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill="none" stroke="#000" stroke-width="1.03"
-                d="M10,4 C10,4 8.1,2 5.74,2 C3.38,2 1,3.55 1,6.73 C1,8.84 2.67,10.44 2.67,10.44 L10,18 L17.33,10.44 C17.33,10.44 19,8.84 19,6.73 C19,3.55 16.62,2 14.26,2 C11.9,2 10,4 10,4 L10,4 Z">
-              </path>
+
             </svg></span><span id="likes_count">18</span>
         </div>
 
@@ -78,7 +65,7 @@
 
     </div>
 
-    <div class="single-image uk-cover-container uk-height-medium uk-transition-toggle" tabindex="0">
+    <div id="recipe-app" class="single-image uk-cover-container uk-height-medium uk-transition-toggle" tabindex="0">
       <img src="https://demos.wicombit.com/realfood/images/recipe_1618205715.jpg" alt="Mighty Super Cheesecake"
         uk-cover="" class="uk-cover" style="height: 900px; width: 1200px;">
       <div class="uk-position-center">
@@ -183,19 +170,13 @@
 
         </div>
 
-        <div class="uk-width-1-1 uk-text-center uk-margin-medium-bottom">
-          <p><img src="https://via.placeholder.com/350x350"></p>
-        </div>
-
         <div class="widget" id="share-item">
-
           <div
             class="uk-grid-small uk-child-width-1-2 uk-child-width-1-1@s uk-child-width-1-2@m uk-text-center uk-margin-top uk-grid"
             uk-grid="">
-
             <div class="uk-first-column">
               <a class="resp-sharing-button__link"
-                href="https://facebook.com/sharer/sharer.php?u=https://demos.wicombit.com/realfood/recipe/1/mighty-super-cheesecake"
+                [href]="'https://facebook.com/sharer/sharer.php?u=http://192.168.17.1:4200/recipe/'+recipe?.id"
                 target="_blank" rel="noopener" aria-label="Facebook">
                 <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--medium">
                   <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -204,7 +185,6 @@
                 </div>
               </a>
             </div>
-
             <div>
               <a class="resp-sharing-button__link"
                 href="https://twitter.com/intent/tweet/?text=Mighty Super Cheesecake&amp;url=https://demos.wicombit.com/realfood/recipe/1/mighty-super-cheesecake"
@@ -217,17 +197,6 @@
               </a>
             </div>
 
-            <div class="uk-grid-margin uk-first-column">
-              <a class="resp-sharing-button__link"
-                href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Mighty Super Cheesecake&amp;caption=Mighty Super Cheesecake&amp;content=https://demos.wicombit.com/realfood/recipe/1/mighty-super-cheesecake&amp;canonicalUrl=https://demos.wicombit.com/realfood/recipe/1/mighty-super-cheesecake&amp;shareSource=tumblr_share_button"
-                target="_blank" rel="noopener" aria-label="Tumblr">
-                <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--medium">
-                  <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-                    <i class="ti ti-brand-tumblr"></i>
-                  </div>Tumblr
-                </div>
-              </a>
-            </div>
 
             <div class="uk-grid-margin">
               <a class="resp-sharing-button__link"
@@ -253,52 +222,7 @@
               </a>
             </div>
 
-            <div class="uk-grid-margin">
-
-              <a class="resp-sharing-button__link"
-                href="https://telegram.me/share/url?text=Mighty Super Cheesecake&amp;url=https://demos.wicombit.com/realfood/recipe/1/mighty-super-cheesecake"
-                target="_blank" rel="noopener" aria-label="Share on Telegram">
-                <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--large">
-                  <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
-                    <i class="ti ti-brand-telegram"></i>
-                  </div>Telegram
-                </div>
-              </a>
-
-            </div>
           </div>
-        </div>
-        <div class="single-newsletter uk-button-default widget">
-
-          <i class="icon ti ti-mail-opened"></i>
-
-          <h2 class="title uk-text-break">Deliciousness to your inbox</h2>
-          <p class="subtitle uk-text-muted">Enjoy weekly hand picked recipes and recommendations</p>
-
-          <div class="newsletter">
-            <form>
-              <div class="uk-inline uk-width-1-1">
-                <span class="uk-form-icon uk-icon" uk-icon="icon: mail"><svg width="20" height="20" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <polyline fill="none" stroke="#000" points="1.4,6.5 10,11 18.6,6.5"></polyline>
-                    <path d="M 1,4 1,16 19,16 19,4 1,4 Z M 18,15 2,15 2,5 18,5 18,15 Z"></path>
-                  </svg></span>
-                <input class="uk-input uk-form-large uk-border-rounded" placeholder="Email Address"
-                  id="newsletter_email" type="email">
-              </div>
-              <button
-                class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-width-1-1 uk-margin-small-top"
-                value="Suscribe Now" type="submit" id="submit-newsletter">Suscribe Now</button>
-
-              <div id="getresults"></div>
-
-              <p class="uk-text-small uk-margin-remove uk-padding-small">By joining our newsletter you agree to our <a
-                  class="uk-link-muted" target="_blank" href="https://demos.wicombit.com/realfood/terms-and-conditions">
-                  <b>Terms and Conditions</b></a></p>
-
-            </form>
-          </div>
-
         </div>
       </div>
 
@@ -342,206 +266,4 @@
   </div>
 
 </div>
-
-
-<div class="uk-container uk-margin-large-top" id="comments-section">
-
-  <h3 class="uk-heading-line uk-text-bold uk-margin-medium-bottom"><span><span id="comments_count">27</span>
-      Comment(s)</span></h3>
-
-  <form class="clearfix uk-margin-bottom" method="post" id="comment_form">
-    <input type="hidden" name="comment_item" id="comment_item" value="1" disabled="">
-    <input type="hidden" name="comment_user" id="comment_user" value="1" disabled="">
-    <textarea class="uk-textarea uk-border-rounded" name="comment_text" id="comment_text" cols="30" rows="3"></textarea>
-    <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small" id="submit_comment">Submit
-      Comment</button>
-  </form>
-
-  <div id="comments-wrapper">
-    <!-- comments -->
-    <div class="comment clearfix">
-
-      <article class="comment-box uk-comment uk-border-rounded">
-        <header class="uk-comment-header uk-margin-remove uk-position-relative">
-          <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
-            <div class="uk-width-auto uk-first-column">
-
-              <div class="uk-cover-container uk-border-rounded">
-                <img src="https://demos.wicombit.com/realfood/images/avatar.png" uk-cover="" class="uk-cover"
-                  style="height: 80px; width: 80px;">
-                <canvas width="80" height="80"></canvas>
-              </div>
-
-            </div>
-            <div class="uk-width-expand">
-              <h5 class="uk-comment-title uk-margin-remove">cccc <span
-                  class="uk-margin-small-left uk-text-muted uk-text-small">08/05/2024</span></h5>
-              <p class="uk-comment-meta uk-margin-remove-top">tfyyrt67y</p>
-            </div>
-          </div>
-          <div class="uk-position-top-right uk-position-small">
-            <a class="reply-btn" href="#" data-id="87"><span uk-icon="reply" class="uk-icon"><svg width="20" height="20"
-                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17.7,13.11 C16.12,10.02 13.84,7.85 11.02,6.61 C10.57,6.41 9.75,6.13 9,5.91 L9,2 L1,9 L9,16 L9,12.13 C10.78,12.47 12.5,13.19 14.09,14.25 C17.13,16.28 18.56,18.54 18.56,18.54 C18.56,18.54 18.81,15.28 17.7,13.11 L17.7,13.11 Z M14.82,13.53 C13.17,12.4 11.01,11.4 8,10.92 L8,13.63 L2.55,9 L8,4.25 L8,6.8 C8.3,6.86 9.16,7.02 10.37,7.49 C13.3,8.65 15.54,10.96 16.65,13.08 C16.97,13.7 17.48,14.86 17.68,16 C16.87,15.05 15.73,14.15 14.82,13.53 L14.82,13.53 Z">
-                  </path>
-                </svg></span></a>
-          </div>
-        </header>
-      </article>
-
-      <!-- reply form -->
-      <form class="reply_form uk-margin-bottom uk-margin-small-top" id="comment_reply_form_87" data-id="87">
-        <input type="hidden" id="reply_user_87" value="1" disabled="">
-        <textarea class="uk-textarea uk-border-rounded" name="reply_text" cols="30" rows="4" required=""></textarea>
-        <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top submit-reply">Submit
-          reply</button>
-      </form>
-
-      <!-- GET ALL REPLIES -->
-
-
-      <ul class="replies" id="replies_87">
-
-        <div class="replies_wrapper_87">
-
-        </div>
-      </ul>
-
-    </div>
-    <!-- // comment -->
-    <div class="comment clearfix">
-
-      <article class="comment-box uk-comment uk-border-rounded">
-        <header class="uk-comment-header uk-margin-remove uk-position-relative">
-          <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
-            <div class="uk-width-auto uk-first-column">
-
-              <div class="uk-cover-container uk-border-rounded">
-                <img src="https://demos.wicombit.com/realfood/images/1621537827.jpg" uk-cover="" class="uk-cover"
-                  style="height: 80px; width: 80px;">
-                <canvas width="80" height="80"></canvas>
-              </div>
-
-            </div>
-            <div class="uk-width-expand">
-              <h5 class="uk-comment-title uk-margin-remove">Wicombit <span
-                  class="uk-margin-small-left uk-text-muted uk-text-small">24/04/2024</span></h5>
-              <p class="uk-comment-meta uk-margin-remove-top">круто
-              </p>
-            </div>
-          </div>
-          <div class="uk-position-top-right uk-position-small">
-            <a class="reply-btn" href="#" data-id="86"><span uk-icon="reply" class="uk-icon"><svg width="20" height="20"
-                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17.7,13.11 C16.12,10.02 13.84,7.85 11.02,6.61 C10.57,6.41 9.75,6.13 9,5.91 L9,2 L1,9 L9,16 L9,12.13 C10.78,12.47 12.5,13.19 14.09,14.25 C17.13,16.28 18.56,18.54 18.56,18.54 C18.56,18.54 18.81,15.28 17.7,13.11 L17.7,13.11 Z M14.82,13.53 C13.17,12.4 11.01,11.4 8,10.92 L8,13.63 L2.55,9 L8,4.25 L8,6.8 C8.3,6.86 9.16,7.02 10.37,7.49 C13.3,8.65 15.54,10.96 16.65,13.08 C16.97,13.7 17.48,14.86 17.68,16 C16.87,15.05 15.73,14.15 14.82,13.53 L14.82,13.53 Z">
-                  </path>
-                </svg></span></a>
-          </div>
-        </header>
-      </article>
-
-      <!-- reply form -->
-      <form class="reply_form uk-margin-bottom uk-margin-small-top" id="comment_reply_form_86" data-id="86">
-        <input type="hidden" id="reply_user_86" value="1" disabled="">
-        <textarea class="uk-textarea uk-border-rounded" name="reply_text" cols="30" rows="4" required=""></textarea>
-        <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top submit-reply">Submit
-          reply</button>
-      </form>
-
-      <!-- GET ALL REPLIES -->
-
-
-      <ul class="replies" id="replies_86">
-
-        <div class="replies_wrapper_86">
-
-        </div>
-      </ul>
-
-    </div>
-    <!-- // comment -->
-    <div class="comment clearfix">
-
-      <article class="comment-box uk-comment uk-border-rounded">
-        <header class="uk-comment-header uk-margin-remove uk-position-relative">
-          <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
-            <div class="uk-width-auto uk-first-column">
-
-              <div class="uk-cover-container uk-border-rounded">
-                <img src="https://demos.wicombit.com/realfood/images/avatar.png" uk-cover="" class="uk-cover"
-                  style="height: 80px; width: 80px;">
-                <canvas width="80" height="80"></canvas>
-              </div>
-
-            </div>
-            <div class="uk-width-expand">
-              <h5 class="uk-comment-title uk-margin-remove">senid <span
-                  class="uk-margin-small-left uk-text-muted uk-text-small">09/03/2024</span></h5>
-              <p class="uk-comment-meta uk-margin-remove-top">aasdas</p>
-            </div>
-          </div>
-          <div class="uk-position-top-right uk-position-small">
-            <a class="reply-btn" href="#" data-id="83"><span uk-icon="reply" class="uk-icon"><svg width="20" height="20"
-                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17.7,13.11 C16.12,10.02 13.84,7.85 11.02,6.61 C10.57,6.41 9.75,6.13 9,5.91 L9,2 L1,9 L9,16 L9,12.13 C10.78,12.47 12.5,13.19 14.09,14.25 C17.13,16.28 18.56,18.54 18.56,18.54 C18.56,18.54 18.81,15.28 17.7,13.11 L17.7,13.11 Z M14.82,13.53 C13.17,12.4 11.01,11.4 8,10.92 L8,13.63 L2.55,9 L8,4.25 L8,6.8 C8.3,6.86 9.16,7.02 10.37,7.49 C13.3,8.65 15.54,10.96 16.65,13.08 C16.97,13.7 17.48,14.86 17.68,16 C16.87,15.05 15.73,14.15 14.82,13.53 L14.82,13.53 Z">
-                  </path>
-                </svg></span></a>
-          </div>
-        </header>
-      </article>
-
-      <!-- reply form -->
-      <form class="reply_form uk-margin-bottom uk-margin-small-top" id="comment_reply_form_83" data-id="83">
-        <input type="hidden" id="reply_user_83" value="1" disabled="">
-        <textarea class="uk-textarea uk-border-rounded" name="reply_text" cols="30" rows="4" required=""></textarea>
-        <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top submit-reply">Submit
-          reply</button>
-      </form>
-
-      <!-- GET ALL REPLIES -->
-
-
-      <ul class="replies" id="replies_83">
-
-        <div class="replies_wrapper_83">
-
-        </div>
-      </ul>
-
-    </div>
-    <!-- // comment -->
-
-
-
-
-    <div class="uk-margin-large-top"></div>
-
-    <p class="uk-text-small uk-text-muted">Page 1 - 9</p>
-
-    <hr>
-
-    <div class="uk-margin-top">
-      <ul class="uk-pagination uk-flex-center" uk-margin="">
-        <li class="uk-active uk-first-column"><span>1</span></li>
-
-        <li>
-          <a class="change-page" data-page="2">2</a>
-        </li>
-
-        <li><a class="change-page" data-page="3">3</a></li>
-
-        <li><span>...</span></li>
-        <li><a class="change-page" data-page="9">9</a></li>
-        <li><a class="change-page" data-page="2"><i class="ti ti-chevron-right"></i></a></li>
-
-      </ul>
-    </div>
-
-
-
-  </div>
-
-</div>
+<app-comments [recipeId]="recipe?.id"></app-comments>

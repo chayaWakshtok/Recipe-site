@@ -26,6 +26,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { SiteContainerComponent } from './site-container/site-container.component';
 import { RouterModule } from '@angular/router';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentReplyComponent } from './comment-reply/comment-reply.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     MembersComponent,
     UserDetailComponent,
     SiteContainerComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    CommentsComponent,
+    CommentReplyComponent
   ],
   imports: [
     TablerIconsModule.pick(TablerIcons),
