@@ -14,5 +14,6 @@ namespace BL.Interfaces
         Task<ServiceResponse<List<FeedbackDTO>>> Delete(int workId);
         Task<ServiceResponse<FeedbackDTO>> GetOne(int id);
         Task<ServiceResponse<FeedbackDTO>> Update(FeedbackDTO categoryUpdate);
+        Task<ServiceResponse<List<FeedbackDTO>>> GetByRecipe(int recipe);
     }
 }

@@ -154,6 +154,19 @@ namespace BL.Services
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<List<RecipeDTO>>> GetByCategory(int category)
+        {
+            var serviceResponse = new ServiceResponse<List<RecipeDTO>>();
+            var recipes = await _context.Recipes.Include(p => p.Likes)
+                .Include(p => p.User).Include(p => p.Category).Where(p=>p.CategoryId==category)
+                    .OrderByDescending(p => p.CreateAt)
+                .ToListAsync();
+
+
+            serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
+            return serviceResponse;
+        }
+
         public async Task<ServiceResponse<List<RecipeDTO>>> GetAll()
         {
             var serviceResponse = new ServiceResponse<List<RecipeDTO>>();

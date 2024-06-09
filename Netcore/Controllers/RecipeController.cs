@@ -32,6 +32,13 @@ namespace Netcore.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet("GetRecipesByCategory/{category}")]
+        public async Task<ActionResult<ServiceResponse<List<RecipeDTO>>>> GetRecipesByCategory(int category)
+        {
+            return Ok(await _recipeService.GetByCategory(category));
+        }
+
+        [AllowAnonymous]
         [HttpGet("MostLike")]
         public async Task<ActionResult<ServiceResponse<List<RecipeDTO>>>> MostLike()
         {
