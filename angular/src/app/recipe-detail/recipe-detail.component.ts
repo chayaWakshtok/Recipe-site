@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RecipeDetailComponent {
 
   recipe!: Recipe;
+  recipesCategory: Recipe[] = [];
 
   constructor(private viewportScroller: ViewportScroller,
     public recipeService: RecipeService,
@@ -24,8 +25,12 @@ export class RecipeDetailComponent {
     if (id) {
       this.recipeService.getRecipe(id).subscribe(res => {
         this.recipe = res;
+        this.recipeService.getRecipesByCategory(this.recipe.categoryId ?? 0).subscribe(res => {
+          this.recipesCategory = res;
+        })
       })
     }
+
   }
 
   onClick(): void {

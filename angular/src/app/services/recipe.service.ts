@@ -63,4 +63,9 @@ export class RecipeService {
     return this.http.get<ServiceResponse<Recipe[]>>(this.auth_api + "GetMyRecipes")
       .pipe(map((response: ServiceResponse<Recipe[]>) => { return response.data }));
   }
+
+  getRecipesByCategory(category: number): Observable<Recipe[]> {
+    return this.http.get<ServiceResponse<Recipe[]>>(this.auth_api + "GetRecipesByCategory/" + category)
+      .pipe(map((response: ServiceResponse<Recipe[]>) => { return response.data }));
+  }
 }

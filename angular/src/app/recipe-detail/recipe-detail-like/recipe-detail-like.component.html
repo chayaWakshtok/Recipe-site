@@ -1,19 +1,19 @@
 <div class="uk-first-column">
-  <a href="https://demos.wicombit.com/realfood/recipe/5/brownies-with-walnuts">
+  <a [routerLink]="['/recipe', recipe.id]" href="javascript:void(1)">
     <div class="tas_card_2 uk-cover-container uk-height-medium">
-      <img src="https://demos.wicombit.com/realfood/images/recipe_1620058937.jpg" alt="Brownies with Walnuts"
+      <img [src]="recipe.imageUrl" [alt]="recipe.title"
         uk-cover="" class="uk-cover" style="height: 300px; width: 451px;">
 
       <div class="tas_rating">
-        <img src="https://demos.wicombit.com/realfood/assets/img/like.svg"><span>2</span>
+        <img src="../../../assets/like.svg"><span>{{recipe.countLikes}}</span>
       </div>
 
       <div class="uk-overlay uk-position-bottom">
-        <div class="uk-label">Desserts</div>
-        <p class="card-title">Brownies with Walnuts</p>
+        <div class="uk-label">{{recipe.category?.name}}</div>
+        <p class="card-title">{{recipe.title}}</p>
         <ul class="uk-subnav" uk-margin="">
-          <li class="uk-first-column"><span><i class="tas_icon ti ti-users"></i> 3 Serv.</span></li>
-          <li><span><i class="tas_icon ti ti-clock"></i> 25 Min</span></li>
+          <li class="uk-first-column"><span><i class="tas_icon ti ti-users"></i> {{recipe.servings}} Serv.</span></li>
+          <li><span><i class="tas_icon ti ti-clock"></i> {{recipe.prepTime}} Min</span></li>
         </ul>
       </div>
     </div>
