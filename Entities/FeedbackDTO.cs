@@ -14,9 +14,10 @@ namespace Entities
 
         public int? Type { get; set; }
 
-        public int? RecipeId { get; set; }
+        public int RecipeId { get; set; }
 
         public UserDTO? User { get; set; }
         public int FeedbackId { get; set; }
+        public List< FeedbackDTO> Replys { get; set; } = null;
     }
 }

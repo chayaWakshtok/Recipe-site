@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Feedback } from '../models/feedback';
 
 @Component({
   selector: 'app-comment-reply',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./comment-reply.component.scss']
 })
 export class CommentReplyComponent {
+
+  @Input() feedbacks: Feedback[] = [];
 
 }

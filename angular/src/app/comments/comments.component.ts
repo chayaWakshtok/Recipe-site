@@ -23,7 +23,7 @@ export class CommentsComponent {
 
   constructor(public feedbackService: FeedbackService,
     public storageService: StorageService,
-    public router:Router
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,26 +38,30 @@ export class CommentsComponent {
   }
 
   postFeedback() {
+    this.newFeedback.recipeId = this.recipeId;
+    this.newFeedback.userId = this.storageService.getUser().id;
     this.feedbackService.add(this.newFeedback).subscribe(res => {
       this.getFeedbacks();
       this.newFeedback = new Feedback(1);
     })
   }
 
-  clickReply()
-  {
-    if(this.isLogin)
+  clickReply() {
+    if (this.isLogin)
       this.showReply = true;
-    else
-    {
+    else {
       this.showReply = false;
-this.router.navigate(["/auth/login"]);
+      this.router.navigate(["/auth/login"]);
     }
   }
 
-  postReply() {
+  postReply(feedback: number) {
+    this.replyFeedback.feedbackId = feedback;
+    this.replyFeedback.recipeId = this.recipeId;
+    this.replyFeedback.userId = this.storageService.getUser().id;
     this.feedbackService.add(this.replyFeedback).subscribe(res => {
       this.getFeedbacks();
+      this.showReply = false;
       this.replyFeedback = new Feedback(2);
     })
   }

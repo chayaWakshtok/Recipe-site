@@ -16,5 +16,6 @@ namespace BL.Interfaces.Services
         Task<ServiceResponse<UserDTO>> GetOne(int id);
         Task<ServiceResponse<UserDTO>> Update(UserDTO userDTO);
         Task<ServiceResponse<UserDTO>> GetUserDetails(int id);
+        Task<ServiceResponse<int>> CountUser();
     }
 }

@@ -1,1 +1,31 @@
-<p>comment-reply works!</p>
+<ul class="replies" id="replies_83">
+
+    <div class="replies_wrapper_83" *ngIf="feedbacks">
+
+        <li *ngFor="let item of feedbacks">
+
+            <article class="reply-box uk-comment uk-border-rounded uk-margin-bottom">
+                <header class="uk-comment-header uk-margin-remove">
+                    <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
+                        <div class="uk-width-auto uk-first-column">
+
+                            <div class="uk-cover-container uk-border-rounded">
+                                <img [src]="item.user.picture" uk-cover="" class="uk-cover"
+                                    style="height: 80px; width: 80px;">
+                                <canvas width="80" height="80"></canvas>
+                            </div>
+
+                        </div>
+                        <div class="uk-width-expand">
+                            <h5 class="uk-comment-title uk-margin-remove">{{item.user.firstName}} <span
+                                    class="uk-margin-small-left uk-text-muted uk-text-small">{{item.createAt|date:"dd/MM/yyyy"}}</span>
+                            </h5>
+                            <p class="uk-comment-meta uk-margin-remove-top">{{item.mark}}</p>
+                        </div>
+                    </div>
+                </header>
+            </article>
+        </li>
+
+    </div>
+</ul>

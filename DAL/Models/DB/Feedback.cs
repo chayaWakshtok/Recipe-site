@@ -18,6 +18,7 @@ public partial class Feedback
     public DateTime? CreateAt { get; set; }
 
     public DateTime? UpdateAt { get; set; }
+    public int? FeedbackId { get; set; }
 
     public virtual Recipe? Recipe { get; set; }
 

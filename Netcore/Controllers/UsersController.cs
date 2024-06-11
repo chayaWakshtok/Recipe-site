@@ -46,6 +46,12 @@ namespace Netcore.Controllers
             return Ok(await _userService.GetOne(id));
         }
 
+        [HttpGet("GetCount")]
+        public async Task<ActionResult<ServiceResponse<int>>> GetCount()
+        {
+            return Ok(await _userService.CountUser());
+        }
+
         [HttpPost]
         [Route("Add")]
 
