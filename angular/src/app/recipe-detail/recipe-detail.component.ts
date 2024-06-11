@@ -4,6 +4,7 @@ import jsPDF from 'jspdf';
 import { Recipe } from '../models/recipe';
 import { RecipeService } from '../services/recipe.service';
 import { ActivatedRoute } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -14,10 +15,12 @@ export class RecipeDetailComponent {
 
   recipe!: Recipe;
   recipesCategory: Recipe[] = [];
+  isLike: boolean = false;
 
   constructor(private viewportScroller: ViewportScroller,
     public recipeService: RecipeService,
     private activatedRoute: ActivatedRoute,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,11 @@ export class RecipeDetailComponent {
     if (id) {
       this.recipeService.getRecipe(id).subscribe(res => {
         this.recipe = res;
+        var id = this.storageService.getUser().id;
+        this.recipe.likes
+          ? (this.isLike =
+            this.recipe.likes.findIndex((x) => x.userId == id) >= 0)
+          : (this.isLike = false);
         this.recipeService.getRecipesByCategory(this.recipe.categoryId ?? 0).subscribe(res => {
           this.recipesCategory = res;
         })

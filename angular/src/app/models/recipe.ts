@@ -3,6 +3,7 @@ import { Difficulty } from "./difficulty";
 import { Feedback } from "./feedback";
 import { Ingredient } from "./ingredient";
 import { Instruction } from "./instruction";
+import { Like } from "./like";
 import { User } from "./user";
 
 
@@ -18,7 +19,7 @@ export class Recipe {
   protein!: number | null;
   carbs!: number | null;
   userId!: number | null;
-  likes!: number | null;
+  likes!: Like[] | null;
   difficultyId!: number | null;
   status!: number | null;
   createAt!: string | null;
