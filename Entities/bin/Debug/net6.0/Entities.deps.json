@@ -9,7 +9,9 @@
       "Entities/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "MailKit": "4.6.0",
           "PluralizeService.Core": "1.2.21147.2",
+          "RestSharp": "111.2.0",
           "System.Data.SqlClient": "4.8.6"
         },
         "runtime": {
@@ -24,6 +26,25 @@
           "lib/net6.0/AutoMapper.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.0"
+          }
+        }
+      },
+      "BouncyCastle.Cryptography/2.3.1": {
+        "runtime": {
+          "lib/net6.0/BouncyCastle.Cryptography.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.3.1.17862"
+          }
+        }
+      },
+      "MailKit/4.6.0": {
+        "dependencies": {
+          "MimeKit": "4.6.0"
+        },
+        "runtime": {
+          "lib/net6.0/MailKit.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.0.0"
           }
         }
       },
@@ -65,11 +86,31 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
+      "MimeKit/4.6.0": {
+        "dependencies": {
+          "BouncyCastle.Cryptography": "2.3.1",
+          "System.Security.Cryptography.Pkcs": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/MimeKit.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.0.0"
+          }
+        }
+      },
       "PluralizeService.Core/1.2.21147.2": {
         "runtime": {
           "lib/netstandard2.1/PluralizeService.Core.dll": {
             "assemblyVersion": "1.2.0.0",
             "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "RestSharp/111.2.0": {
+        "runtime": {
+          "lib/net6.0/RestSharp.dll": {
+            "assemblyVersion": "111.2.0.0",
+            "fileVersion": "111.2.0.0"
           }
         }
       },
@@ -134,11 +175,38 @@
           }
         }
       },
+      "System.Formats.Asn1/8.0.0": {
+        "runtime": {
+          "lib/net6.0/System.Formats.Asn1.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Security.AccessControl/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
           "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "System.Security.Cryptography.Pkcs/8.0.0": {
+        "dependencies": {
+          "System.Formats.Asn1": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Security.Cryptography.Pkcs.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
         }
       },
       "System.Security.Principal.Windows/4.7.0": {}
@@ -156,6 +224,20 @@
       "sha512": "sha512-/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
       "path": "automapper/13.0.1",
       "hashPath": "automapper.13.0.1.nupkg.sha512"
+    },
+    "BouncyCastle.Cryptography/2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-buwoISwecYke3CmgG1AQSg+sNZjJeIb93vTAtJiHZX35hP/teYMxsfg0NDXGUKjGx6BKBTNKc77O2M3vKvlXZQ==",
+      "path": "bouncycastle.cryptography/2.3.1",
+      "hashPath": "bouncycastle.cryptography.2.3.1.nupkg.sha512"
+    },
+    "MailKit/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EJ1L2AtoO9nGZz2AKl2WGGw4pLIpkgEwzpczmZWBLqX0m33ueVA+CJYd9hg52XOvvEj+w5PVzB7yy26E0WHzKQ==",
+      "path": "mailkit/4.6.0",
+      "hashPath": "mailkit.4.6.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
       "type": "package",
@@ -192,12 +274,26 @@
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
+    "MimeKit/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M4jddPQNSClTzHE+HnfrtN93mCXSYF8KewWUTwzXgl49ajzUh8hz/UY4CAnRQR4YJF3lBY5P+r+73VXZAGKafw==",
+      "path": "mimekit/4.6.0",
+      "hashPath": "mimekit.4.6.0.nupkg.sha512"
+    },
     "PluralizeService.Core/1.2.21147.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-WcPxEg6bjNYSQDWSYlAC6sPRk7vyy4KZX/e8R7PeainOvsNvfL2ABis2HxBwEgPPoJ4P+hSp7/mb5xX3oP8h4w==",
       "path": "pluralizeservice.core/1.2.21147.2",
       "hashPath": "pluralizeservice.core.1.2.21147.2.nupkg.sha512"
+    },
+    "RestSharp/111.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OkWr6AGM0zirdkRpxVOxXMWx9OHEIWrDzrpx1XIx5KyvTcmtjJVsKBscVkYTcFerhj5w5Bny7boRIV4a0ENGaQ==",
+      "path": "restsharp/111.2.0",
+      "hashPath": "restsharp.111.2.0.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",
@@ -234,6 +330,13 @@
       "path": "system.data.sqlclient/4.8.6",
       "hashPath": "system.data.sqlclient.4.8.6.nupkg.sha512"
     },
+    "System.Formats.Asn1/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AJukBuLoe3QeAF+mfaRKQb2dgyrvt340iMBHYv+VdBzCUM06IxGlvl0o/uPOS7lHnXPN6u8fFRHSHudx5aTi8w==",
+      "path": "system.formats.asn1/8.0.0",
+      "hashPath": "system.formats.asn1.8.0.0.nupkg.sha512"
+    },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -247,6 +350,13 @@
       "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
       "path": "system.security.accesscontrol/4.7.0",
       "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.Pkcs/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ULmp3xoOwNYjOYp4JZ2NK/6NdTgiN1GQXzVVN1njQ7LOZ0d0B9vyMnhyqbIi9Qw4JXj1JgCsitkTShboHRx7Eg==",
+      "path": "system.security.cryptography.pkcs/8.0.0",
+      "hashPath": "system.security.cryptography.pkcs.8.0.0.nupkg.sha512"
     },
     "System.Security.Principal.Windows/4.7.0": {
       "type": "package",

@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MailKit" Version="4.6.0" />
     <PackageReference Include="PluralizeService.Core" Version="1.2.21147.2" />
+    <PackageReference Include="RestSharp" Version="111.2.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 

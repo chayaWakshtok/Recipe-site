@@ -7,11 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static BL.Services.AuthRepository;
+using System.Net.Mail;
+using System.Net;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
+using MimeKit.Utils;
 
 namespace BL.Services
 {
     public static class GlobalService
     {
+        public static bool SendEmail(string toAddress, string userName,
+            string subject, string message)
+        {
+            try
+            {
+                var email = new MimeMessage();
+
+                email.From.Add(new MailboxAddress("RealFood", "realfood@email.com"));
+                email.To.Add(new MailboxAddress(userName, toAddress));
+
+                email.Subject = subject;
+
+                var bodyBuilder = new BodyBuilder();
+
+                bodyBuilder.HtmlBody = message;
+
+                email.Body = bodyBuilder.ToMessageBody();
+                using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    smtp.Connect("sandbox.smtp.mailtrap.io", 587, false);
+
+                    // Note: only needed if the SMTP server requires authentication
+                    smtp.Authenticate("af70e5c9e58483", "a7c80bdccd2723");
+
+                    smtp.Send(email);
+                    smtp.Disconnect(true);
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static UserDTO SetPictureByGender(UserDTO user)
         {
             if (string.IsNullOrEmpty(user.Picture))
@@ -57,9 +98,9 @@ namespace BL.Services
             return Path.Combine(Directory.GetCurrentDirectory(), @"Images\") + FileName;
         }
 
-        public static string SaveImage(string imageSrc,string folder)
+        public static string SaveImage(string imageSrc, string folder)
         {
-            string FileName = folder+"_" + Guid.NewGuid().ToString()+".jpg";
+            string FileName = folder + "_" + Guid.NewGuid().ToString() + ".jpg";
             string imagepath = GetActualpath(FileName);
             try
             {

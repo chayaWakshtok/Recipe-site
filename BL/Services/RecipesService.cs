@@ -88,7 +88,12 @@ namespace BL.Services
                 _context.Recipes.Add(recipeDB);
                 await _context.SaveChangesAsync();
 
+                var follows= _context.Follows.Include(p=>p.FromUserNavigation).Where(p => p.ToUser == newrecipe.UserId).ToList();
+                foreach (var item in follows)
+                {
+                    GlobalService.SendEmail(item.ToUserNavigation.Email, item.ToUserNavigation.Username, "Add new Recipe", "Your follow add new recipe");
 
+                }
 
                 response.Data =
                     await _context.Recipes

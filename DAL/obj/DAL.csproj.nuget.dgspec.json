@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.11, )"
@@ -69,6 +73,10 @@
             "PluralizeService.Core": {
               "target": "Package",
               "version": "[1.2.21147.2, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.2.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -138,9 +146,17 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "PluralizeService.Core": {
               "target": "Package",
               "version": "[1.2.21147.2, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.2.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
