@@ -3,7 +3,7 @@ import { Product } from "./product";
 export class Ingredient {
   id!: number;
   count!: number | null;
-  typeCount!: number | null;
+  typeCount!: ETypeCount | null;
   recipeId!: number | null;
   productId!: number;
   product: Product = new Product();

@@ -18,8 +18,13 @@ export class LikeService {
       .pipe(map((response: ServiceResponse<Like[]>) => { return response.data }));
   }
 
-  delete(id:number): Observable<boolean> {
+  delete(id:number|undefined): Observable<boolean> {
     return this.http.delete<ServiceResponse<boolean>>(this.auth_api + "Delete/" + id)
       .pipe(map((response: ServiceResponse<boolean>) => { return response.data }));
+  }
+
+  addLike(like: Like) {
+    return this.http.post<ServiceResponse<Like[]>>(this.auth_api + "Add", like)
+    .pipe(map((response: ServiceResponse<Like[]>) => { return response.data }));
   }
 }

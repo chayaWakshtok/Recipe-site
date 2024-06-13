@@ -1,10 +1,11 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { Recipe } from '../models/recipe';
 import { RecipeService } from '../services/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from '../services/storage.service';
 import { Like } from '../models/like';
+import { LikeService } from '../services/like.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -22,7 +23,9 @@ export class RecipeDetailComponent {
     public recipeService: RecipeService,
     private activatedRoute: ActivatedRoute,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private likeService: LikeService,
+    private cdRef: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -53,7 +56,11 @@ export class RecipeDetailComponent {
 
   removeLike() {
     var id = this.storageService.getUser().id;
-    var like = this.recipe.likes?.find((x) => x.userId == id)
+    var like = this.recipe.likes?.find((x) => x.userId == id);
+    this.likeService.delete(like?.id).subscribe(res=>{
+      this.isLike = false;
+      this.cdRef.detectChanges();
+    });
 
   }
 
@@ -63,7 +70,11 @@ export class RecipeDetailComponent {
     }
     else{
       var like = new Like(this.storageService.getUser().id, this.recipe.id);
-      
+      this.likeService.addLike(like).subscribe(res=>{
+        this.recipe.likes=res;
+        this.isLike=true;
+        this.cdRef.detectChanges();
+      })
 
     }
   }
