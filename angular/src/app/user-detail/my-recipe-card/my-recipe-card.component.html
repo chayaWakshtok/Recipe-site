@@ -1,0 +1,23 @@
+<div class="uk-first-column uk-scrollspy-inview uk-animation-fade" style="">
+  <div class="tas_card_4 uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-grid" uk-grid="">
+    <div class="uk-card-media-left uk-cover-container uk-first-column">
+      <a href="javascript:void(1)" [routerLink]="'/recipe/'+recipe.id">
+        <img [src]="recipe.imageUrl" [alt]="recipe.title" uk-cover="" class="uk-cover"
+          style="height: 218px; width: 290px;">
+      </a>
+      <canvas width="600" height="350"></canvas>
+    </div>
+    <div>
+      <div class="uk-card-body">
+        <div class="tas_rating">
+          <img src="../../../assets/like.svg"><span>{{recipe.countLikes}}</span>
+        </div>
+        <a class="uk-card-title" href="javascript:void(1)" [routerLink]="'/recipe/'+recipe.id">{{recipe.title}}</a>
+        <ul class="uk-subnav" uk-margin="">
+          <li class="uk-first-column"><span><i class="tas_icon ti ti-users"></i> {{recipe.servings}} Serv.</span></li>
+          <li><span><i class="tas_icon ti ti-clock"></i> {{recipe.prepTime}} Min</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

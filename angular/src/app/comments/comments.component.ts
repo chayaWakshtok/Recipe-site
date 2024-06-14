@@ -17,7 +17,6 @@ export class CommentsComponent {
   feedbacks: Feedback[] = [];
   isLogin: boolean = false;
   newFeedback: Feedback = new Feedback(1);
-  replyFeedback: Feedback = new Feedback(2);
   showReply: boolean = false;
 
 
@@ -46,23 +45,5 @@ export class CommentsComponent {
     })
   }
 
-  clickReply() {
-    if (this.isLogin)
-      this.showReply = true;
-    else {
-      this.showReply = false;
-      this.router.navigate(["/auth/login"]);
-    }
-  }
 
-  postReply(feedback: number) {
-    this.replyFeedback.feedbackId = feedback;
-    this.replyFeedback.recipeId = this.recipeId;
-    this.replyFeedback.userId = this.storageService.getUser().id;
-    this.feedbackService.add(this.replyFeedback).subscribe(res => {
-      this.getFeedbacks();
-      this.showReply = false;
-      this.replyFeedback = new Feedback(2);
-    })
-  }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K41RsQs30a2XC2ot8H5n6rWnCW1CT0St5KVMCKftJzPl3Okhm27ytPZMsTf49EoF+OFwUOTEmEjiwlCUz5wycA==",
+  "dgSpecHash": "4ApROlSpdKyIkzD7StIZnq2FDmKJ7XvoPzc+B2EyQ2C9PzcUtxp1KTkud8RYvnPID6LXllzBr7Y61IVl8ODzaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\NetCore\\Netcore.csproj",
+  "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\Recipe-site\\Netcore\\Netcore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
@@ -88,5 +88,16 @@
     "C:\\Users\\User\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Azure.Identity' 1.11.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

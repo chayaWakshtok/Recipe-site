@@ -35,6 +35,5 @@ namespace Entities
         public int CountFollowFromUser { get; set; }
         public int CountFollowToUser { get; set; }
 
-
     }
 }

@@ -64,7 +64,7 @@ namespace BL.Services
             var likes = await _context.Feedbacks.Where(p => p.RecipeId == recipe).Include(p => p.User)
                 .ToListAsync();
 
-            serviceResponse.Data = likes.Where(p => p.FeedbackId == null).Select(c => _mapper.Map<FeedbackDTO>(c)).ToList();
+            serviceResponse.Data = likes.Where(p => p.FeedbackId == 0).Select(c => _mapper.Map<FeedbackDTO>(c)).ToList();
             foreach (var item in serviceResponse.Data)
             {
                 item.Replys = likes.Where(p => p.FeedbackId == item.Id).Select(c => _mapper.Map<FeedbackDTO>(c)).ToList();

@@ -72,6 +72,7 @@ namespace Netcore.Controllers
             return Ok(await _recipeService.GetAllByUserAndLikes(userId));
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceResponse<RecipeDTO>>> GetSingle(int id)
         {
@@ -131,6 +132,13 @@ namespace Netcore.Controllers
         {
             int userId = int.Parse(User.Claims.First(p => p.Type == ClaimTypes.NameIdentifier).Value);
             return Ok(await _recipeService.GetAllByUser(userId));
+        }
+
+        [HttpGet("GetAllByUserId/{id}")]
+        [AllowAnonymous]
+        public async Task<ActionResult<ServiceResponse<List<RecipeDTO>>>> GetAllByUserId(int id)
+        {
+            return Ok(await _recipeService.GetAllByUser(id));
         }
 
     }

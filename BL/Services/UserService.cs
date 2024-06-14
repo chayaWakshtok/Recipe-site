@@ -153,6 +153,8 @@ namespace BL.Services
                 if (dbUsers is null)
                     throw new Exception($"User with Id '{id}' not found.");
 
+               
+
                 //string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
                 //if (!string.IsNullOrEmpty(dbUsers.Picture))
                 //    dbUsers.Picture = myHostUrl + dbUsers.Picture;

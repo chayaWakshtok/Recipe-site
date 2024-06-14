@@ -4,6 +4,7 @@ using BL.Interfaces.Services;
 using BL.Services;
 using DAL.Models.DB;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -41,6 +42,7 @@ namespace Netcore.Controllers
         }
 
         [HttpGet("GetUserById/{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<ServiceResponse<UserDTO>>> GetUserById(int id)
         {
             return Ok(await _userService.GetOne(id));

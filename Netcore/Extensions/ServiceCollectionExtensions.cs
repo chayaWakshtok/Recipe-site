@@ -46,6 +46,7 @@ namespace Netcore.Extensions
                  .AddScoped<IProductService, ProductService>()
                  .AddScoped<IlikeService, LikeService>()
                   .AddScoped<IFollowService, FollowService>()
+                  .AddScoped<IFeedbackService, FeedbackService>()
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }

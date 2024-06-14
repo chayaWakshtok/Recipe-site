@@ -30,6 +30,8 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentReplyComponent } from './comment-reply/comment-reply.component';
 import { RecipeDetailLikeComponent } from './recipe-detail/recipe-detail-like/recipe-detail-like.component';
 import { ShareComponent } from './recipe-detail/share/share.component';
+import { MyRecipeCardComponent } from './user-detail/my-recipe-card/my-recipe-card.component';
+import { FeedbackCardComponent } from './comments/feedback-card/feedback-card.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { ShareComponent } from './recipe-detail/share/share.component';
     CommentsComponent,
     CommentReplyComponent,
     RecipeDetailLikeComponent,
-    ShareComponent
+    ShareComponent,
+    MyRecipeCardComponent,
+    FeedbackCardComponent
   ],
   imports: [
     TablerIconsModule.pick(TablerIcons),

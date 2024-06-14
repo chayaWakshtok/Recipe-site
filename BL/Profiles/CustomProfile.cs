@@ -14,6 +14,7 @@ namespace BL.Profiles
     {
         public CustomProfile()
         {
+            CreateMap<FeedbackDTO, Feedback>().ReverseMap();
             CreateMap<CategoryDTO, Category>();
             CreateMap<Category, CategoryDTO>().ForMember(dest => dest.CountRecipe, opt => opt.MapFrom<CountCategoryRecipeResolver>());
             CreateMap<Difficulty, DifficultyDTO>().ReverseMap();

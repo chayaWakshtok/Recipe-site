@@ -1,0 +1,40 @@
+<div class="comment clearfix" >
+
+  <article class="comment-box uk-comment uk-border-rounded">
+    <header class="uk-comment-header uk-margin-remove uk-position-relative">
+      <div class="uk-grid-medium uk-flex-middle uk-grid" uk-grid="">
+        <div class="uk-width-auto uk-first-column">
+          <div class="uk-cover-container uk-border-rounded">
+            <img [src]="feedback.user?.picture" uk-cover="" class="uk-cover" style="height: 80px; width: 80px;">
+            <canvas width="80" height="80"></canvas>
+          </div>
+        </div>
+        <div class="uk-width-expand">
+          <h5 class="uk-comment-title uk-margin-remove">{{feedback.user?.firstName}} <span
+              class="uk-margin-small-left uk-text-muted uk-text-small">{{feedback.createAt|date:"dd/MM/yyyy"}}</span>
+          </h5>
+          <p class="uk-comment-meta uk-margin-remove-top">{{feedback.mark}}</p>
+        </div>
+      </div>
+      <div class="uk-position-top-right uk-position-small">
+        <a href="javascript:void(0)" (click)="clickReply()"><span uk-icon="reply" class="uk-icon"><svg width="20"
+              height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            </svg></span></a>
+      </div>
+    </header>
+  </article>
+
+  <form class="reply_form uk-margin-bottom uk-margin-small-top" id="comment_reply_form_87" data-id="87"
+    style="display: block;" *ngIf="showReply">
+    <textarea class="uk-textarea uk-border-rounded" name="reply_text" cols="30" rows="4" required
+      [(ngModel)]="replyFeedback.mark"></textarea>
+    <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top submit-reply"
+      (click)="postReply(feedback.id)">Submit
+      reply</button>
+  </form>
+
+  <!-- GET ALL REPLIES -->
+
+
+ <app-comment-reply [feedbacks]="feedback.replys"></app-comment-reply>
+</div>

@@ -20,5 +20,5 @@ export class User {
   countLikes: number = 0;
   countFollowFromUser: number = 0;
   countFollowToUser: number = 0;
-
+  isUserFollow:boolean=false;
 }

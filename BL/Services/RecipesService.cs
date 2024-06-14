@@ -91,7 +91,7 @@ namespace BL.Services
                 var follows= _context.Follows.Include(p=>p.FromUserNavigation).Where(p => p.ToUser == newrecipe.UserId).ToList();
                 foreach (var item in follows)
                 {
-                    GlobalService.SendEmail(item.ToUserNavigation.Email, item.ToUserNavigation.Username, "Add new Recipe", "Your follow add new recipe");
+                    GlobalService.SendEmail(item.FromUserNavigation.Email, item.FromUserNavigation.Username, "Add new Recipe", $"<div><h2>Your follow add new recipe - {recipeDB.Title}</h2>\r\n<a href=\"http://192.168.17.1:4200/recipe/{recipeDB.Id}\"></a></div>");
 
                 }
 
@@ -178,15 +178,10 @@ namespace BL.Services
             var recipes = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p=>p.Product).Include(p => p.Instructions).Include(p => p.Likes)
                 .Include(p=>p.User)
                     .Include(p => p.Feedbacks)
+                    .Include(p => p.Difficulty).Include(p => p.Category)
                 .ToListAsync();
 
-            string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
-
-            recipes.ToList().ForEach(cat =>
-            {
-                if (!string.IsNullOrEmpty(cat.ImageUrl))
-                    cat.ImageUrl = myHostUrl + cat.ImageUrl;
-            });
+           
 
             serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
             return serviceResponse;
@@ -200,13 +195,7 @@ namespace BL.Services
                     .Include(p => p.Feedbacks).Where(p=>p.UserId==userId)
                 .ToListAsync();
 
-            string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
-
-            recipes.ToList().ForEach(cat =>
-            {
-                if (!string.IsNullOrEmpty(cat.ImageUrl))
-                    cat.ImageUrl = myHostUrl + cat.ImageUrl;
-            });
+           
 
             serviceResponse.Data = recipes.Select(c => _mapper.Map<RecipeDTO>(c)).ToList();
             return serviceResponse;
@@ -217,17 +206,18 @@ namespace BL.Services
             var serviceResponse = new ServiceResponse<RecipeDTO>();
             try
             {
-                var dbRecipe = await _context.Recipes.Include(p => p.Ingredients).ThenInclude(p => p.Product).Include(p => p.Instructions).Include(p => p.Likes)
-                .Include(p => p.User)
+                var dbRecipe = await _context.Recipes.Include(p => p.Ingredients)
+                    .ThenInclude(p => p.Product).Include(p => p.Instructions).Include(p => p.Likes)
+                .Include(p => p.User).Include(p=>p.Difficulty).Include(p=>p.Category)
                     .Include(p => p.Feedbacks)
                               .FirstOrDefaultAsync(c => c.Id == id);
 
                 if (dbRecipe is null)
                     throw new Exception($"Recipe with Id '{id}' not found.");
 
-                string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
-                if (!string.IsNullOrEmpty(dbRecipe.ImageUrl))
-                    dbRecipe.ImageUrl = myHostUrl + dbRecipe.ImageUrl;
+                //string myHostUrl = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}/Images/";
+                //if (!string.IsNullOrEmpty(dbRecipe.ImageUrl))
+                //    dbRecipe.ImageUrl = myHostUrl + dbRecipe.ImageUrl;
 
                 serviceResponse.Data = _mapper.Map<RecipeDTO>(dbRecipe);
             }

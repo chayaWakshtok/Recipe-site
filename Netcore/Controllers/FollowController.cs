@@ -62,5 +62,13 @@ namespace Netcore.Controllers
         {
             return Ok(await _followService.Add(newObj));
         }
+
+        [HttpDelete("Delete/{id}")]
+        public async Task<ActionResult<ServiceResponse<List<FollowDTO>>>> Delete(int id)
+        {
+            var response = await _followService.Delete(id);
+            
+            return Ok(response);
+        }
     }
 }

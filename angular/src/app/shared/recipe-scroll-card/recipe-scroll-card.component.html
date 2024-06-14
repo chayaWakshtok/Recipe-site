@@ -1,40 +1,38 @@
 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-grid" uk-grid="">
 
-  <a href="https://wicombit.com/demo/realfood/recipe/10/blueberries-and-cream-almond-oatmeal" class="uk-first-column">
+  <a href="javascript:void(1)" [routerLink]="['/recipe', recipe.id]" class="uk-first-column">
     <div class="uk-card-media-left uk-cover-container">
-      <img src="../../../assets/recipe_1620058937.jpg" alt="Blueberries and Cream almond" uk-cover="" class="uk-cover"
+      <img [src]="recipe.imageUrl" [alt]="recipe.title" uk-cover="" class="uk-cover"
         style="height: 400px; width: 600px;">
       <canvas width="600" height="400"></canvas>
     </div>
   </a>
   <div>
     <div class="uk-card-body uk-text-center uk-text-left@s">
-      <div class="tas_badge uk-label">Breakfast</div>
+      <div class="tas_badge uk-label">{{recipe.category?.name}}</div>
 
-      <a href="../../../assets/recipe_1620058937.jpg">
-        <h2 class="uk-card-title">Blueberries and Cream almond</h2>
+      <a href="javascript:void(1)" [routerLink]="['/recipe', recipe.id]">
+        <h2 class="uk-card-title">{{recipe.title}}</h2>
       </a>
       <hr class="uk-divider-small">
 
       <div class="tas_rating">
-        <img src="../../../assets/like.svg"><span>1</span>
+        <img src="../../../assets/like.svg"><span>{{recipe.countLikes}}</span>
       </div>
 
-      <p>Nam aliquam sem et tortor consequat. Odio tempor orci dapibus ultrices in iaculis. Vitae proin
-        sagittis nisl rhoncus mattis rhoncus. Sed risus ultricies tristique nulla aliquet. Excepteur sint
-        occaecat cupidatat non proident</p>
+      <p>{{recipe.description}}</p>
 
       <ul class="uk-flex-center uk-flex-left@s uk-subnav" uk-margin="">
         <li class="uk-first-column"><span>
             <!-- <i class="tas_icon ti ti-users"></i> -->
             <i-tabler name="users"></i-tabler>
 
-            2 Serv.</span></li>
+            {{recipe.servings}} Serv.</span></li>
         <li><span>
             <!-- <i class="tas_icon ti ti-clock"></i> -->
             <i-tabler name="clock"></i-tabler>
 
-            8 Min</span></li>
+            {{recipe.prepTime}} Min</span></li>
       </ul>
 
     </div>

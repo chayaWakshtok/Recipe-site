@@ -24,4 +24,14 @@ export class FollowService {
       .pipe(map((response: ServiceResponse<Follow[]>) => { return response.data }));
   }
 
+  add(cat: Follow): Observable<Follow[]> {
+    return this.http.post<ServiceResponse<Follow[]>>(this.auth_api + "Add", cat)
+      .pipe(map((response: ServiceResponse<Follow[]>) => { return response.data }));
+  }
+
+  delete(id: number | undefined): Observable<Follow[]> {
+    return this.http.delete<ServiceResponse<Follow[]>>(this.auth_api + "Delete/" + id)
+      .pipe(map((response: ServiceResponse<Follow[]>) => { return response.data }));
+  }
+
 }

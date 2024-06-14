@@ -26,23 +26,8 @@
     <div class="uk-position-relative">
       <div class="uk-slider-container">
         <ul class="uk-slider-items uk-child-width-1-1" style="transform: translate3d(0px, 0px, 0px);">
-          <li tabindex="-1" class="uk-active">
-            <app-recipe-scroll-card></app-recipe-scroll-card>
-          </li>
-          <li tabindex="-1" class="">
-            <app-recipe-scroll-card></app-recipe-scroll-card>
-          </li>
-          <li tabindex="-1">
-            <app-recipe-scroll-card></app-recipe-scroll-card>
-          </li>
-          <li tabindex="-1">
-            <app-recipe-scroll-card></app-recipe-scroll-card>
-          </li>
-          <li tabindex="-1">
-            <app-recipe-scroll-card></app-recipe-scroll-card>
-          </li>
-          <li tabindex="-1">
-            <app-recipe-scroll-card></app-recipe-scroll-card>
+          <li tabindex="-1" class="uk-active" *ngFor="let item of likesRecipes">
+            <app-recipe-scroll-card [recipe]="item"></app-recipe-scroll-card>
           </li>
         </ul>
       </div>
