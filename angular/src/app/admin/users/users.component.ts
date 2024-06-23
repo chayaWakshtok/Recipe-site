@@ -56,6 +56,8 @@ export class UsersComponent {
           else {
             this.toastr.error('Fail to delete user', 'Fail delete!');
           }
+        },err=>{
+          this.toastr.error('Fail to delete user Before Need Remove User Data', 'Fail delete!');
         })
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }

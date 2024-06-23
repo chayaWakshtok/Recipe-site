@@ -15,11 +15,12 @@
         <div class="uk-width-expand uk-width-1-2@s uk-width-1-4@l">
           <div class="uk-grid-small uk-grid" uk-grid="">
             <div class="uk-width-expand uk-first-column">
-              <select class="nice-select tas-order-by nc-select wide uk-form-large uk-border-rounded" id="sortby">
-                <option value="default">Default</option>
-                <option value="date-desc">Date New to Old</option>
-                <option value="date-asc">Date Old to New</option>
-                <option value="best-rated">Best Rated</option>
+              <select class="nice-select tas-order-by nc-select wide uk-form-large uk-border-rounded" id="sortby"
+                [(ngModel)]="sortby">
+                <option value="0">Default</option>
+                <option value="1">Date New to Old</option>
+                <option value="2">Date Old to New</option>
+                <option value="3">Best Rated</option>
               </select>
             </div>
 

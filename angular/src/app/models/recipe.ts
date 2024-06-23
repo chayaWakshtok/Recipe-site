@@ -22,8 +22,8 @@ export class Recipe {
   likes!: Like[] | null;
   difficultyId!: number | null;
   status!: number | null;
-  createAt!: string | null;
-  updateAt!: string | null;
+  createAt!: Date | null;
+  updateAt!: Date | null;
   categoryId!: number | null;
   category!: Category | null;
   difficulty!: Difficulty | null;
