@@ -55,18 +55,20 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr role="row" class="odd">
-                              <td class=" text-center">32</td>
-                              <td class="product text-center sorting_1"><img src="../../images/recipe_1626485583.jpg"
+                            <tr role="row" class="odd" *ngFor="let recipe of recipes">
+                              <td class=" text-center">{{recipe.id}}</td>
+                              <td class="product text-center sorting_1"><img [src]="recipe.imageUrl"
                                   class="product-img product-img-horizontal"></td>
-                              <td>hahahaha</td>
-                              <td></td>
-                              <td></td>
-                              <td>Melonnt</td>
-                              <td class=" status text-center"><span class="label badge-pill bg-warning">Pending</span>
+                              <td>{{recipe.title}}</td>
+                              <td>{{recipe.category.name}}</td>
+                              <td>{{recipe.difficulty.name}}</td>
+                              <td>{{recipe.user.firstName}}</td>
+                              <td class=" status text-center"><span class="label badge-pill bg-warning">{{recipe.status==1?'Active':'Inactive'}}</span>
                               </td>
-                              <td class=" text-center"><a class="btn btn-small btn-primary"
-                                  [routerLink]="'/admin/edit_recipe/'+55">Edit</a> <a
+                              <td class=" text-center">
+                                <!-- <a class="btn btn-small btn-primary"
+                                  [routerLink]="'/admin/edit_recipe/'+recipe.id">Edit</a>  -->
+                                  <a
                                   class="btn btn-small btn-danger btn-delete deleteItem"
                                   data-url="../controller/delete_recipe.php?id=32">Delete</a></td>
                             </tr>

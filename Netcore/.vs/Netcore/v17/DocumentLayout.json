@@ -504,7 +504,8 @@
               "RelativeToolTip": "..\\BL\\Services\\GlobalService.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABQAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T21:51:33.684Z"
+              "WhenOpened": "2024-06-13T21:51:33.684Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -540,7 +541,8 @@
               "RelativeToolTip": "..\\BL\\Services\\CategoryService.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAAKUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T15:50:26.739Z"
+              "WhenOpened": "2024-03-26T15:50:26.739Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -792,7 +794,8 @@
               "RelativeToolTip": "Controllers\\ImageController.cs",
               "ViewState": "AQIAACkAAAAAAAAAAAAewCoAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-18T18:56:14.033Z"
+              "WhenOpened": "2023-11-18T18:56:14.033Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
